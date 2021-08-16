@@ -522,17 +522,28 @@ sudo fc-cache -f -v
 echo "************************************************** INSTALACAO DO JDK-11 ************************************************"
 
 ## JDK tem que estar instalado para
-## que a instalacao do Jenkins ocorra
-## com sucesso
-sudo dpkg -i jdk-11.0.10_linux-x64_bin.deb
-sudo apt --fix-broken install -y
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.10/bin/java 2
-sudo update-alternatives --config java
-echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.10" >> /home/$USER/.bashrc
-echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
-cd /home/$USER/
-source .bashrc
-cd /home/$USER/Downloads/Programas/
+## que a instalacao do Jenkins e do
+## Netbeans ocorram com sucesso
+while true
+do
+
+  sudo dpkg -i jdk-11.0.10_linux-x64_bin.deb
+  sudo apt --fix-broken install -y
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.10/bin/java 2
+  sudo update-alternatives --config java
+  echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.10" >> /home/$USER/.bashrc
+  echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
+  cd /home/$USER/
+  source .bashrc
+  cd /home/$USER/Downloads/Programas/
+
+
+  if [ -d /usr/lib/jvm/jdk-11.0.10/ ]; then
+    break
+  fi
+  echo "Bloqueio"
+  sleep 90
+done
 
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
 
