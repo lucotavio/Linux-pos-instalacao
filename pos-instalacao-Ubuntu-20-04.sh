@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+##teste
 apt list --installed | grep gimp/bionic > minimal.txt
 if grep -q gimp/bionic minimal.txt; then
     echo "********* PROGRAMAS  INDESEJADOS  SENDO  DESINSTALADOS *************"
