@@ -1,85 +1,5 @@
 #!/bin/bash
 
-##teste
-apt list --installed | grep gimp/bionic > minimal.txt
-if grep -q gimp/bionic minimal.txt; then
-    echo "********* PROGRAMAS  INDESEJADOS  SENDO  DESINSTALADOS *************"
-
-    ## Brasero
-    sudo apt-get --assume-yes purge brasero
-    sudo apt --assume-yes autoremove
-
-
-    ## Cheese
-    sudo apt-get --assume-yes purge cheese
-    sudo apt --assume-yes autoremove
-
-
-    ## Gimp
-    sudo apt-get --assume-yes purge gimp
-    sudo apt --assume-yes autoremove
-
-
-    ## Evolution
-    sudo apt-get --assume-yes purge evolution
-    sudo apt --assume-yes autoremove
-
-
-    ## Mahjongg
-    sudo apt-get --assume-yes purge gnome-mahjongg
-    sudo apt --assume-yes autoremove
-
-
-    ## Mines
-    sudo apt-get --assume-yes purge gnome-mines
-    sudo apt --assume-yes autoremove
-
-
-    ## Quadrapassel
-    sudo apt-get --assume-yes purge quadrapassel
-    sudo apt --assume-yes autoremove
-
-
-    ## Remmina
-    sudo apt-get --assume-yes purge remmina
-    sudo apt --assume-yes autoremove
-
-
-    ## rhythmbox
-    sudo apt-get --assume-yes purge rhythmbox
-    sudo apt --assume-yes autoremove
-
-
-    ## Shotwell
-    sudo apt-get --assume-yes purge shotwell
-    sudo apt --assume-yes autoremove
-
-
-    ## Simple Scan
-    sudo apt-get --assume-yes purge simple-scan
-    sudo apt --assume-yes autoremove
-
-
-    ## AisleRiot Solitaire
-    sudo apt-get --assume-yes purge aisleriot
-    sudo apt --assume-yes autoremove
-
-
-    ## Contacts
-    sudo apt-get --assume-yes purge gnome-contacts
-    sudo apt --assume-yes autoremove
-
-
-    ## Sudoku
-    sudo apt-get --assume-yes purge sudoku
-    sudo apt --assume-yes autoremove
-
-    ## Reiniciando computador
-    systemctl reboot -i
-else
-    echo "********* PROGRAMAS SENDO INSTALADOS  *************"
-fi
-
 
 
 ## Criando diretorio Programas onde vao
@@ -128,13 +48,18 @@ sudo apt-get update -y
 sudo apt-get install -y curl
 
 
+## Instalar software de terceiros
+sudo apt-get update
+sudo apt-get install ubuntu-restricted-extras
+
+
 ## Criando modelo de arquivo shell script
-if [ -e /home/$USER/Templates/script.sh ]
+if [ -e /home/$USER/Modelos/script.sh ]
 then
-    echo "O arquivo  home/$USER/Templates/script.sh  ja existe"
+    echo "O arquivo  home/$USER/Modelos/script.sh  ja existe"
 else
-    touch /home/$USER/Templates/script.sh
-    echo "#!/bin/bash" > /home/$USER/Templates/script.sh
+    touch /home/$USER/Modelos/script.sh
+    echo "#!/bin/bash" > /home/$USER/Modelos/script.sh
 fi
 
 
