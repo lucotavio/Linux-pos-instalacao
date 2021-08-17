@@ -836,7 +836,7 @@ fi
 sudo update-alternatives --config java
 
 
-## INSTALANDO PACOTES SNAP
+### INSTALANDO PACOTES SNAP
 ##sudo snap install onlyoffice-desktopeditors
 sudo snap install umbrello
 sudo snap install video-downloader
