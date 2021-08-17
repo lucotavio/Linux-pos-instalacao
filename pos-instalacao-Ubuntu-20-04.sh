@@ -506,14 +506,7 @@ sudo apt-get update
 sudo apt install -y obs-studio
 
 
-## Instalando gimp
-echo "deb http://ppa.launchpad.net/ubuntuhandbook1/gimp/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/ubuntuhandbook1/gimp/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A0062203196CA4482DDB859E4C1CBE14852541CB
-sudo apt update
-sudo apt-get install -y gimp gimp-gmic gmic
-sudo apt install gimp gimp-gmi
+
 
 
 ## Instalando Pinta
@@ -847,6 +840,7 @@ sudo update-alternatives --config java
 ##sudo snap install onlyoffice-desktopeditors
 sudo snap install umbrello
 sudo snap install video-downloader
+sudo snap install gimp
 
 
 ## INSTALANDO POSTGRES
