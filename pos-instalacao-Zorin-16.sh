@@ -2,6 +2,104 @@
 
 
 
+apt list --installed | grep gimp > minimal.txt
+if grep -q gimp minimal.txt; then
+    echo "********* PROGRAMAS  INDESEJADOS  SENDO  DESINSTALADOS *************"
+
+    ## Brasero
+    sudo apt-get --assume-yes purge brasero
+    sudo apt --assume-yes autoremove
+
+
+    ## Cheese
+    sudo apt-get --assume-yes purge cheese
+    sudo apt --assume-yes autoremove
+
+
+    ## Gimp
+    sudo apt-get --assume-yes purge gimp
+    sudo apt --assume-yes autoremove
+    
+    sudo apt-get --assume-yes purge gimp-data
+    sudo apt --assume-yes autoremove
+    
+    sudo apt-get --assume-yes purge gimp-help-common
+    sudo apt --assume-yes autoremove
+    
+    sudo apt-get --assume-yes purge gimp-help-en
+    sudo apt --assume-yes autoremove
+    
+    sudo apt-get --assume-yes purge gimp-help-pt
+    sudo apt --assume-yes autoremove
+
+
+    ## Evolution
+    sudo apt-get --assume-yes purge evolution
+    sudo apt --assume-yes autoremove
+
+
+    ## Mahjongg
+    sudo apt-get --assume-yes purge gnome-mahjongg
+    sudo apt --assume-yes autoremove
+
+
+    ## Mines
+    sudo apt-get --assume-yes purge gnome-mines
+    sudo apt --assume-yes autoremove
+
+
+    ## Quadrapassel
+    sudo apt-get --assume-yes purge quadrapassel
+    sudo apt --assume-yes autoremove
+
+
+    ## Remmina
+    sudo apt-get --assume-yes purge remmina
+    sudo apt --assume-yes autoremove
+
+
+    ## rhythmbox
+    sudo apt-get --assume-yes purge rhythmbox
+    sudo apt --assume-yes autoremove
+
+
+    ## Shotwell
+    sudo apt-get --assume-yes purge shotwell
+    sudo apt --assume-yes autoremove
+
+
+    ## Simple Scan
+    sudo apt-get --assume-yes purge simple-scan
+    sudo apt --assume-yes autoremove
+
+
+    ## AisleRiot Solitaire
+    sudo apt-get --assume-yes purge aisleriot
+    sudo apt --assume-yes autoremove
+
+
+    ## Contacts
+    sudo apt-get --assume-yes purge gnome-contacts
+    sudo apt --assume-yes autoremove
+
+
+    ## Sudoku
+    sudo apt-get --assume-yes purge sudoku
+    sudo apt --assume-yes autoremove
+
+
+    ## Sudoku
+    sudo apt-get --assume-yes purge pitivi
+    sudo apt --assume-yes autoremove
+
+    systemctl reboot -i
+else
+    echo "********* PROGRAMAS SENDO INSTALADOS  *************"
+fi
+
+
+
+
 ## Criando diretorio Programas onde vao
 ## ficar os programaas que precisao de
 ## dwonloads para serem istalados
