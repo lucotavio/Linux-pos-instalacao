@@ -180,7 +180,7 @@ sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip 
 
 ## Download 4K Video Downloader
 echo -e "\n\n\n 4K Video Downloader - 71 MB"
-if [ -e 4kvideodownloader_4.14.3-1_amd64.deb ]
+if [ -e 4kvideodownloader_4.17.1-1_amd64.deb ]
 then
     echo "O arquivo 4kvideodownloader_4.14.3-1_amd64.deb ja existe"
 else
