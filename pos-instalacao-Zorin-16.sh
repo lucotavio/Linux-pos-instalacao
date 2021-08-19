@@ -184,7 +184,7 @@ if [ -e 4kvideodownloader_4.14.3-1_amd64.deb ]
 then
     echo "O arquivo 4kvideodownloader_4.14.3-1_amd64.deb ja existe"
 else
-    curl -L -o 4kvideodownloader_4.14.3-1_amd64.deb https://www.dropbox.com/s/g7pm3b5vo089tqd/4kvideodownloader_4.14.3-1_amd64.deb?dl=0
+    curl -L -o 4kvideodownloader_4.17.1-1_amd64.deb https://www.dropbox.com/s/28b7a3x3h3cmv19/4kvideodownloader_4.17.1-1_amd64.deb?dl=0
 fi
 
 
@@ -723,7 +723,7 @@ chmod +x *.deb
 sudo dpkg -i atom-amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i 4kvideodownloader_4.14.3-1_amd64.deb
+sudo dpkg -i 4kvideodownloader_4.17.1-1_amd64.deb
 sudo apt --fix-broken install -y
 
 sudo apt-get update
