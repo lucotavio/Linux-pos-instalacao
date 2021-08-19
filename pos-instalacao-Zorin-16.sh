@@ -689,12 +689,13 @@ sudo apt-get install -y gparted
 
 
 ## Instalando o Git
-apt list --installed | grep git/bionic-updates > procurando-git.txt
-if grep -q git/bionic-updates procurando-git.txt; then
+apt list --installed | grep git/focal-updates > procurando-git.txt
+if grep -q git/focal-updates procurando-git.txt; then
     echo "********* COMANDO  GIT  ENCONTRADO *************"
 else
     sudo apt-get install -y git
 fi
+
 
 
 ## Instalando Alacarte
