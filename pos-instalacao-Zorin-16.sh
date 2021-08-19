@@ -1,90 +1,6 @@
 #!/bin/bash
 
 
-apt list --installed | grep gimp/bionic > minimal.txt
-if grep -q gimp/bionic minimal.txt; then
-    echo "********* PROGRAMAS  INDESEJADOS  SENDO  DESINSTALADOS *************"
-
-    ## Brasero
-    sudo apt-get --assume-yes purge brasero
-    sudo apt --assume-yes autoremove
-
-
-    ## Cheese
-    sudo apt-get --assume-yes purge cheese
-    sudo apt --assume-yes autoremove
-
-
-    ## Gimp
-    sudo apt-get --assume-yes purge gimp
-    sudo apt --assume-yes autoremove
-
-
-    ## Evolution
-    sudo apt-get --assume-yes purge evolution
-    sudo apt --assume-yes autoremove
-
-
-    ## Mahjongg
-    sudo apt-get --assume-yes purge gnome-mahjongg
-    sudo apt --assume-yes autoremove
-
-
-    ## Mines
-    sudo apt-get --assume-yes purge gnome-mines
-    sudo apt --assume-yes autoremove
-
-
-    ## Quadrapassel
-    sudo apt-get --assume-yes purge quadrapassel
-    sudo apt --assume-yes autoremove
-
-
-    ## Remmina
-    sudo apt-get --assume-yes purge remmina
-    sudo apt --assume-yes autoremove
-
-
-    ## rhythmbox
-    sudo apt-get --assume-yes purge rhythmbox
-    sudo apt --assume-yes autoremove
-
-
-    ## Shotwell
-    sudo apt-get --assume-yes purge shotwell
-    sudo apt --assume-yes autoremove
-
-
-    ## Simple Scan
-    sudo apt-get --assume-yes purge simple-scan
-    sudo apt --assume-yes autoremove
-
-
-    ## AisleRiot Solitaire
-    sudo apt-get --assume-yes purge aisleriot
-    sudo apt --assume-yes autoremove
-
-
-    ## Contacts
-    sudo apt-get --assume-yes purge gnome-contacts
-    sudo apt --assume-yes autoremove
-
-
-    ## Sudoku
-    sudo apt-get --assume-yes purge sudoku
-    sudo apt --assume-yes autoremove
-
-
-    ## Sudoku
-    sudo apt-get --assume-yes purge pitivi
-    sudo apt --assume-yes autoremove
-
-    systemctl reboot -i
-else
-    echo "********* PROGRAMAS SENDO INSTALADOS  *************"
-fi
-
-
 
 ## Criando diretorio Programas onde vao
 ## ficar os programaas que precisao de
@@ -125,6 +41,16 @@ mkdir /home/$USER/Projetos/Java
 ## Criando diretorio jvm dentro do diretorio /usr/lib/
 ## que e pra onde vao ser copiados os arquivos do JDK
 sudo mkdir /usr/lib/jvm/
+
+
+## Instalando o comando curl
+sudo apt-get update -y
+sudo apt-get install -y curl
+
+
+## Instalar software de terceiros
+sudo apt-get update
+sudo apt-get install ubuntu-restricted-extras
 
 
 ## Criando modelo de arquivo shell script
@@ -521,17 +447,28 @@ sudo fc-cache -f -v
 echo "************************************************** INSTALACAO DO JDK-11 ************************************************"
 
 ## JDK tem que estar instalado para
-## que a instalacao do Jenkins ocorra
-## com sucesso
-sudo dpkg -i jdk-11.0.10_linux-x64_bin.deb
-sudo apt --fix-broken install -y
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.10/bin/java 2
-sudo update-alternatives --config java
-echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.10" >> /home/$USER/.bashrc
-echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
-cd /home/$USER/
-source .bashrc
-cd /home/$USER/Downloads/Programas/
+## que a instalacao do Jenkins e do
+## Netbeans ocorram com sucesso
+while true
+do
+
+  sudo dpkg -i jdk-11.0.10_linux-x64_bin.deb
+  sudo apt --fix-broken install -y
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.10/bin/java 2
+  sudo update-alternatives --config java
+  echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.10" >> /home/$USER/.bashrc
+  echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
+  cd /home/$USER/
+  source .bashrc
+  cd /home/$USER/Downloads/Programas/
+
+
+  if [ -d /usr/lib/jvm/jdk-11.0.10/ ]; then
+    break
+  fi
+  echo "Bloqueio"
+  sleep 90
+done
 
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
 
@@ -549,9 +486,21 @@ sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ Net
 sudo apt-get update -y
 
 
+## Instalando gimp
+echo "deb http://ppa.launchpad.net/ubuntuhandbook1/gimp/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/ubuntuhandbook1/gimp/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A0062203196CA4482DDB859E4C1CBE14852541CB
+sudo apt update
+sudo apt-get install -y gimp gimp-gmic gmic
+sudo apt install gimp gimp-gmic
+
+
+
+
 ## Instalando Handbrake
-echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
 echo "" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 43D3A9F60C58A7169778E6FB8771ADB0816950D8
 sudo apt-get update
@@ -559,33 +508,26 @@ sudo apt-get install -y handbrake-gtk
 sudo apt-get install -y handbrake-cli
 
 
+
 ## Instalando Obs Studio
 sudo apt install ffmpeg
-echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/obsproject/obs-studio/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
 echo "" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BC7345F522079769F5BBE987EFC71127F425E228
 sudo apt-get update
 sudo apt install -y obs-studio
 
 
-## Instalando gimp
-echo "deb http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB97E9C3A97F85C095AEA7903BDAAC08614C4B38
-sudo apt-get update
-sudo apt-get install -y gimp gimp-gmic gmic
-sudo apt-get install -y gimp-plugin-registry
-
 
 ## Instalando Pinta
-echo "deb http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
+echo "deb http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
 echo "" | sudo tee -a /etc/apt/sources.lis
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11E609A1BC3E0682A5A1D6B2
 sudo apt-get update -y
 sudo apt-get install -y pinta
+
 
 
 ## INSTALANDO SUBLIME TEXT
@@ -905,7 +847,7 @@ fi
 sudo update-alternatives --config java
 
 
-## INSTALANDO PACOTES SNAP
+### INSTALANDO PACOTES SNAP
 ##sudo snap install onlyoffice-desktopeditors
 sudo snap install umbrello
 sudo snap install video-downloader
@@ -949,8 +891,8 @@ sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
 
 
 ## INSTALANDO FIREBIRD
-echo "deb http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
+echo "deb http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EA316A2F8D6BD55554C23F680BE6D09EEF648708
 sudo apt-get update
 sudo apt-get install -y firebird3.0-server
