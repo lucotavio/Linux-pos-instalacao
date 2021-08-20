@@ -2,104 +2,6 @@
 
 
 
-apt list --installed | grep gimp > minimal.txt
-if grep -q gimp minimal.txt; then
-    echo "********* PROGRAMAS  INDESEJADOS  SENDO  DESINSTALADOS *************"
-
-    ## Brasero
-    sudo apt-get --assume-yes purge brasero
-    sudo apt --assume-yes autoremove
-
-
-    ## Cheese
-    sudo apt-get --assume-yes purge cheese
-    sudo apt --assume-yes autoremove
-
-
-    ## Gimp
-    sudo apt-get --assume-yes purge gimp
-    sudo apt --assume-yes autoremove
-    
-    sudo apt-get --assume-yes purge gimp-data
-    sudo apt --assume-yes autoremove
-    
-    sudo apt-get --assume-yes purge gimp-help-common
-    sudo apt --assume-yes autoremove
-    
-    sudo apt-get --assume-yes purge gimp-help-en
-    sudo apt --assume-yes autoremove
-    
-    sudo apt-get --assume-yes purge gimp-help-pt
-    sudo apt --assume-yes autoremove
-
-
-    ## Evolution
-    sudo apt-get --assume-yes purge evolution
-    sudo apt --assume-yes autoremove
-
-
-    ## Mahjongg
-    sudo apt-get --assume-yes purge gnome-mahjongg
-    sudo apt --assume-yes autoremove
-
-
-    ## Mines
-    sudo apt-get --assume-yes purge gnome-mines
-    sudo apt --assume-yes autoremove
-
-
-    ## Quadrapassel
-    sudo apt-get --assume-yes purge quadrapassel
-    sudo apt --assume-yes autoremove
-
-
-    ## Remmina
-    sudo apt-get --assume-yes purge remmina
-    sudo apt --assume-yes autoremove
-
-
-    ## rhythmbox
-    sudo apt-get --assume-yes purge rhythmbox
-    sudo apt --assume-yes autoremove
-
-
-    ## Shotwell
-    sudo apt-get --assume-yes purge shotwell
-    sudo apt --assume-yes autoremove
-
-
-    ## Simple Scan
-    sudo apt-get --assume-yes purge simple-scan
-    sudo apt --assume-yes autoremove
-
-
-    ## AisleRiot Solitaire
-    sudo apt-get --assume-yes purge aisleriot
-    sudo apt --assume-yes autoremove
-
-
-    ## Contacts
-    sudo apt-get --assume-yes purge gnome-contacts
-    sudo apt --assume-yes autoremove
-
-
-    ## Sudoku
-    sudo apt-get --assume-yes purge sudoku
-    sudo apt --assume-yes autoremove
-
-
-    ## Sudoku
-    sudo apt-get --assume-yes purge pitivi
-    sudo apt --assume-yes autoremove
-
-    systemctl reboot -i
-else
-    echo "********* PROGRAMAS SENDO INSTALADOS  *************"
-fi
-
-
-
-
 ## Criando diretorio Programas onde vao
 ## ficar os programaas que precisao de
 ## dwonloads para serem istalados
@@ -127,7 +29,8 @@ mkdir -p /home/$USER/Instalacao/ISO/
 mkdir /home/$USER/Instalacao/Script/
 
 ##Criando diretorio Angular dentro do diretorio Projetos
-mkdir -p /home/$USER/Projetos/Angular
+mkdir -p /home/$USER/Projetos/Angula
+
 
 ##Criando diretorio Angular-Spring dentro do diretorio Projetos
 mkdir /home/$USER/Projetos/Angular-Spring
@@ -152,12 +55,12 @@ sudo apt-get install ubuntu-restricted-extras
 
 
 ## Criando modelo de arquivo shell script
-if [ -e /home/$USER/Templates/script.sh ]
+if [ -e /home/$USER/Modelos/script.sh ]
 then
-    echo "O arquivo  home/$USER/Templates/script.sh  ja existe"
+    echo "O arquivo  home/$USER/Modelos/script.sh  ja existe"
 else
-    touch /home/$USER/Templates/script.sh
-    echo "#!/bin/bash" > /home/$USER/Templates/script.sh
+    touch /home/$USER/Modelos/script.sh
+    echo "#!/bin/bash" > /home/$USER/Modelos/script.sh
 fi
 
 
@@ -584,17 +487,6 @@ sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ Net
 sudo apt-get update -y
 
 
-## Instalando gimp
-echo "deb http://ppa.launchpad.net/ubuntuhandbook1/gimp/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/ubuntuhandbook1/gimp/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A0062203196CA4482DDB859E4C1CBE14852541CB
-sudo apt update
-sudo apt-get install -y gimp gimp-gmic gmic
-sudo apt install gimp gimp-gmic
-
-
-
 
 ## Instalando Handbrake
 echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
@@ -629,10 +521,6 @@ sudo apt-get install -y pinta
 
 
 ## INSTALANDO SUBLIME TEXT
-if [ -e chave-sublime.txt ]
-then
-    rm chave-sublime.txt
-fi
 
 ## Importando a chave de assinatrua do repositorio
 curl https://download.sublimetext.com/sublimehq-pub.gpg --output chave-sublime.txt
@@ -643,24 +531,23 @@ cat chave-sublime.txt | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update -y
 sudo apt-get install -y sublime-text
-
+rm chave-sublime.txt
 
 ## aumentando o numero de arquivos que o sistema pode monitorar
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 
 sudo apt-get install gcc g++ make
+
+
 ## INSTALANDO O JENKINS
-if [ -e chave-jenkins.txt ]
-then
-    rm chave-jenkins.txt
-fi
 
 ## Importando a chave de assinatrua do repositorio
 curl https://pkg.jenkins.io/debian/jenkins.io.key --output chave-jenkins.txt
 
 ## Adicionando a chave de repositorio
 cat chave-jenkins.txt | sudo apt-key add -
+
 
 echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
 sudo apt-get update
@@ -669,6 +556,7 @@ sudo sed -i 's/8080/9596/g' /etc/default/jenkins
 sudo systemctl stop jenkins
 sudo systemctl start jenkins
 sudo /lib/systemd/systemd-sysv-install enable jenkins
+rm chave-jenkins.txt
 
 
 ## Instalando o Transmission
@@ -710,8 +598,6 @@ sudo apt-get install -y net-tools
 ## Instalando libglib2.0-dev
 sudo apt-get install -y libglib2.0-dev
 
-## Instalando Brasero
-sudo apt-get install -y brasero
 
 ## Instalando VLC
 sudo apt-get install -y vlc
@@ -772,6 +658,7 @@ sudo npm install
 
 ## Transformando arquivos de .bundle em arquivos executaveis
 chmod +x *.bundle
+
 
 ## Dependencias do VMware
 sudo apt update -y
