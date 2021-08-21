@@ -393,44 +393,29 @@ fi
 
 ## Download tema Kripton
 echo -e "\n\n\n Kripton - 483 KB"
-if [ -e Kripton.tar.gz ]
+if [ -e /home/luciano/.themes/Kripton ]
 then
-    echo "O arquivo  Kripton.tar.gz  ja existe"
+    echo "O diretorio  /home/luciano/.themes/Kripton  ja existe"
 else
     curl -L -o Kripton.tar.gz https://www.dropbox.com/s/g4uayzka786saly/Kripton.tar.gz?dl=0
-fi
 
-
-## Download icones Neon Ultra Icons
-echo -e "\n\n\n Neon Ultra Icons - 36 MB"
-if [ -e Neon-Ultra.tar.gz ]
-then
-    echo "O arquivo  Neon-Ultra.tar.gz  ja existe"
-else
-    curl -L -o Neon-Ultra.tar.gz https://www.dropbox.com/s/5qpwqmzzuqvk7zy/Neon-Ultra.tar.gz?dl=0
-fi
-
-
-
-## Copiando tema Kripton para pasta .themes
-if [ -e /home/$USER/.themes/Kripton ]
-then
-    echo "A pasta Kripton  ja existe"
-else
     tar xvzf Kripton.tar.gz
     cp -r Kripton /home/$USER/.themes/
 fi
 
 
-
-##Copiando icone Neon Ultra para pasta .icons
-if [ -e /home/$USER/.icons/Neon-Ultra ]
+## Download icones Neon Ultra Icons
+echo -e "\n\n\n Neon Ultra Icons - 36 MB"
+if [ -e /home/luciano/.icons/Neon-Ultra ]
 then
-    echo "O arquivo Neon-Ultra ja existe"
+    echo "O diretorio  /home/luciano/.icons/Neon-Ultra  ja existe"
 else
+    curl -L -o Neon-Ultra.tar.gz https://www.dropbox.com/s/5qpwqmzzuqvk7zy/Neon-Ultra.tar.gz?dl=0
+
     tar xvzf Neon-Ultra.tar.gz
     cp -r Neon-Ultra /home/$USER/.icons/
 fi
+
 
 ##Instalando fonte firecode
 sudo apt-get update -y
