@@ -309,11 +309,11 @@ fi
 
 ## Download VirtualBox
 echo -e "\n\n\n VirtualBox - 88 MB"
-if [ -e virtualbox-6.1_6.1.22-144080_Ubuntu_bionic_amd64.deb ]
+if [ -e virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb ]
 then
-    echo "O arquivo  virtualbox-6.1_6.1.22-144080_Ubuntu_bionic_amd64.deb  ja existe"
+    echo "O arquivo  virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb  ja existe"
 else
-    curl -L -o virtualbox-6.1_6.1.22-144080_Ubuntu_bionic_amd64.deb https://www.dropbox.com/s/dc9g74frrqzbkzq/virtualbox-6.1_6.1.22-144080_Ubuntu_bionic_amd64.deb?dl=0
+    curl -L -o virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb https://www.dropbox.com/s/1i95hsghrslx34k/virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb?dl=0
 fi
 
 
@@ -620,7 +620,7 @@ sudo apt --fix-broken install -y
 sudo dpkg -i StarUML_4.0.1_amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i virtualbox-6.1_6.1.22-144080_Ubuntu_bionic_amd64.deb
+sudo dpkg -i virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb
 sudo apt --fix-broken install -y
 
 sudo dpkg -i visual-studio-code_1.53.2-1613044664_amd64.deb
