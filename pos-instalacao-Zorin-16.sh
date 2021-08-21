@@ -634,9 +634,7 @@ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install -g @angular/cli
 sudo npm install -g typescript
-sudo npm uninstall --save-dev angular-cli
-sudo npm install --save-dev @angular/cli@latest
-sudo npm install
+npm install --save-dev @angular/cli@latest
 
 
 ## Transformando arquivos de .bundle em arquivos executaveis
