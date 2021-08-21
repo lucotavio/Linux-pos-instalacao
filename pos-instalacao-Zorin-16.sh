@@ -385,8 +385,6 @@ else
 
     tar xvf wallpaper.tar.xz
     cp -r wallpaper /home/$USER/Imagens/
-
-    cd /home/$USER/Imagens/
 fi
 
 
