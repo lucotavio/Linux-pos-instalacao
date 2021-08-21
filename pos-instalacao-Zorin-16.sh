@@ -29,7 +29,7 @@ mkdir -p /home/$USER/Instalacao/ISO/
 mkdir /home/$USER/Instalacao/Script/
 
 ##Criando diretorio Angular dentro do diretorio Projetos
-mkdir -p /home/$USER/Projetos/Angula
+mkdir -p /home/$USER/Projetos/Angular
 
 
 ##Criando diretorio Angular-Spring dentro do diretorio Projetos
