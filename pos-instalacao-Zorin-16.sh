@@ -50,7 +50,7 @@ sudo apt-get install -y curl
 
 
 ## Instalar software de terceiros
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install ubuntu-restricted-extras
 
 
@@ -476,7 +476,7 @@ echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main
 echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
 echo "" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 43D3A9F60C58A7169778E6FB8771ADB0816950D8
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install -y handbrake-gtk
 sudo apt-get install -y handbrake-cli
 
@@ -488,7 +488,7 @@ echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | su
 echo "deb-src http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
 echo "" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BC7345F522079769F5BBE987EFC71127F425E228
-sudo apt-get update
+sudo apt-get update -y
 sudo apt install -y obs-studio
 
 
@@ -533,14 +533,13 @@ cat chave-jenkins.txt | sudo apt-key add -
 
 
 echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install -y jenkins
 sudo sed -i 's/8080/9596/g' /etc/default/jenkins
 sudo systemctl stop jenkins
 sudo systemctl start jenkins
 sudo /lib/systemd/systemd-sysv-install enable jenkins
 rm chave-jenkins.txt
-
 
 ## Instalando o Transmission
 sudo apt-get install -y transmission
@@ -558,7 +557,6 @@ sudo apt-get install -y chrome-gnome-shell
 ## Instalando Gparted
 sudo apt-get install -y gparted
 
-
 ## Instalando o Git
 apt list --installed | grep git/focal-updates > procurando-git.txt
 if grep -q git/focal-updates procurando-git.txt; then
@@ -566,8 +564,6 @@ if grep -q git/focal-updates procurando-git.txt; then
 else
     sudo apt-get install -y git
 fi
-
-
 
 ## Instalando Alacarte
 sudo apt-get install -y alacarte
@@ -581,6 +577,8 @@ sudo apt-get install -y net-tools
 ## Instalando libglib2.0-dev
 sudo apt-get install -y libglib2.0-dev
 
+## Instalando libgconf-2-4
+sudo apt-get install libgconf-2-4
 
 ## Instalando VLC
 sudo apt-get install -y vlc
@@ -595,9 +593,6 @@ sudo apt --fix-broken install -y
 
 sudo dpkg -i 4kvideodownloader_4.17.1-1_amd64.deb
 sudo apt --fix-broken install -y
-
-sudo apt-get update
-sudo apt-get install libgconf-2-4
 
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y
@@ -860,7 +855,7 @@ sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
 echo "deb http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
 echo "deb-src http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EA316A2F8D6BD55554C23F680BE6D09EEF648708
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install -y firebird3.0-server
 
 
@@ -876,7 +871,7 @@ do
         sudo apt-get install software-properties-common dirmngr apt-transport-https
         sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
         sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.ufro.cl/mariadb/repo/10.5/ubuntu bionic main'
-        sudo apt update
+        sudo apt update -y
         sudo apt install -y mariadb-server
         sudo systemctl start mariadb
         sudo systemctl enable mariadb
@@ -907,7 +902,7 @@ do
 
         sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
         sudo apt --fix-broken install -y
-        sudo apt-get update
+        sudo apt-get update -y
         sudo apt-get install mysql-server
 
         echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   MYSQL********************"
