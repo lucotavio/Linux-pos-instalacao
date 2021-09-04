@@ -777,6 +777,7 @@ echo "Name=WebStorm" | sudo tee -a /usr/share/applications/web-storm.desktop
 echo "Exec=/opt/WebStorm-212.5080.54/bin/webstorm.sh" | sudo tee -a /usr/share/applications/web-storm.desktop
 echo "Type=Application" | sudo tee -a /usr/share/applications/web-storm.desktop
 echo "Icon=/opt/WebStorm-212.5080.54/bin/webstorm.svg" | sudo tee -a /usr/share/applications/web-storm.desktop
+echo "StartupWMClass=jetbrains-webstorm" | sudo tee -a /usr/share/applications/web-storm.desktop
 
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WEBSTORM ********************"
