@@ -505,7 +505,7 @@ rm chave-sublime.txt
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 
-sudo apt-get install gcc g++ make
+sudo apt-get install -y gcc g++ make
 
 
 ## INSTALANDO O JENKINS
@@ -563,7 +563,7 @@ sudo apt-get install -y net-tools
 sudo apt-get install -y libglib2.0-dev
 
 ## Instalando libgconf-2-4
-sudo apt-get install libgconf-2-4
+sudo apt-get install -y libgconf-2-4
 
 ## Instalando VLC
 sudo apt-get install -y vlc
@@ -884,7 +884,7 @@ do
         sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
         sudo apt --fix-broken install -y
         sudo apt-get update -y
-        sudo apt-get install mysql-server
+        sudo apt-get install -y  mysql-server
 
         echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   MYSQL********************"
         break
