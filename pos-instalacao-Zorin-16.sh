@@ -55,8 +55,7 @@ sudo apt-get install ubuntu-restricted-extras
 
 
 ## Criando modelo de arquivo shell script
-if [ -e /home/$USER/Modelos/script.sh ]
-then
+if [ -e /home/$USER/Modelos/script.sh ];then
     echo "O arquivo  home/$USER/Modelos/script.sh  ja existe"
 else
     touch /home/$USER/Modelos/script.sh
@@ -83,8 +82,7 @@ sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip 
 
 ## Download 4K Video Downloader
 echo -e "\n\n\n 4K Video Downloader - 71 MB"
-if [ -e 4kvideodownloader_4.17.1-1_amd64.deb ]
-then
+if [ -e 4kvideodownloader_4.17.1-1_amd64.deb ];then
     echo "O arquivo 4kvideodownloader_4.14.3-1_amd64.deb ja existe"
 else
     curl -L -o 4kvideodownloader_4.17.1-1_amd64.deb https://www.dropbox.com/s/28b7a3x3h3cmv19/4kvideodownloader_4.17.1-1_amd64.deb?dl=0
@@ -93,18 +91,16 @@ fi
 
 ## Download Apache Netbeans
 echo -e "\n\n Apache Netbeans - 408 MB"
-if [ -e Apache-NetBeans-12.4-bin-linux-x64.sh ]
-then
+if [ -e Apache-NetBeans-12.4-bin-linux-x64.sh ];then
     echo "O arquivo Apache-NetBeans-12.4-bin-linux-x64.sh ja existe"
 else
-    curl -L -o Apache-NetBeans-12.4-bin-linux-x64.sh https://www.dropbox.com/s/ubs1g1cm0ycyxc0/Apache-NetBeans-12.4-bin-linux-x64.sh?dl=0
+    curl -L -o Apache-NetBeans-12.5-bin-linux-x64.sh https://www.dropbox.com/s/ipawzryymwkbpuq/Apache-NetBeans-12.5-bin-linux-x64.sh?dl=0
 fi
 
 
 ## Download Atom
 echo -e "\n\n\n Atom - 120 MB"
-if [ -e atom-amd64.deb ]
-then
+if [ -e atom-amd64.deb ];then
     echo "O arquivo atom-amd64.deb ja existe"
 else
     curl -L -o atom-amd64.deb https://www.dropbox.com/s/3e9vp9rka420n2x/atom-amd64.deb?dl=0
@@ -113,8 +109,7 @@ fi
 
 ## Download Balena Etcher
 echo -e "\n\n\n Balena Etcher - 86 MB"
-if [ -d balena-etcher ]
-then
+if [ -d balena-etcher ];then
     sudo cp -r balena-etcher /opt/
 else
     curl -L -o balena-etcher.tar.xz https://www.dropbox.com/s/aowb22tuha4y7qu/balena-etcher.tar.xz?dl=0
@@ -127,8 +122,7 @@ fi
 
 ## Download Chrome
 echo -e "\n\n\n Chrome - 69 MB"
-if [ -e google-chrome-stable_current_amd64.deb ]
-then
+if [ -e google-chrome-stable_current_amd64.deb ];then
     echo "O arquivo  google-chrome-stable_current_amd64.deb  ja existe"
 else
     curl -L -o google-chrome-stable_current_amd64.deb https://www.dropbox.com/s/8mubgxw957lgsse/google-chrome-stable_current_amd64.deb?dl=0
@@ -137,8 +131,7 @@ fi
 
 ## Download DBeaver
 echo -e "\n\n\n DBeaver - 95 MB"
-if [ -e dbeaver-ce_7.3.5_amd64.deb ]
-then
+if [ -e dbeaver-ce_7.3.5_amd64.deb ];then
     echo "O arquivo  dbeaver-ce_7.3.5_amd64.deb  ja existe"
 else
     curl -L -o dbeaver-ce_7.3.5_amd64.deb https://www.dropbox.com/s/cgzbaja3grr8gow/dbeaver-ce_7.3.5_amd64.deb?dl=0
@@ -147,8 +140,7 @@ fi
 
 ## Download DBVisualizer
 echo -e "\n\n\n DBVisualizer - 147 MB"
-if [ -e dbvis_linux_12_0_3.deb ]
-then
+if [ -e dbvis_linux_12_0_3.deb ];then
     echo "O arquivo  dbvis_linux_12_0_3.deb  ja existe"
 else
     curl -L -o dbvis_linux_12_0_3.deb https://www.dropbox.com/s/lhj41d14new5s8i/dbvis_linux_12_0_3.deb?dl=0
@@ -158,8 +150,7 @@ fi
 
 ## Download Insomnia
 echo -e "\n\n Insommia - 69 MB"
-if [ -e Insomnia.Core-2021.3.0.deb ]
-then
+if [ -e Insomnia.Core-2021.3.0.deb ];then
     echo "O arquivo  Insomnia.Core-2021.3.0.deb  ja existe"
 else
     curl -L -o Insomnia.Core-2021.3.0.deb https://www.dropbox.com/s/ai079hr8l6c1pv2/Insomnia.Core-2021.3.0.deb?dl=0
@@ -177,11 +168,11 @@ do
 
     read opcao
 
-    if [ $opcao -eq 1 ]; then
+    if [ $opcao -eq 1 ];then
         echo -e "\n\n******************** DOWNLOAD  O  INTELLIJ COMMUNITY ********************"
 
         echo -e "\n\n\n Intellij Community - 776 MB"
-        if [ -d idea-IC-211.7442.40 ]; then
+        if [ -d idea-IC-211.7442.40 ];then
             sudo cp -r idea-IC-211.7442.40 /opt/
         else
             curl -L -o ideaIC-2021.1.2.tar.gz https://www.dropbox.com/s/5dkxydptor39h6h/ideaIC-2021.1.2.tar.gz?dl=0
@@ -192,12 +183,12 @@ do
 
         echo -e "\n\n******************** FIM  DO DOWNLOAD  DO  INTELLIJ COMMUNITY ********************"
         break
-    elif [ $opcao -eq 2 ]; then
+    elif [ $opcao -eq 2 ];then
         echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
 
 
         echo -e "\n\n\n Intellij ultimate - 895 MB"
-        if [ -d idea-IU-211.7442.40/ ]; then
+        if [ -d idea-IU-211.7442.40/ ];then
             sudo cp -r idea-IU-211.7442.40/ /opt/
         else
             curl -L -o ideaIU-2021.1.2.tar.gz https://www.dropbox.com/s/x2kom2bpwypx7sd/ideaIU-2021.1.2.tar.gz?dl=0
@@ -217,8 +208,7 @@ done
 
 ## Download JDK-11.0.10
 echo -e "\n\n\n JDK-11 - 149 MB"
-if [ -e jdk-11.0.10_linux-x64_bin.deb ]
-then
+if [ -e jdk-11.0.10_linux-x64_bin.deb ];then
     echo "O arquivo jdk-11.0.10_linux-x64_bin.deb ja existe"
 else
     curl -L -o jdk-11.0.10_linux-x64_bin.deb https://www.dropbox.com/s/lqc1mnoq2a6uthu/jdk-11.0.10_linux-x64_bin.deb?dl=0
@@ -227,8 +217,7 @@ fi
 
 ## Download Kdenlive
 echo -e "\n\n\n Kdenlive - 255 MB"
-if [ -d kdenlive ]
-then
+if [ -d kdenlive ];then
     sudo cp -r kdenlive /opt/
 else
     curl -L -o kdenlive.tar.xz https://www.dropbox.com/s/bzuw44g7gbrc8jz/kdenlive.tar.xz?dl=0
@@ -241,8 +230,7 @@ fi
 
 ## Download Maven
 echo -e "\n\n\n Maven - 9 MB"
-if [ -d apache-maven-3.6.3 ]
-then
+if [ -d apache-maven-3.6.3 ];then
     sudo cp -r apache-maven-3.6.3
 else
     curl -L -o apache-maven-3.6.3-bin.tar.gz https://www.dropbox.com/s/k6zjl3t6ebhrycw/apache-maven-3.6.3-bin.tar.gz?dl=0
@@ -253,8 +241,7 @@ fi
 
 ## Download OnlyOffice
 echo -e "\n\n\n OnlyOffice - 290 MB"
-if [ -e onlyoffice-desktopeditors_amd64.deb ]
-then
+if [ -e onlyoffice-desktopeditors_amd64.deb ];then
     echo "O arquivo onlyoffice-desktopeditors_amd64.deb  ja existe"
 else
     curl -L -o onlyoffice-desktopeditors_amd64.deb https://www.dropbox.com/s/wczyw32sq6o2iiw/onlyoffice-desktopeditors_amd64.deb?dl=0
@@ -263,8 +250,7 @@ fi
 
 ## Download Postman
 echo -e "\n\n\n Postman - 128 MB"
-if [ -d postman ]
-then
+if [ -d postman ];then
     sudo cp -r postman /opt/
 else
     curl -L -o postman.tar.xz https://www.dropbox.com/s/urhtqjutvv2xeym/postman.tar.xz?dl=0
@@ -277,8 +263,7 @@ fi
 
 ## Download Scene Builder
 echo -e "\n\n\n Scene Builder - 66 MB"
-if [ -e SceneBuilder-15.0.1.deb ]
-then
+if [ -e SceneBuilder-15.0.1.deb ];then
     echo "O arquivo  SceneBuilder-15.0.1.deb  ja existe"
 else
     curl -L -o SceneBuilder-15.0.1.deb https://www.dropbox.com/s/l5wcpsdlydtobax/SceneBuilder-15.0.1.deb?dl=0
@@ -287,8 +272,7 @@ fi
 
 ## Download Spring Tools Suite
 echo -e "\n\n\n Spring Tool Suite - 555 MB"
-if [ -d spring-tools-suite-4-11-0 ]
-then
+if [ -d spring-tools-suite-4-11-0 ];then
     sudo cp -r spring-tools-suite-4-11-0 /opt/
 else
     curl -L -o spring-tools-suite-4-11-0.tar.gz https://www.dropbox.com/s/c3a1fjpxs6kbucb/spring-tools-suite-4-11-0.tar.gz?dl=0
@@ -299,8 +283,7 @@ fi
 
 ## Download StarUML
 echo -e "\n\n\n StarUML - 70 MB"
-if [ -e StarUML_4.0.1_amd64.deb ]
-then
+if [ -e StarUML_4.0.1_amd64.deb ];then
     echo "O arquivo StarUML_4.0.1_amd64.deb ja existe"
 else
     curl -L -o StarUML_4.0.1_amd64.deb https://www.dropbox.com/s/rfmrqyeoywwfi02/StarUML_4.0.1_amd64.deb?dl=0
@@ -309,8 +292,7 @@ fi
 
 ## Download VirtualBox
 echo -e "\n\n\n VirtualBox - 88 MB"
-if [ -e virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb ]
-then
+if [ -e virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb ];then
     echo "O arquivo  virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb  ja existe"
 else
     curl -L -o virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb https://www.dropbox.com/s/1i95hsghrslx34k/virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb?dl=0
@@ -319,8 +301,7 @@ fi
 
 ## Download Visual Studio Code
 echo -e "\n\n\n Visual Studio Code - 66 MB"
-if [ -e visual-studio-code_1.53.2-1613044664_amd64.deb ]
-then
+if [ -e visual-studio-code_1.53.2-1613044664_amd64.deb ];then
     echo "O arquivo  visual-studio-code_1.53.2-1613044664_amd64.deb  ja existe"
 else
     curl -L -o visual-studio-code_1.53.2-1613044664_amd64.deb https://www.dropbox.com/s/5gfoaix1a9it735/visual-studio-code_1.53.2-1613044664_amd64.deb?dl=0
@@ -329,8 +310,7 @@ fi
 
 ## Download VMware Player
 echo -e "\n\n\n VMware Player - 167 MB"
-if [ -e VMware-Player-16.1.1-17801498.x86_64.bundle ]
-then
+if [ -e VMware-Player-16.1.1-17801498.x86_64.bundle ];then
     echo "O arquivo  VMware-Player-16.1.1-17801498.x86_64.bundle  ja existe"
 else
     curl -L -o VMware-Player-16.1.1-17801498.x86_64.bundle https://www.dropbox.com/s/go28r2rcxxzp4cz/VMware-Player-16.1.1-17801498.x86_64.bundle?dl=0
@@ -339,14 +319,24 @@ fi
 
 ## Download Waterfox
 echo -e "\n\n\n VMware Waterfox - 75 MB"
-if [ -d waterfox ]
-then
+if [ -d waterfox ];then
     sudo cp -r waterfox /opt/
 else
     curl -L -o waterfox.tar.gz https://www.dropbox.com/s/al781puozw7zrm6/waterfox.tar.gz?dl=0
 
     tar xvzf waterfox.tar.gz
     sudo cp -r waterfox /opt/
+fi
+
+## Download WebStorm
+echo -e "\n\n\n WebStorm - 359 MB"
+if [ -d WebStorm ];then
+    sudo cp -r WebStorm /opt/
+else
+    curl -L -o WebStorm.tar.xz https://www.dropbox.com/s/hzkefw2rj23934y/WebStorm.tar.xz?dl=0
+
+    tar xvf WebStorm.tar.xz
+    sudo cp -r WebStorm /opt/
 fi
 
 
@@ -377,8 +367,7 @@ fi
 
 ## Download Wallpapers
 echo -e "\n\n\n Imagens - 5 MB"
-if [ -d /home/$USER/Imagens/wallpaper ]
-then
+if [ -d /home/$USER/Imagens/wallpaper ];then
     echo "O diretorio  /home/$USER/Imagens/wallpaper  ja existe"
 else
     curl -L -o wallpaper.tar.xz https://www.dropbox.com/s/rxsdkto4d43nvyn/wallpaper.tar.xz?dl=0
@@ -391,8 +380,7 @@ fi
 
 ## Download tema Kripton
 echo -e "\n\n\n Kripton - 483 KB"
-if [ -e /home/luciano/.themes/Kripton ]
-then
+if [ -e /home/luciano/.themes/Kripton ];then
     echo "O diretorio  /home/luciano/.themes/Kripton  ja existe"
 else
     curl -L -o Kripton.tar.gz https://www.dropbox.com/s/g4uayzka786saly/Kripton.tar.gz?dl=0
@@ -404,8 +392,7 @@ fi
 
 ## Download icones Neon Ultra Icons
 echo -e "\n\n\n Neon Ultra Icons - 36 MB"
-if [ -e /home/luciano/.icons/Neon-Ultra ]
-then
+if [ -e /home/luciano/.icons/Neon-Ultra ];then
     echo "O diretorio  /home/luciano/.icons/Neon-Ultra  ja existe"
 else
     curl -L -o Neon-Ultra.tar.gz https://www.dropbox.com/s/5qpwqmzzuqvk7zy/Neon-Ultra.tar.gz?dl=0
@@ -447,7 +434,7 @@ do
   cd /home/$USER/Downloads/Programas/
 
 
-  if [ -d /usr/lib/jvm/jdk-11.0.10/ ]; then
+  if [ -d /usr/lib/jvm/jdk-11.0.10/ ];then
     break
   fi
   echo "Bloqueio"
@@ -457,12 +444,11 @@ done
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
 
 
-
 # Instalando o Apache netbeans
 chmod +x *.sh
-sudo ./Apache-NetBeans-12.4-bin-linux-x64.sh
-echo "StartupWMClass=Apache NetBeans IDE 12.4" | sudo tee -a /usr/share/applications/Apache\ NetBeans-12.4.desktop
-sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.4.desktop
+sudo ./Apache-NetBeans-12.5-bin-linux-x64.sh
+echo "StartupWMClass=Apache NetBeans IDE 12.5" | sudo tee -a /usr/share/applications/Apache\ NetBeans-12.5.desktop
+sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.5.desktop
 
 
 
@@ -644,7 +630,7 @@ sudo apt-get install -y manpages-dev
 sudo ./VMware-Player-16.1.1-17801498.x86_64.bundle
 
 ## Resolvendo no VMware Player o problema de: No 3d support is available from the host, on all VMware guests
-if [ grep -q 'mks.gl.allowBlacklistedDrivers = "TRUE"' /home/$USER/.vmware/preferences ]; then
+if [ grep -q 'mks.gl.allowBlacklistedDrivers = "TRUE"' /home/$USER/.vmware/preferences ];then
     echo 'Texto  mks.gl.allowBlacklistedDrivers = "TRUE"  encontrado'
 else
     echo 'mks.gl.allowBlacklistedDrivers = "TRUE"' >> /home/$USER/.vmware/preferences
@@ -748,6 +734,23 @@ echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WATERFOX ************
 
 
 
+
+echo -e "\n\n******************** INSTALANDO  O  WEBSTORM ********************"
+
+
+echo "[Desktop Entry]" | sudo tee /usr/share/applications/webstorm.desktop
+echo "Comment=" | sudo tee -a /usr/share/applications/webstorm.desktop
+echo "Terminal=false" | sudo tee -a /usr/share/applications/webstorm.desktop
+echo "Name=WebStorm" | sudo tee -a /usr/share/applications/webstorm.desktop
+echo "Exec=/opt/WebStorm/bin/webstorm.sh" | sudo tee -a /usr/share/applications/webstorm.desktop
+echo "Type=Application" | sudo tee -a /usr/share/applications/webstorm.desktop
+echo "Icon=/opt/WebStorm/bin/webstorm.svg" | sudo tee -a /usr/share/applications/webstorm.desktop
+
+
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WEBSTORM ********************"
+
+
+
 echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
 
 
@@ -764,7 +767,7 @@ echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN *************
 
 
 
-if [ $opcao -eq 1 ]; then
+if [ $opcao -eq 1 ];then
     echo -e "\n\n******************** INSTALANDO  O  INTELLIJ COMMUNITY ********************"
 
 
@@ -780,7 +783,7 @@ if [ $opcao -eq 1 ]; then
 
     echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  INTELLIJ COMMUNITY ********************"
 
-elif [ $opcao -eq 2 ]; then
+elif [ $opcao -eq 2 ];then
 
     echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
 
@@ -816,8 +819,7 @@ sudo snap install video-downloader
 
 ## INSTALANDO POSTGRES
 
-if [ -e chave-postgres.txt ]
-then
+if [ -e chave-postgres.txt ];then
     rm chave-postgres.txt
 fi
 
@@ -867,7 +869,7 @@ do
 
     read opcao
 
-    if [ $opcao -eq 1 ]; then
+    if [ $opcao -eq 1 ];then
         sudo apt-get install software-properties-common dirmngr apt-transport-https
         sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
         sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.ufro.cl/mariadb/repo/10.5/ubuntu bionic main'
@@ -888,12 +890,11 @@ do
 
         echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  MARIADB ********************"
         break
-    elif [ $opcao -eq 2 ]; then
+    elif [ $opcao -eq 2 ];then
         echo -e "\n\n******************** INSTALANDO  O  MYSQL ********************"
 
         echo -e "\n\n\Mysql - 36 KB"
-        if [ -e mysql-apt-config_0.8.17-1_all.deb ]
-        then
+        if [ -e mysql-apt-config_0.8.17-1_all.deb ];then
             echo "O arquivo mysql-apt-config_0.8.17-1_all.deb ja existe"
         else
             curl -L -o mysql-apt-config_0.8.17-1_all.deb https://www.dropbox.com/s/132jlnaupgovn1e/mysql-apt-config_0.8.17-1_all.deb?dl=0
@@ -920,7 +921,6 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 
 
 # Removendo arquivo minimal.txt
-if [ -e minimal.txt ]
-then
+if [ -e minimal.txt ];then
     rm minimal.txt
 fi
