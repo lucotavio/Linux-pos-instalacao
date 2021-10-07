@@ -549,6 +549,8 @@ if grep -q git/focal-updates procurando-git.txt; then
     echo "********* COMANDO  GIT  ENCONTRADO *************"
 else
     sudo apt-get install -y git
+    git config --global user.name "Luciano"
+    git config --global user.email "luc.oliveira343@gmail.com"
 fi
 
 ## Instalando Alacarte
@@ -568,6 +570,17 @@ sudo apt-get install libgconf-2-4
 
 ## Instalando VLC
 sudo apt-get install -y vlc
+
+## Instalando e configurando Meld
+sudo apt-get install -y meld
+
+git config --global diff.tool meld
+git config --global difftool.meld.path "/usr/bin/meld"
+git config --global difftool.prompt false
+
+git config --global merge.tool meld
+git config --global mergetool.meld.path "/usr/bin/meld"
+git config --global mergetool.prompt false
 
 
 ## Transformando arquivos de .deb em arquivos executaveis
