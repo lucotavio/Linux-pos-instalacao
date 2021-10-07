@@ -553,6 +553,9 @@ else
     git config --global user.email "luc.oliveira343@gmail.com"
 fi
 
+git config --global user.name "Luciano"
+git config --global user.email "luc.otavio@gmail.com"
+
 ## Instalando Alacarte
 sudo apt-get install -y alacarte
 
