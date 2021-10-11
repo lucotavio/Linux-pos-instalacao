@@ -787,14 +787,14 @@ if [ $opcao -eq 1 ];then
     echo -e "\n\n******************** INSTALANDO  O  INTELLIJ COMMUNITY ********************"
 
 
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Name=Intellij Community" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IC-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IC-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-community.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Name=Intellij Community" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Exec=/opt/idea-IC-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Icon=/opt/idea-IC-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "StartupWMClass=jetbrains-idea-ce" | sudo tee -a /usr/share/applications/intellij-community.desktop
 
 
     echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  INTELLIJ COMMUNITY ********************"
