@@ -544,14 +544,10 @@ sudo apt-get install -y chrome-gnome-shell
 sudo apt-get install -y gparted
 
 ## Instalando o Git
-apt list --installed | grep git/focal-updates > procurando-git.txt
-if grep -q git/focal-updates procurando-git.txt; then
-    echo "********* COMANDO  GIT  ENCONTRADO *************"
-else
-    sudo apt-get install -y git
-    git config --global user.name "Luciano"
-    git config --global user.email "luc.oliveira343@gmail.com"
-fi
+sudo apt-get install -y git
+git config --global user.name "Luciano"
+git config --global user.email "luc.oliveira343@gmail.com"
+
 
 git config --global user.name "Luciano"
 git config --global user.email "luc.otavio@gmail.com"
