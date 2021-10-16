@@ -246,6 +246,16 @@ else
     sudo cp -r apache-maven-3.6.3 /opt/
 fi
 
+
+## Download Microsoft Teams
+echo -e "\n\n\n Microsoft Teams - 85 MB"
+if [ -e teams_1.4.00.26453_amd64.deb ];then
+    echo "O arquivo teams_1.4.00.26453_amd64.deb ja existe"
+else
+    curl -L -o teams_1.4.00.26453_amd64.deb https://www.dropbox.com/s/rjmbux5sagjb0ya/teams_1.4.00.26453_amd64.deb?dl=0
+
+fi
+
 ## Download OnlyOffice
 echo -e "\n\n\n OnlyOffice - 290 MB"
 if [ -e onlyoffice-desktopeditors_amd64.deb ];then
@@ -618,6 +628,9 @@ sudo dpkg -i SceneBuilder-15.0.1.deb
 sudo apt --fix-broken install -y
 
 sudo dpkg -i StarUML_4.0.1_amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i teams_1.4.00.26453_amd64.deb
 sudo apt --fix-broken install -y
 
 sudo dpkg -i virtualbox-6.1_6.1.26-145957_Focal-Fossa_amd64.deb
