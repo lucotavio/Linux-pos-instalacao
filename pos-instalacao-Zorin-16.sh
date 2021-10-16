@@ -44,13 +44,20 @@ mkdir /home/$USER/Projetos/Java
 sudo mkdir /usr/lib/jvm/
 
 
-## Instalando o comando curl
+
+echo "*********************************************  INICIO CONSERTANDO CERTIFICACOES *****************************************"
+
+sudo apt install ca-certificates
 sudo apt-get update -y
+
+echo "*********************************************  FIM CONSERTANDO CERTIFICACOES ********************************************"
+
+
+## Instalando o comando curl
 sudo apt-get install -y curl
 
 
 ## Instalar software de terceiros
-sudo apt-get update -y
 sudo apt-get install ubuntu-restricted-extras
 
 
@@ -659,14 +666,15 @@ fi
 
 
 ## Instalando webcam
-sudo apt-get update -y
-sudo apt install linux-headers-`uname -r` gcc make
-sudo ./install-video
 cd /tmp/
 wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.8.0.zip
 unzip droidcam_latest.zip -d droidcam
 cd droidcam && sudo ./install-client
+sudo apt install linux-headers-`uname -r` gcc make
+sudo ./install-video
 
+
+## Voltando para pasta Programas
 cd  /home/$USER/Downloads/Programas/
 
 
