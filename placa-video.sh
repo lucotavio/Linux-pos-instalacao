@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt upgrade
+sudo apt-get update
+sudo apt-get dist-upgrade
 sudo apt install nvidia-driver-390
 
 sudo reboot -i

@@ -204,12 +204,12 @@ done
 
 
 
-## Download JDK-11.0.10
+## Download JDK-11.0.11
 echo -e "\n\n\n JDK-11 - 149 MB"
-if [ -e jdk-11.0.10_linux-x64_bin.deb ];then
-    echo "O arquivo jdk-11.0.10_linux-x64_bin.deb ja existe"
+if [ -e jdk-11.0.11_linux-x64_bin.deb ];then
+    echo "O arquivo jdk-11.0.11_linux-x64_bin.deb ja existe"
 else
-    curl -L -o jdk-11.0.10_linux-x64_bin.deb https://www.dropbox.com/s/lqc1mnoq2a6uthu/jdk-11.0.10_linux-x64_bin.deb?dl=0
+    curl -L -o jdk-11.0.11_linux-x64_bin.deb https://www.dropbox.com/s/c5glxra6831w5g8/jdk-11.0.11_linux-x64_bin.deb?dl=0
 fi
 
 
@@ -431,22 +431,22 @@ echo "************************************************** INSTALACAO DO JDK-11 **
 while true
 do
 
-  sudo dpkg -i jdk-11.0.10_linux-x64_bin.deb
+  sudo dpkg -i jdk-11.0.11_linux-x64_bin.deb
   sudo apt --fix-broken install -y
-  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.10/bin/java 2
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.11/bin/java 2
   sudo update-alternatives --config java
-  echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.10" >> /home/$USER/.bashrc
+  echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11" >> /home/$USER/.bashrc
   echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
   cd /home/$USER/
   source .bashrc
   cd /home/$USER/Downloads/Programas/
 
 
-  if [ -d /usr/lib/jvm/jdk-11.0.10/ ];then
+  if [ -d /usr/lib/jvm/jdk-11.0.11/ ];then
     break
   fi
   echo "Bloqueio"
-  sleep 90
+  sleep 60
 done
 
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
