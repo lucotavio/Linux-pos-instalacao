@@ -44,15 +44,6 @@ mkdir /home/$USER/Projetos/Java
 sudo mkdir /usr/lib/jvm/
 
 
-
-echo "*********************************************  INICIO CONSERTANDO CERTIFICACOES *****************************************"
-
-sudo apt install ca-certificates
-sudo apt-get update -y
-
-echo "*********************************************  FIM CONSERTANDO CERTIFICACOES ********************************************"
-
-
 ## Instalando o comando curl
 sudo apt-get install -y curl
 
