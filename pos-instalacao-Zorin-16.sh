@@ -639,9 +639,9 @@ sudo apt --fix-broken install -y
 
 
 ## Instalando Node.js
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo npm install -g @angular/cli
+sudo npm install -g  @angular/cli@13.1.2
 sudo npm install -g typescript
 npm install --save-dev @angular/cli@latest
 
