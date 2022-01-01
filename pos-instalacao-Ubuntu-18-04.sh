@@ -16,6 +16,9 @@ mkdir /home/$USER/.themes/
 ## Criando diretorio Temp
 mkdir /home/$USER/Temp/
 
+## Criando diretorio VPN
+mkdir /home/$USER/VPN/
+
 ## Criando diretorio do OBS Studio
 mkdir /home/$USER/Vídeos/OBS-Studio/
 
@@ -53,11 +56,21 @@ sudo apt-get install ubuntu-restricted-extras
 
 
 ## Criando modelo de arquivo shell script
-if [ -e /home/$USER/Modelos/script.sh ];then
-    echo "O arquivo  home/$USER/Modelos/script.sh  ja existe"
+if [ -e /home/$USER/VPN/vpn.sh ];then
+    echo "O arquivo  /home/$USER/VPN/vpn.sh  ja existe"
 else
     touch /home/$USER/Modelos/script.sh
     echo "#!/bin/bash" > /home/$USER/Modelos/script.sh
+fi
+
+
+## Criando modelo de arquivo shell script
+if [ -e /home/$USER/VPN/vpn.sh ];then
+    echo "O arquivo  /home/$USER/VPN/vpn.sh  ja existe"
+else
+  touch /home/$USER/vpn.sh
+  echo '#!/bin/bash' > /home/$USER/VPN/vpn.sh
+  echo "netExtender -d digicade.corp -u luciano.oliveira 177.69.90.198:4433" >> /home/$USER/VPN/vpn.sh
 fi
 
 
