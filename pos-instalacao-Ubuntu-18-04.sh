@@ -680,8 +680,21 @@ sudo apt --fix-broken install -y
 ## Instalando Node.js
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo npm install -g @angular/cli
+
+## Instalando Angular CLI
+sudo npm install -g  @angular/cli@13.1.2
+
+## Instalando Typescript
 sudo npm install -g typescript
+
+## Instalando Vue.js
+sudo npm install vue
+
+## Instalando Vue CLI
+sudo npm install -g @vue/cli
+
+## Instalando Quasar CLI
+npm install -g @quasar/cli
 
 
 ## Transformando arquivos de .bundle em arquivos executaveis
