@@ -882,6 +882,7 @@ sudo update-alternatives --config java
 ##sudo snap install onlyoffice-desktopeditors
 sudo snap install umbrello
 sudo snap install video-downloader
+sudo snap install rocketchat-desktop
 
 
 ## INSTALANDO POSTGRES
