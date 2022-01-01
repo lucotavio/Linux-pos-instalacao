@@ -247,6 +247,17 @@ else
 
 fi
 
+## Download NetExtender
+echo -e "\n\n\n NetExtender - 6 MB"
+if [ -d netExtenderClient ];then
+    sudo cp -r netExtenderClient /opt/
+else
+    curl -L -o NetExtender.Linux-10.tgz https://www.dropbox.com/s/bf4c5596uzomojy/NetExtender.Linux-10.tgz?dl=0
+
+    tar xvzf NetExtender.Linux-10.tgz
+    sudo cp -r netExtenderClient /opt/
+fi
+
 ## Download OnlyOffice
 echo -e "\n\n\n OnlyOffice - 290 MB"
 if [ -e onlyoffice-desktopeditors_amd64.deb ];then
@@ -451,6 +462,12 @@ done
 
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
 
+
+# Instalando NetExtender
+cd /opt/netExtenderClient/
+chmod +x install
+sudo ./install
+cd /home/$USER/Downloads/Programas/
 
 # Instalando o Apache netbeans
 chmod +x *.sh
