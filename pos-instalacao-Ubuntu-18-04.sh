@@ -45,7 +45,7 @@ mkdir /home/$USER/Projetos/Java
 ## Criando diretorio jvm dentro do diretorio /usr/lib/
 ## que e pra onde vao ser copiados os arquivos do JDK
 sudo mkdir /usr/lib/jvm/
-
+cle
 
 ## Instalando o comando curl
 sudo apt-get install -y curl
@@ -56,11 +56,27 @@ sudo apt-get install ubuntu-restricted-extras
 
 
 ## Criando modelo de arquivo shell script
-if [ -e /home/$USER/VPN/vpn.sh ];then
-    echo "O arquivo  /home/$USER/VPN/vpn.sh  ja existe"
+if [ -e /home/$USER/Modelos/shell-script.sh ];then
+    echo "O arquivo  /home/$USER/Modelos/shell-script.sh  ja existe"
 else
-    touch /home/$USER/Modelos/script.sh
-    echo "#!/bin/bash" > /home/$USER/Modelos/script.sh
+    touch /home/$USER/Modelos/shell-script.sh
+    echo "#!/bin/bash" > /home/$USER/Modelos/shell-script.sh
+fi
+
+
+## Criando modelo de arquivo de script de banco de dados
+if [ -e /home/$USER/Modelos/script-DB.sql ];then
+    echo "O arquivo  /home/$USER/Modelos/script-DB.sql  ja existe"
+else
+    touch /home/$USER/Modelos/script-DB.sql
+fi
+
+
+## Criando modelo de arquivo de texto
+if [ -e /home/$USER/Modelos/texto.txt ];then
+    echo "O arquivo  /home/$USER/Modelos/texto.txt  ja existe"
+else
+    touch /home/$USER/Modelos/texto.txt
 fi
 
 
@@ -534,6 +550,15 @@ echo "" | sudo tee -a /etc/apt/sources.lis
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11E609A1BC3E0682A5A1D6B2
 sudo apt-get update -y
 sudo apt-get install -y pinta
+
+## Instalando Stacer
+echo "deb http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FE2D607711EDD0FF4D069EC70F6444BB6902FCAF
+sudo apt-get update -y
+sudo apt-get install -y handbrake-gtk
+sudo apt-get install -y stacer
 
 
 
