@@ -719,7 +719,7 @@ sudo npm install vue
 sudo npm install -g @vue/cli
 
 ## Instalando Quasar CLI
-npm install -g @quasar/cli
+sudo npm install -g @quasar/cli
 
 
 ## Transformando arquivos de .bundle em arquivos executaveis
