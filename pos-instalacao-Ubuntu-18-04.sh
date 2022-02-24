@@ -80,16 +80,6 @@ else
 fi
 
 
-## Criando modelo de arquivo shell script
-if [ -e /home/$USER/VPN/vpn.sh ];then
-    echo "O arquivo  /home/$USER/VPN/vpn.sh  ja existe"
-else
-  touch /home/$USER/vpn.sh
-  echo '#!/bin/bash' > /home/$USER/VPN/vpn.sh
-  echo "netExtender -d digicade.corp -u luciano.oliveira 177.69.90.198:4433" >> /home/$USER/VPN/vpn.sh
-fi
-
-
 ## Entrando dentro do diretorio
 ## onde vao ficar os programaas
 ## que precisao de dwonloads
@@ -199,12 +189,12 @@ do
         echo -e "\n\n******************** DOWNLOAD  O  INTELLIJ COMMUNITY ********************"
 
         echo -e "\n\n\n Intellij Community - 776 MB"
-        if [ -d idea-IC-211.7442.40 ];then
-            sudo cp -r idea-IC-211.7442.40 /opt/
+        if [ -d idea-IC-213.6777.52 ];then
+            sudo cp -r idea-IC-213.6777.52 /opt/
         else
-            curl -L -o ideaIC-2021.1.2.tar.gz https://www.dropbox.com/s/5dkxydptor39h6h/ideaIC-2021.1.2.tar.gz?dl=0
-            tar xvzf ideaIC-2021.1.2.tar.gz
-            sudo cp -r idea-IC-211.7442.40 /opt/
+            curl -L -o ideaIC-2021.3.2.tar.gz https://www.dropbox.com/s/lldqd0q6trvyc7l/ideaIC-2021.3.2.tar.gz?dl=0
+            tar xvzf ideaIC-2021.3.2.tar.gz
+            sudo cp -r idea-IC-213.6777.52 /opt/
         fi
 
 
@@ -215,12 +205,12 @@ do
 
 
         echo -e "\n\n\n Intellij ultimate - 895 MB"
-        if [ -d idea-IU-211.7442.40/ ];then
-            sudo cp -r idea-IU-211.7442.40/ /opt/
+        if [ -d idea-IU-213.6777.52/ ];then
+            sudo cp -r idea-IU-213.6777.52/ /opt/
         else
-            curl -L -o ideaIU-2021.1.2.tar.gz https://www.dropbox.com/s/x2kom2bpwypx7sd/ideaIU-2021.1.2.tar.gz?dl=0
-            tar xvzf ideaIU-2021.1.2.tar.gz
-            sudo cp -r idea-IU-211.7442.40/ /opt/
+            curl -L -o ideaIU-2021.3.2.tar.gz https://www.dropbox.com/s/zd13iml000b4ojz/ideaIU-2021.3.2.tar.gz?dl=0
+            tar xvzf ideaIU-2021.3.2.tar.gz
+            sudo cp -r idea-IU-213.6777.52/ /opt/
         fi
 
 
@@ -276,16 +266,6 @@ else
 
 fi
 
-## Download NetExtender
-echo -e "\n\n\n NetExtender - 6 MB"
-if [ -d netExtenderClient ];then
-    sudo cp -r netExtenderClient /opt/
-else
-    curl -L -o NetExtender.Linux-10.tgz https://www.dropbox.com/s/bf4c5596uzomojy/NetExtender.Linux-10.tgz?dl=0
-
-    tar xvzf NetExtender.Linux-10.tgz
-    sudo cp -r netExtenderClient /opt/
-fi
 
 ## Download OnlyOffice
 echo -e "\n\n\n OnlyOffice - 290 MB"
@@ -492,12 +472,6 @@ done
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
 
 
-# Instalando NetExtender
-cd /opt/netExtenderClient/
-chmod +x install
-sudo ./install
-cd /home/$USER/Downloads/Programas/
-
 # Instalando o Apache netbeans
 chmod +x *.sh
 sudo ./Apache-NetBeans-12.5-bin-linux-x64.sh
@@ -642,12 +616,6 @@ sudo apt-get install libgconf-2-4
 
 ## Instalando VLC
 sudo apt-get install -y vlc
-
-##Instalando FortiClient
-wget -O - https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-echo "deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu/ /bionic multiverse" | sudo tee -a /etc/apt/sources.list
-sudo apt-get update -y
-sudo apt install forticlient
 
 ## Instalando e configurando Meld
 sudo apt-get install -y meld
@@ -893,9 +861,9 @@ if [ $opcao -eq 1 ];then
     echo "Comment=" | sudo tee -a /usr/share/applications/intellij-community.desktop
     echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-community.desktop
     echo "Name=Intellij Community" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Exec=/opt/idea-IC-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Exec=/opt/idea-IC-213.6777.52/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-community.desktop
     echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Icon=/opt/idea-IC-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-community.desktop
+    echo "Icon=/opt/idea-IC-213.6777.52/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-community.desktop
     echo "StartupWMClass=jetbrains-idea-ce" | sudo tee -a /usr/share/applications/intellij-community.desktop
 
 
@@ -910,9 +878,9 @@ elif [ $opcao -eq 2 ];then
     echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IU-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Exec=/opt/idea-IU-213.6777.52/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Icon=/opt/idea-IU-213.6777.52/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
 
 
