@@ -16,9 +16,6 @@ mkdir /home/$USER/.themes/
 ## Criando diretorio Temp
 mkdir /home/$USER/Temp/
 
-## Criando diretorio VPN
-mkdir /home/$USER/VPN/
-
 ## Criando diretorio do OBS Studio
 mkdir /home/$USER/Vídeos/OBS-Studio/
 
@@ -174,61 +171,12 @@ else
 fi
 
 
-## declarando variavel opcao
-opcao=0
-
-while true
-do
-    echo -e "\n\nDigite opção 1 ou 2"
-    echo "1 - Intellij Community"
-    echo "2 - Intellij Ultimate"
-
-    read opcao
-
-    if [ $opcao -eq 1 ];then
-        echo -e "\n\n******************** DOWNLOAD  O  INTELLIJ COMMUNITY ********************"
-
-        echo -e "\n\n\n Intellij Community - 776 MB"
-        if [ -d idea-IC-213.6777.52 ];then
-            sudo cp -r idea-IC-213.6777.52 /opt/
-        else
-            curl -L -o ideaIC-2021.3.2.tar.gz https://www.dropbox.com/s/lldqd0q6trvyc7l/ideaIC-2021.3.2.tar.gz?dl=0
-            tar xvzf ideaIC-2021.3.2.tar.gz
-            sudo cp -r idea-IC-213.6777.52 /opt/
-        fi
-
-
-        echo -e "\n\n******************** FIM  DO DOWNLOAD  DO  INTELLIJ COMMUNITY ********************"
-        break
-    elif [ $opcao -eq 2 ];then
-        echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
-
-
-        echo -e "\n\n\n Intellij ultimate - 895 MB"
-        if [ -d idea-IU-213.6777.52/ ];then
-            sudo cp -r idea-IU-213.6777.52/ /opt/
-        else
-            curl -L -o ideaIU-2021.3.2.tar.gz https://www.dropbox.com/s/zd13iml000b4ojz/ideaIU-2021.3.2.tar.gz?dl=0
-            tar xvzf ideaIU-2021.3.2.tar.gz
-            sudo cp -r idea-IU-213.6777.52/ /opt/
-        fi
-
-
-        echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
-        break
-    else
-        echo -e "\n\nOpcao invalida"
-    fi
-done
-
-
-
-## Download JDK-11.0.11
-echo -e "\n\n\n JDK-11 - 149 MB"
-if [ -e jdk-11.0.11_linux-x64_bin.deb ];then
-    echo "O arquivo jdk-11.0.11_linux-x64_bin.deb ja existe"
+## Download JDK-17.0.2
+echo -e "\n\n\n JDK-17 - 149 MB"
+if [ -e jdk-17.0.2_linux-x64_bin.deb ];then
+    echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
 else
-    curl -L -o jdk-11.0.11_linux-x64_bin.deb https://www.dropbox.com/s/c5glxra6831w5g8/jdk-11.0.11_linux-x64_bin.deb?dl=0
+    curl -L -o jdk-17.0.2_linux-x64_bin.deb https://www.dropbox.com/s/7xs35m0zxuj8gll/jdk-17.0.2_linux-x64_bin.deb?dl=0
 fi
 
 
@@ -274,19 +222,6 @@ if [ -e onlyoffice-desktopeditors_amd64.deb ];then
 else
     curl -L -o onlyoffice-desktopeditors_amd64.deb https://www.dropbox.com/s/wczyw32sq6o2iiw/onlyoffice-desktopeditors_amd64.deb?dl=0
 fi
-
-
-## Download Postman
-echo -e "\n\n\n Postman - 128 MB"
-if [ -d postman ];then
-    sudo cp -r postman /opt/
-else
-    curl -L -o postman.tar.xz https://www.dropbox.com/s/urhtqjutvv2xeym/postman.tar.xz?dl=0
-
-    tar -xvf postman.tar.xz
-    sudo cp -r postman /opt/
-fi
-
 
 
 ## Download Scene Builder
@@ -354,17 +289,6 @@ else
 
     tar xvzf waterfox.tar.gz
     sudo cp -r waterfox /opt/
-fi
-
-## Download WebStorm
-echo -e "\n\n\n WebStorm - 359 MB"
-if [ -d WebStorm ];then
-    sudo cp -r WebStorm /opt/
-else
-    curl -L -o WebStorm.tar.xz https://www.dropbox.com/s/hzkefw2rj23934y/WebStorm.tar.xz?dl=0
-
-    tar xvf WebStorm.tar.xz
-    sudo cp -r WebStorm /opt/
 fi
 
 
@@ -445,29 +369,17 @@ sudo fc-cache -f -v
 
 echo "************************************************** INSTALACAO DO JDK-11 ************************************************"
 
-## JDK tem que estar instalado para
-## que a instalacao do Jenkins e do
-## Netbeans ocorram com sucesso
-while true
-do
 
-  sudo dpkg -i jdk-11.0.11_linux-x64_bin.deb
+  sudo dpkg -i jdk-17.0.2_linux-x64_bin.deb
   sudo apt --fix-broken install -y
-  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.11/bin/java 2
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17.0.2/bin/java 2
   sudo update-alternatives --config java
-  echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11" >> /home/$USER/.bashrc
+  echo "export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2" >> /home/$USER/.bashrc
   echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
   cd /home/$USER/
   source .bashrc
   cd /home/$USER/Downloads/Programas/
 
-
-  if [ -d /usr/lib/jvm/jdk-11.0.11/ ];then
-    break
-  fi
-  echo "Bloqueio"
-  sleep 60
-done
 
 echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
 
@@ -525,6 +437,8 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11
 sudo apt-get update -y
 sudo apt-get install -y pinta
 
+
+
 ## Instalando Stacer
 echo "deb http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
 echo "deb-src http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
@@ -535,44 +449,11 @@ sudo apt-get install -y handbrake-gtk
 sudo apt-get install -y stacer
 
 
-
-## INSTALANDO SUBLIME TEXT
-
-## Importando a chave de assinatrua do repositorio
-curl https://download.sublimetext.com/sublimehq-pub.gpg --output chave-sublime.txt
-
-## Adicionando a chave de repositorio
-cat chave-sublime.txt | sudo apt-key add -
-
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get update -y
-sudo apt-get install -y sublime-text
-rm chave-sublime.txt
-
 ## aumentando o numero de arquivos que o sistema pode monitorar
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 
 sudo apt-get install gcc g++ make
-
-
-## INSTALANDO O JENKINS
-
-## Importando a chave de assinatrua do repositorio
-curl https://pkg.jenkins.io/debian/jenkins.io.key --output chave-jenkins.txt
-
-## Adicionando a chave de repositorio
-cat chave-jenkins.txt | sudo apt-key add -
-
-
-echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
-sudo apt-get update -y
-sudo apt-get install -y jenkins
-sudo sed -i 's/8080/9596/g' /etc/default/jenkins
-sudo systemctl stop jenkins
-sudo systemctl start jenkins
-sudo /lib/systemd/systemd-sysv-install enable jenkins
-rm chave-jenkins.txt
 
 ## Instalando o Transmission
 sudo apt-get install -y transmission
@@ -601,9 +482,6 @@ git config --global user.email "luc.otavio@gmail.com"
 
 ## Instalando Alacarte
 sudo apt-get install -y alacarte
-
-## Instalando Docker
-sudo apt-get install -y docker.io
 
 ## Instalando net-tools
 sudo apt-get install -y net-tools
@@ -686,9 +564,6 @@ sudo npm install vue
 ## Instalando Vue CLI
 sudo npm install -g @vue/cli
 
-## Instalando Quasar CLI
-sudo npm install -g @quasar/cli
-
 
 ## Transformando arquivos de .bundle em arquivos executaveis
 chmod +x *.bundle
@@ -711,27 +586,12 @@ fi
 
 
 
-## Instalando ADB
-##sudo apt-get update -y
-##sudo apt-get install -y adb
-##sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-##sudo apt install -y qemu-kvm
-##sudo adduser $USER kvm
-
-
-## Instalando webcam
-cd /tmp/
-wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.8.0.zip
-unzip droidcam_latest.zip -d droidcam
-cd droidcam && sudo ./install-client
-sudo apt install linux-headers-`uname -r` gcc make
-sudo ./install-video
-
-
-## Voltando para pasta Programas
-cd  /home/$USER/Downloads/Programas/
-
-
+Instalando ADB
+sudo apt-get update -y
+sudo apt-get install -y adb
+sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+sudo apt install -y qemu-kvm
+udo adduser $USER kvm
 
 
 echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
@@ -820,79 +680,6 @@ echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WATERFOX ************
 
 
 
-
-echo -e "\n\n******************** INSTALANDO  O  WEBSTORM ********************"
-
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/webstorm.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/webstorm.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/webstorm.desktop
-echo "Name=WebStorm" | sudo tee -a /usr/share/applications/webstorm.desktop
-echo "Exec=/opt/WebStorm/bin/webstorm.sh" | sudo tee -a /usr/share/applications/webstorm.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/webstorm.desktop
-echo "Icon=/opt/WebStorm/bin/webstorm.svg" | sudo tee -a /usr/share/applications/webstorm.desktop
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WEBSTORM ********************"
-
-
-
-echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
-
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Exec=/opt/postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Icon=/opt/postman/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN ********************"
-
-
-
-if [ $opcao -eq 1 ];then
-    echo -e "\n\n******************** INSTALANDO  O  INTELLIJ COMMUNITY ********************"
-
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-community.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Name=Intellij Community" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Exec=/opt/idea-IC-213.6777.52/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "Icon=/opt/idea-IC-213.6777.52/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-community.desktop
-    echo "StartupWMClass=jetbrains-idea-ce" | sudo tee -a /usr/share/applications/intellij-community.desktop
-
-
-    echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  INTELLIJ COMMUNITY ********************"
-
-elif [ $opcao -eq 2 ];then
-
-    echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
-
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IU-213.6777.52/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IU-213.6777.52/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-
-
-    echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
-
-else
-    echo -e "\n\nOpcao invalida"
-fi
-
-
-
-
 ## Selecionando o JDK
 sudo update-alternatives --config java
 
@@ -900,8 +687,30 @@ sudo update-alternatives --config java
 ### INSTALANDO PACOTES SNAP
 ##sudo snap install onlyoffice-desktopeditors
 sudo snap install umbrello
-sudo snap install video-downloader
-sudo snap install rocketchat-desktop
+sudo snap install postman
+
+
+## declarando variavel opcao
+opcao=0
+
+while true
+do
+    echo -e "\n\nDigite opção 1 ou 2"
+    echo "1 - Intellij Community"
+    echo "2 - Intellij Ultimate"
+
+    read opcao
+
+    if [ $opcao -eq 1 ];then
+        sudo snap install intellij-idea-community --classic
+        break
+    elif [ $opcao -eq 2 ];then
+      sudo snap install intellij-idea-ultimate --classic
+      break
+    else
+        echo -e "\n\nOpcao invalida"
+    fi
+done
 
 
 ## INSTALANDO POSTGRES
@@ -939,15 +748,6 @@ sudo -u postgres -H -- psql -c "CREATE USER luciano WITH ENCRYPTED PASSWORD '789
 sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
 
 
-
-## INSTALANDO FIREBIRD
-echo "deb http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EA316A2F8D6BD55554C23F680BE6D09EEF648708
-sudo apt-get update -y
-sudo apt-get install -y firebird3.0-server
-
-
 while true
 do
     echo -e "\n\nDigite opção 1 ou 2"
@@ -981,14 +781,14 @@ do
         echo -e "\n\n******************** INSTALANDO  O  MYSQL ********************"
 
         echo -e "\n\n\Mysql - 36 KB"
-        if [ -e mysql-apt-config_0.8.17-1_all.deb ];then
-            echo "O arquivo mysql-apt-config_0.8.17-1_all.deb ja existe"
+        if [ -e mysql-apt-config_0.8.22-1_all.deb ];then
+            echo "O mysql-apt-config_0.8.22-1_all.deb ja existe"
         else
-            curl -L -o mysql-apt-config_0.8.17-1_all.deb https://www.dropbox.com/s/132jlnaupgovn1e/mysql-apt-config_0.8.17-1_all.deb?dl=0
+            curl -L -o mysql-apt-config_0.8.22-1_all.deb https://www.dropbox.com/s/is04u0l5ipek661/mysql-apt-config_0.8.22-1_all.deb?dl=0
         fi
 
 
-        sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
+        sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
         sudo apt --fix-broken install -y
         sudo apt-get update -y
         sudo apt-get install mysql-server
@@ -1005,9 +805,3 @@ done
 sudo apt install flatpak
 sudo apt install gnome-software-plugin-flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-
-# Removendo arquivo minimal.txt
-if [ -e minimal.txt ];then
-    rm minimal.txt
-fi
