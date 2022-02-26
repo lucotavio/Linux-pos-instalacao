@@ -42,7 +42,7 @@ mkdir /home/$USER/Projetos/Java
 ## Criando diretorio jvm dentro do diretorio /usr/lib/
 ## que e pra onde vao ser copiados os arquivos do JDK
 sudo mkdir /usr/lib/jvm/
-cle
+
 
 ## Instalando o comando curl
 sudo apt-get install -y curl
@@ -200,7 +200,7 @@ if [ -d apache-maven-3.6.3 ];then
 else
     curl -L -o apache-maven-3.6.3-bin.tar.gz https://www.dropbox.com/s/k6zjl3t6ebhrycw/apache-maven-3.6.3-bin.tar.gz?dl=0
 
-    tar xvzf apache-maven-3.6.3-bin.tar.g
+    tar xvzf apache-maven-3.6.3-bin.tar.gz
     sudo cp -r apache-maven-3.6.3 /opt/
 fi
 
@@ -322,7 +322,7 @@ echo -e "\n\n\n Imagens - 5 MB"
 if [ -d /home/$USER/Imagens/wallpaper ];then
     echo "O diretorio  /home/$USER/Imagens/wallpaper  ja existe"
 else
-    curl -L -o wallpaper.tar.xz https://www.dropbox.com/s/rxsdkto4d43nvyn/wallpaper.tar.xz?dl=0
+    curl -L -o wallpaper.tar.xz https://www.dropbox.com/s/tifpo2adm5vttlk/wallpaper.tar.xz?dl=0
 
     tar xvf wallpaper.tar.xz
     cp -r wallpaper /home/$USER/Imagens/
@@ -367,21 +367,21 @@ sudo fc-cache -f -v
 
 
 
-echo "************************************************** INSTALACAO DO JDK-11 ************************************************"
+echo "************************************************** INSTALACAO DO JDK-17 ************************************************"
 
 
   sudo dpkg -i jdk-17.0.2_linux-x64_bin.deb
   sudo apt --fix-broken install -y
-  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17.0.2/bin/java 2
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 2
   sudo update-alternatives --config java
-  echo "export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2" >> /home/$USER/.bashrc
+  echo "export JAVA_HOME=/usr/lib/jvm/jdk-17" >> /home/$USER/.bashrc
   echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
   cd /home/$USER/
   source .bashrc
   cd /home/$USER/Downloads/Programas/
 
 
-echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
+echo "************************************************** FIM DA INSTALACAO DO JDK-17 ************************************************"
 
 
 # Instalando o Apache netbeans
