@@ -45,7 +45,7 @@ mkdir /home/$USER/Projetos/Java
 ## Criando diretorio jvm dentro do diretorio /usr/lib/
 ## que e pra onde vao ser copiados os arquivos do JDK
 sudo mkdir /usr/lib/jvm/
-cle
+
 
 ## Instalando o comando curl
 sudo apt-get install -y curl
@@ -94,6 +94,16 @@ cd  /home/$USER/Downloads/Programas/
 sudo apt-get update -y
 sudo apt-get install -y sharutils
 sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip ark ncompress
+
+
+
+## Download 4K Video Downloader
+echo -e "\n\n\n 4K Video Downloader - 71 MB"
+if [ -e 4kvideodownloader_4.17.1-1_amd64.deb ];then
+    echo "O arquivo 4kvideodownloader_4.14.3-1_amd64.deb ja existe"
+else
+    curl -L -o 4kvideodownloader_4.17.1-1_amd64.deb https://www.dropbox.com/s/28b7a3x3h3cmv19/4kvideodownloader_4.17.1-1_amd64.deb?dl=0
+fi
 
 
 ## Download Apache Netbeans
@@ -154,6 +164,7 @@ else
 fi
 
 
+
 ## Download Insomnia
 echo -e "\n\n Insommia - 69 MB"
 if [ -e Insomnia.Core-2021.3.0.deb ];then
@@ -163,22 +174,12 @@ else
 fi
 
 
-echo -e "\n\n\n Intellij ultimate - 895 MB"
-if [ -d idea-IU-213.6777.52/ ];then
-  sudo cp -r idea-IU-213.6777.52/ /opt/
+## Download JDK-17.0.2
+echo -e "\n\n\n JDK-17 - 149 MB"
+if [ -e jdk-17.0.2_linux-x64_bin.deb ];then
+    echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
 else
-  curl -L -o ideaIU-2021.3.2.tar.gz https://www.dropbox.com/s/zd13iml000b4ojz/ideaIU-2021.3.2.tar.gz?dl=0
-  tar xvzf ideaIU-2021.3.2.tar.gz
-  sudo cp -r idea-IU-213.6777.52/ /opt/
-fi
-
-
-## Download JDK-11.0.11
-echo -e "\n\n\n JDK-11 - 149 MB"
-if [ -e jdk-11.0.11_linux-x64_bin.deb ];then
-    echo "O arquivo jdk-11.0.11_linux-x64_bin.deb ja existe"
-else
-    curl -L -o jdk-11.0.11_linux-x64_bin.deb https://www.dropbox.com/s/c5glxra6831w5g8/jdk-11.0.11_linux-x64_bin.deb?dl=0
+    curl -L -o jdk-17.0.2_linux-x64_bin.deb https://www.dropbox.com/s/7xs35m0zxuj8gll/jdk-17.0.2_linux-x64_bin.deb?dl=0
 fi
 
 
@@ -189,7 +190,7 @@ if [ -d apache-maven-3.6.3 ];then
 else
     curl -L -o apache-maven-3.6.3-bin.tar.gz https://www.dropbox.com/s/k6zjl3t6ebhrycw/apache-maven-3.6.3-bin.tar.gz?dl=0
 
-    tar xvzf apache-maven-3.6.3-bin.tar.g
+    tar xvzf apache-maven-3.6.3-bin.tar.gz
     sudo cp -r apache-maven-3.6.3 /opt/
 fi
 
@@ -213,18 +214,7 @@ else
 fi
 
 
-## Download Postman
-echo -e "\n\n\n Postman - 128 MB"
-if [ -d postman ];then
-    sudo cp -r postman /opt/
-else
-    curl -L -o postman.tar.xz https://www.dropbox.com/s/urhtqjutvv2xeym/postman.tar.xz?dl=0
-
-    tar -xvf postman.tar.xz
-    sudo cp -r postman /opt/
-fi
-
-
+Builder.sh
 ## Download Spring Tools Suite
 echo -e "\n\n\n Spring Tool Suite - 555 MB"
 if [ -d spring-tools-suite-4-11-0 ];then
@@ -273,7 +263,7 @@ fi
 
 
 ## Download Waterfox
-echo -e "\n\n\n Waterfox - 75 MB"
+echo -e "\n\n\n VMware Waterfox - 75 MB"
 if [ -d waterfox ];then
     sudo cp -r waterfox /opt/
 else
@@ -282,6 +272,7 @@ else
     tar xvzf waterfox.tar.gz
     sudo cp -r waterfox /opt/
 fi
+
 
 ## Download WildFly
 echo -e "\n\n\n WildFly - 205 MB"
@@ -331,7 +322,7 @@ echo -e "\n\n\n Imagens - 5 MB"
 if [ -d /home/$USER/Imagens/wallpaper ];then
     echo "O diretorio  /home/$USER/Imagens/wallpaper  ja existe"
 else
-    curl -L -o wallpaper.tar.xz https://www.dropbox.com/s/6u13pieypf6l6of/wallpaper.tar.xz?dl=0
+    curl -L -o wallpaper.tar.xz https://www.dropbox.com/s/tifpo2adm5vttlk/wallpaper.tar.xz?dl=0
 
     tar xvf wallpaper.tar.xz
     cp -r wallpaper /home/$USER/Imagens/
@@ -376,33 +367,21 @@ sudo fc-cache -f -v
 
 
 
-echo "************************************************** INSTALACAO DO JDK-11 ************************************************"
+echo "************************************************** INSTALACAO DO JDK-17 ************************************************"
 
-## JDK tem que estar instalado para
-## que a instalacao do Jenkins e do
-## Netbeans ocorram com sucesso
-while true
-do
 
-  sudo dpkg -i jdk-11.0.11_linux-x64_bin.deb
+  sudo dpkg -i jdk-17.0.2_linux-x64_bin.deb
   sudo apt --fix-broken install -y
-  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.11/bin/java 2
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 2
   sudo update-alternatives --config java
-  echo "export JAVA_HOME=/usr/lib/jvm/jdk-11.0.11" >> /home/$USER/.bashrc
+  echo "export JAVA_HOME=/usr/lib/jvm/jdk-17" >> /home/$USER/.bashrc
   echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
   cd /home/$USER/
   source .bashrc
   cd /home/$USER/Downloads/Programas/
 
 
-  if [ -d /usr/lib/jvm/jdk-11.0.11/ ];then
-    break
-  fi
-  echo "Bloqueio"
-  sleep 60
-done
-
-echo "************************************************** FIM DA INSTALACAO DO JDK-11 ************************************************"
+echo "************************************************** FIM DA INSTALACAO DO JDK-17 ************************************************"
 
 
 # Instalando o Apache netbeans
@@ -412,8 +391,52 @@ echo "StartupWMClass=Apache NetBeans IDE 12.5" | sudo tee -a /usr/share/applicat
 sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.5.desktop
 
 
+
 #Atualizando indices de repositorio
 sudo apt-get update -y
+
+
+
+## Instalando Gimp
+echo "deb http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB97E9C3A97F85C095AEA7903BDAAC08614C4B38
+sudo apt-get update -y
+sudo apt-get install gimp
+
+
+
+## Instalando Handbrake
+echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 43D3A9F60C58A7169778E6FB8771ADB0816950D8
+sudo apt-get update -y
+sudo apt-get install -y handbrake-gtk
+sudo apt-get install -y handbrake-cli
+
+
+
+## Instalando Obs Studio
+sudo apt install ffmpeg
+echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/obsproject/obs-studio/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BC7345F522079769F5BBE987EFC71127F425E228
+sudo apt-get update -y
+sudo apt install -y obs-studio
+
+
+
+## Instalando Pinta
+echo "deb http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.lis
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11E609A1BC3E0682A5A1D6B2
+sudo apt-get update -y
+sudo apt-get install -y pinta
+
 
 
 ## Instalando Stacer
@@ -428,6 +451,7 @@ sudo apt-get install -y stacer
 
 ## aumentando o numero de arquivos que o sistema pode monitorar
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+
 
 sudo apt-get install gcc g++ make
 
@@ -490,6 +514,9 @@ chmod +x *.deb
 sudo dpkg -i atom-amd64.deb
 sudo apt --fix-broken install -y
 
+sudo dpkg -i 4kvideodownloader_4.17.1-1_amd64.deb
+sudo apt --fix-broken install -y
+
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y
 
@@ -534,6 +561,7 @@ sudo npm install vue
 ## Instalando Vue CLI
 sudo npm install -g @vue/cli
 
+
 ## Transformando arquivos de .bundle em arquivos executaveis
 chmod +x *.bundle
 
@@ -554,9 +582,13 @@ else
 fi
 
 
-## Voltando para pasta Programas
-cd  /home/$USER/Downloads/Programas/
 
+Instalando ADB
+sudo apt-get update -y
+sudo apt-get install -y adb
+sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+sudo apt install -y qemu-kvm
+udo adduser $USER kvm
 
 
 echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
@@ -626,42 +658,43 @@ echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WATERFOX ************
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
+## Selecionando o JDK
+sudo update-alternatives --config java
 
 
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Exec=/opt/postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Icon=/opt/postman/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN ********************"
+### INSTALANDO PACOTES SNAP
+##sudo snap install onlyoffice-desktopeditors
+sudo snap install umbrello
+sudo snap install postman
+sudo snap install kdenlive
 
 
 
+## declarando variavel opcao
+opcao=0
 
-echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
+while true
+do
+    echo -e "\n\nDigite opção 1 ou 2"
+    echo "1 - Intellij Community"
+    echo "2 - Intellij Ultimate"
+
+    read opcao
+
+    if [ $opcao -eq 1 ];then
+        sudo snap install intellij-idea-community --classic
+        break
+    elif [ $opcao -eq 2 ];then
+      sudo snap install intellij-idea-ultimate --classic
+      break
+    else
+        echo -e "\n\nOpcao invalida"
+    fi
+done
 
 
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-echo "Exec=/opt/idea-IU-213.6777.52/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-echo "Icon=/opt/idea-IU-213.6777.52/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+## INSTALANDO POSTGRES
 
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
-
-
-
-
-echo -e "\n\n******************** INSTALANDO  O  POSTGRES ********************"
 if [ -e chave-postgres.txt ];then
     rm chave-postgres.txt
 fi
@@ -693,20 +726,6 @@ sudo -u postgres -H -- psql -c "CREATE USER luciano WITH ENCRYPTED PASSWORD '789
 ## para ele se tornar um super usuario
 ## no SGBD PostgreSQL
 sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO DO  POSTGRES ********************"
-
-
-
-## Selecionando o JDK
-sudo update-alternatives --config java
-
-
-### INSTALANDO PACOTES SNAP
-##sudo snap install onlyoffice-desktopeditors
-sudo snap install umbrello
-
 
 
 while true
@@ -742,8 +761,8 @@ do
         echo -e "\n\n******************** INSTALANDO  O  MYSQL ********************"
 
         echo -e "\n\n\Mysql - 36 KB"
-        if [ -e mysql-apt-config_0.8.17-1_all.deb ];then
-            echo "O arquivo mysql-apt-config_0.8.17-1_all.deb ja existe"
+        if [ -e mysql-apt-config_0.8.22-1_all.deb ];then
+            echo "O mysql-apt-config_0.8.22-1_all.deb ja existe"
         else
             curl -L -o mysql-apt-config_0.8.22-1_all.deb https://www.dropbox.com/s/is04u0l5ipek661/mysql-apt-config_0.8.22-1_all.deb?dl=0
         fi
