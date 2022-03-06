@@ -2,7 +2,7 @@
 
 echo "*********************************************  INICIO CONSERTANDO CERTIFICACOES *****************************************"
 
-sudo apt install ca-certificates
+sudo apt install -y ca-certificates
 sudo apt-get update -y
 
 echo "*********************************************  FIM CONSERTANDO CERTIFICACOES ********************************************"
