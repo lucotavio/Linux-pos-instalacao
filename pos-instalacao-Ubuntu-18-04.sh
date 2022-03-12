@@ -439,6 +439,12 @@ sudo apt-get install -y stacer
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 
+## Instalando Lombok no Spring Tools Suite
+chmod +x lombok.jar
+sudo java -jar lombok.jar
+
+
+## Instalando gcc g++
 sudo apt-get install gcc g++ make
 
 ## Instalando o Transmission
@@ -581,12 +587,12 @@ echo "MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
 echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
 
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO MAVEN ********************"
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  MAVEN ********************"
 
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  BALENA ETCHER********************"
+echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
 
 
 ## Preenchendo arquivo balena-Etcher.desktop
@@ -600,12 +606,13 @@ echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applic
 echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
 
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO BALENA ETCHER ********************"
+echo -e "\n\n******************** FIM  DA  CRIAÇÃO  DO  ICONE  DO  BALENA  ETCHER ********************"
 
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  SPRING  TOOLS  SUITE ********************"
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
 
 
 echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
@@ -618,12 +625,12 @@ echo "Icon=/opt/spring-tools-suite-4-13-1/icon.xpm" | sudo tee -a /usr/share/app
 echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  SPRING  TOOLS  SUITE  ********************"
+echo -e "\n\n******************** FIM  DA  CRIAÇÃO  DO  ICONE  DO  SPRING  TOOLS  SUITE  ********************"
 
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  WATERFOX ********************"
+echo -e "\n\n******************** CRIANDO  ICONE  DO  WATERFOX ********************"
 
 
 echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
@@ -636,7 +643,7 @@ echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee
 echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
 
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WATERFOX ********************"
+echo -e "\n\n******************** FIM  DA  CRIAÇÃO  DO  ICONE  DO  WATERFOX ********************"
 
 
 
