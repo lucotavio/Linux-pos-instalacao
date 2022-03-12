@@ -41,7 +41,6 @@ mkdir /home/$USER/Projetos/Angular-Spring
 ##Criando diretorio Java dentro do diretorio Projetos
 mkdir /home/$USER/Projetos/Java
 
-
 ## Criando diretorio jvm dentro do diretorio /usr/lib/
 ## que e pra onde vao ser copiados os arquivos do JDK
 sudo mkdir /usr/lib/jvm/
@@ -136,22 +135,12 @@ else
 fi
 
 
-
 ## Download Chrome
 echo -e "\n\n\n Chrome - 69 MB"
 if [ -e google-chrome-stable_current_amd64.deb ];then
     echo "O arquivo  google-chrome-stable_current_amd64.deb  ja existe"
 else
     curl -L -o google-chrome-stable_current_amd64.deb https://www.dropbox.com/s/lcjlsk462f5c120/google-chrome-stable_current_amd64.deb?dl=0
-fi
-
-
-## Download DBeaver
-echo -e "\n\n\n DBeaver - 95 MB"
-if [ -e dbeaver-ce_7.3.5_amd64.deb ];then
-    echo "O arquivo  dbeaver-ce_7.3.5_amd64.deb  ja existe"
-else
-    curl -L -o dbeaver-ce_7.3.5_amd64.deb https://www.dropbox.com/s/cgzbaja3grr8gow/dbeaver-ce_7.3.5_amd64.deb?dl=0
 fi
 
 
@@ -162,7 +151,6 @@ if [ -e dbvis_linux_12_0_3.deb ];then
 else
     curl -L -o dbvis_linux_12_0_3.deb https://www.dropbox.com/s/lhj41d14new5s8i/dbvis_linux_12_0_3.deb?dl=0
 fi
-
 
 
 ## Download Insomnia
@@ -180,6 +168,15 @@ if [ -e jdk-17.0.2_linux-x64_bin.deb ];then
     echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
 else
     curl -L -o jdk-17.0.2_linux-x64_bin.deb https://www.dropbox.com/s/7xs35m0zxuj8gll/jdk-17.0.2_linux-x64_bin.deb?dl=0
+fi
+
+
+# Download Lombok
+echo -e "\n\n\n JDK-17 - 2 MB"
+if [ -e lombok.jar ];then
+    echo "O arquivo lombok.jar ja existe"
+else
+    curl -L -o lombok.jar https://www.dropbox.com/s/i727xec0hmpswvz/lombok.jar?dl=0
 fi
 
 
@@ -214,15 +211,14 @@ else
 fi
 
 
-Builder.sh
 ## Download Spring Tools Suite
 echo -e "\n\n\n Spring Tool Suite - 555 MB"
-if [ -d spring-tools-suite-4-11-0 ];then
-    sudo cp -r spring-tools-suite-4-11-0 /opt/
+if [ -d spring-tools-suite-4-13-1 ];then
+    sudo cp -r spring-tools-suite-4-13-1 /opt/
 else
-    curl -L -o spring-tools-suite-4-11-0.tar.gz https://www.dropbox.com/s/c3a1fjpxs6kbucb/spring-tools-suite-4-11-0.tar.gz?dl=0
-    tar xvzf spring-tools-suite-4-11-0.tar.gz
-    sudo cp -r spring-tools-suite-4-11-0 /opt/
+    curl -L -o spring-tools-suite-4-13-1.tar.xz? https://www.dropbox.com/s/97bn6v8655ofwr0/spring-tools-suite-4-13-1.tar.xz?dl=0
+    tar xvf spring-tools-suite-4-11-0.tar.gz
+    sudo cp -r spring-tools-suite-4-13-1 /opt/
 fi
 
 
@@ -279,16 +275,10 @@ echo -e "\n\n\n WildFly - 205 MB"
 if [ -d  /home/$USER/Servidores/wildfly-26.0.1.Final ];then
       echo "O arquivo  /home/$USER/Servidores/wildfly-26.0.1.Final  ja existe"
 else
-
-  if [ -d  wildfly-26.0.1.Final ];then
-      cp -r wildfly-26.0.1.Final /home/$USER/Servidores/
-  else
       curl -L -o wildfly-26.0.1.Final.tar.xz https://www.dropbox.com/s/trsh3208n7vl8ay/wildfly-26.0.1.Final.tar.xz?dl=0
 
       tar xvf wildfly-26.0.1.Final.tar.xz
       cp -r wildfly-26.0.1.Final /home/$USER/Servidores/
-  fi
-
 fi
 
 
@@ -302,7 +292,6 @@ else
     tar xvf netbeans-plugins.tar.xz
     cp -r netbeans-plugins /home/$USER/Instalacao/
 fi
-
 
 
 #Download Drivers JDBC
@@ -327,7 +316,6 @@ else
     tar xvf wallpaper.tar.xz
     cp -r wallpaper /home/$USER/Imagens/
 fi
-
 
 
 ## Download tema Kripton
@@ -391,10 +379,8 @@ echo "StartupWMClass=Apache NetBeans IDE 12.5" | sudo tee -a /usr/share/applicat
 sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.5.desktop
 
 
-
 #Atualizando indices de repositorio
 sudo apt-get update -y
-
 
 
 ## Instalando Gimp
@@ -520,9 +506,6 @@ sudo apt --fix-broken install -y
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i dbeaver-ce_7.3.5_amd64.deb
-sudo apt --fix-broken install -y
-
 sudo dpkg -i dbvis_linux_12_0_3.deb
 sudo apt --fix-broken install -y
 
@@ -629,9 +612,9 @@ echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.des
 echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Exec=/opt/spring-tools-suite-4-11-0/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Exec=/opt/spring-tools-suite-4-13-1/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Icon=/opt/spring-tools-suite-4-11-0/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Icon=/opt/spring-tools-suite-4-13-1/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 
 
@@ -667,6 +650,7 @@ sudo update-alternatives --config java
 sudo snap install umbrello
 sudo snap install postman
 sudo snap install kdenlive
+sudo snap install dbeaver-ce
 
 
 
