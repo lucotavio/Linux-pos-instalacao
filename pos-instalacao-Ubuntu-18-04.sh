@@ -362,8 +362,14 @@ echo "************************************************** INSTALACAO DO JDK-17 **
   sudo apt --fix-broken install -y
   sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 2
   sudo update-alternatives --config java
-  echo "export JAVA_HOME=/usr/lib/jvm/jdk-17" >> /home/$USER/.bashrc
-  echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
+
+  if [ grep -q 'export JAVA_HOME=/usr/lib/jvm/jdk-17' /home/$USER/.bashrc ];then
+      echo 'Texto "export JAVA_HOME=/usr/lib/jvm/jdk-17"  encontrado'
+  else
+    echo "export JAVA_HOME=/usr/lib/jvm/jdk-17" >> /home/$USER/.bashrc
+    echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
+  fi
+
   cd /home/$USER/
   source .bashrc
   cd /home/$USER/Downloads/Programas/
@@ -583,8 +589,12 @@ udo adduser $USER kvm
 echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
 
 
-echo "MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
-echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
+if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.6.3' /home/$USER/.bashrc ];then
+    echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.6.3"  encontrado'
+else
+  echo "export MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
+  echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
+fi
 
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  MAVEN ********************"
