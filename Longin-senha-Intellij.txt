@@ -1,0 +1,3 @@
+usuario = lucotavio
+senha = master.343.Chief.halo
+licensa = 9XQ0BTYJBU
