@@ -97,7 +97,7 @@ sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip 
 
 
 ## Download 4K Video Downloader
-echo -e "\n\n\n 4K Video Downloader - 71 MB"
+echo -e "\n\n\n 4K Video Downloader"
 if [ -e 4kvideodownloader_4.17.1-1_amd64.deb ];then
     echo "O arquivo 4kvideodownloader_4.14.3-1_amd64.deb ja existe"
 else
@@ -106,16 +106,16 @@ fi
 
 
 ## Download Apache Netbeans
-echo -e "\n\n Apache Netbeans - 408 MB"
+echo -e "\n\n Apache Netbeans"
 if [ -e Apache-NetBeans-13-bin-linux-x64.sh ];then
     echo "O arquivo Apache-NetBeans-13-bin-linux-x64.sh ja existe"
 else
-    curl -L -o Apache-NetBeans-13-bin-linux-x64.sh https://www.dropbox.com/s/pywzq3wt0xhenh6/Apache-NetBeans-13-bin-linux-x64.sh?dl=0
+    curl -L -o Apache-NetBeans-13-bin-linux-x64.sh https://www.dropbox.com/s/hb08o8fe0reok1s/Apache-NetBeans-13-bin-linux-x64.sh?dl=0
 fi
 
 
 ## Download Atom
-echo -e "\n\n\n Atom - 120 MB"
+echo -e "\n\n\n Atom"
 if [ -e atom-amd64.deb ];then
     echo "O arquivo atom-amd64.deb ja existe"
 else
@@ -124,7 +124,7 @@ fi
 
 
 ## Download Balena Etcher
-echo -e "\n\n\n Balena Etcher - 86 MB"
+echo -e "\n\n\n Balena Etcher"
 if [ -d balena-etcher ];then
     sudo cp -r balena-etcher /opt/
 else
@@ -136,7 +136,7 @@ fi
 
 
 ## Download Chrome
-echo -e "\n\n\n Chrome - 69 MB"
+echo -e "\n\n\n Chrome"
 if [ -e google-chrome-stable_current_amd64.deb ];then
     echo "O arquivo  google-chrome-stable_current_amd64.deb  ja existe"
 else
@@ -144,8 +144,8 @@ else
 fi
 
 
-## Download Intellij
-echo -e "\n\n\n Maven - 9 MB"
+## Download Intellij Ultimate
+echo -e "\n\n\n Intellij Ultimate"
 if [ -d idea-IU-213.7172.25 ];then
     sudo cp -r idea-IU-213.7172.25 /opt/
 else
@@ -157,7 +157,7 @@ fi
 
 
 ## Download JDK-17.0.2
-echo -e "\n\n\n JDK-17 - 149 MB"
+echo -e "\n\n\n JDK-17"
 if [ -e jdk-17.0.2_linux-x64_bin.deb ];then
     echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
 else
@@ -166,7 +166,7 @@ fi
 
 
 # Download Lombok
-echo -e "\n\n\n JDK-17 - 2 MB"
+echo -e "\n\n\n Lombok"
 if [ -e lombok.jar ];then
     echo "O arquivo lombok.jar ja existe"
 else
@@ -175,7 +175,7 @@ fi
 
 
 ## Download Maven
-echo -e "\n\n\n Maven - 9 MB"
+echo -e "\n\n\n Maven"
 if [ -d apache-maven-3.6.3 ];then
     sudo cp -r apache-maven-3.6.3 /opt/
 else
@@ -187,7 +187,7 @@ fi
 
 
 ## Download Microsoft Teams
-echo -e "\n\n\n Microsoft Teams - 85 MB"
+echo -e "\n\n\n Microsoft Teams"
 if [ -e teams_1.4.00.26453_amd64.deb ];then
     echo "O arquivo teams_1.4.00.26453_amd64.deb ja existe"
 else
@@ -197,7 +197,7 @@ fi
 
 
 ## Download OnlyOffice
-echo -e "\n\n\n OnlyOffice - 290 MB"
+echo -e "\n\n\n OnlyOffice"
 if [ -e onlyoffice-desktopeditors_amd64.deb ];then
     echo "O arquivo onlyoffice-desktopeditors_amd64.deb  ja existe"
 else
@@ -205,7 +205,7 @@ else
 fi
 
 ## Download Postman
-echo -e "\n\n\n Spring Tool Suite - 555 MB"
+echo -e "\n\n\n Postman"
 if [ -d Postman ];then
     sudo cp -r Postman /opt/
 else
@@ -215,7 +215,7 @@ else
 fi
 
 ## Download Spring Tools Suite
-echo -e "\n\n\n Spring Tool Suite - 555 MB"
+echo -e "\n\n\n Spring Tool Suite"
 if [ -d sts-4.14.0.RELEASE ];then
     sudo cp -r sts-4.14.0.RELEASE /opt/
 else
@@ -226,7 +226,7 @@ fi
 
 
 ## Download StarUML
-echo -e "\n\n\n StarUML - 70 MB"
+echo -e "\n\n\n StarUML"
 if [ -e StarUML_4.0.1_amd64.deb ];then
     echo "O arquivo StarUML_4.0.1_amd64.deb ja existe"
 else
@@ -235,7 +235,7 @@ fi
 
 
 ## Download VirtualBox
-echo -e "\n\n\n VirtualBox - 88 MB"
+echo -e "\n\n\n VirtualBox"
 if [ -e virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb ];then
     echo "O arquivo  virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb  ja existe"
 else
@@ -244,7 +244,7 @@ fi
 
 
 ## Download Visual Studio Code
-echo -e "\n\n\n Visual Studio Code - 66 MB"
+echo -e "\n\n\n Visual Studio Code"
 if [ -e visual-studio-code_1.53.2-1613044664_amd64.deb ];then
     echo "O arquivo  visual-studio-code_1.53.2-1613044664_amd64.deb  ja existe"
 else
@@ -253,7 +253,7 @@ fi
 
 
 ## Download VMware Player
-echo -e "\n\n\n VMware Player - 167 MB"
+echo -e "\n\n\n VMware Player"
 if [ -e VMware-Player-16.1.1-17801498.x86_64.bundle ];then
     echo "O arquivo  VMware-Player-16.1.1-17801498.x86_64.bundle  ja existe"
 else
@@ -262,7 +262,7 @@ fi
 
 
 ## Download Waterfox
-echo -e "\n\n\n VMware Waterfox - 75 MB"
+echo -e "\n\n\n Waterfox"
 if [ -d waterfox ];then
     sudo cp -r waterfox /opt/
 else
@@ -274,7 +274,7 @@ fi
 
 
 ## Download WildFly
-echo -e "\n\n\n WildFly - 205 MB"
+echo -e "\n\n\n WildFly"
 if [ -d  /home/$USER/Servidores/wildfly-26.0.1.Final ];then
       echo "O arquivo  /home/$USER/Servidores/wildfly-26.0.1.Final  ja existe"
 else
@@ -286,7 +286,7 @@ fi
 
 
 ## Download Netbeans plugins
-echo -e "\n\n\n Netbeans plugins - 9 MB"
+echo -e "\n\n\n Netbeans plugins"
 if [ -d /home/$USER/Instalacao/netbeans-plugins ];then
     echo "O diretorio  /home/$USER/Instalacao/netbeans-plugins  ja existe"
 else
@@ -298,7 +298,7 @@ fi
 
 
 #Download Drivers JDBC
-echo -e "\n\n\n Drivers JDBC - 5 MB"
+echo -e "\n\n\n Drivers JDBC"
 if [ -d /home/$USER/Instalacao/drivers-JDBC ];then
     echo "O diretorio  /home/$USER/Instalacao/drivers-JDBC  ja existe"
 else
@@ -310,7 +310,7 @@ fi
 
 
 ## Download Wallpapers
-echo -e "\n\n\n Imagens - 5 MB"
+echo -e "\n\n\n Wallpepers"
 if [ -d /home/$USER/Imagens/wallpaper ];then
     echo "O diretorio  /home/$USER/Imagens/wallpaper  ja existe"
 else
@@ -322,7 +322,7 @@ fi
 
 
 ## Download tema Kripton
-echo -e "\n\n\n Kripton - 483 KB"
+echo -e "\n\n\n Kripton"
 if [ -e /home/luciano/.themes/Kripton ];then
     echo "O diretorio  /home/luciano/.themes/Kripton  ja existe"
 else
@@ -334,7 +334,7 @@ fi
 
 
 ## Download icones Neon Ultra Icons
-echo -e "\n\n\n Neon Ultra Icons - 36 MB"
+echo -e "\n\n\n Neon Ultra Icons"
 if [ -e /home/luciano/.icons/Neon-Ultra ];then
     echo "O diretorio  /home/luciano/.icons/Neon-Ultra  ja existe"
 else
@@ -474,8 +474,8 @@ echo -e "\n\n*******************************************************************
 # Instalando o Apache netbeans
 chmod +x *.sh
 sudo ./Apache-NetBeans-13-bin-linux-x64.sh
-echo "StartupWMClass=Apache NetBeans IDE 13" | sudo tee -a /usr/share/applications/Apache\ NetBeans-12.5.desktop
-sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.5.desktop
+echo "StartupWMClass=Apache NetBeans IDE 13" | sudo tee -a /usr/share/applications/Apache\ NetBeans-13.desktop
+sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-13.desktop
 
 
 #Atualizando indices de repositorio
