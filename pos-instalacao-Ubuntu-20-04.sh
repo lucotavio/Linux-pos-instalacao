@@ -164,54 +164,15 @@ else
     curl -L -o Insomnia.Core-2021.3.0.deb https://www.dropbox.com/s/ai079hr8l6c1pv2/Insomnia.Core-2021.3.0.deb?dl=0
 fi
 
-
-## declarando variavel opcao
-opcao=0
-
-while true
-do
-    echo -e "\n\nDigite opção 1 ou 2"
-    echo "1 - Intellij Community"
-    echo "2 - Intellij Ultimate"
-
-    read opcao
-
-    if [ $opcao -eq 1 ]; then
-        echo -e "\n\n******************** DOWNLOAD  O  INTELLIJ COMMUNITY ********************"
-
-        echo -e "\n\n\n Intellij Community - 776 MB"
-        if [ -d idea-IC-211.7442.40 ]; then
-            sudo cp -r idea-IC-211.7442.40 /opt/
-        else
-            curl -L -o ideaIC-2021.1.2.tar.gz https://www.dropbox.com/s/5dkxydptor39h6h/ideaIC-2021.1.2.tar.gz?dl=0
-            tar xvzf ideaIC-2021.1.2.tar.gz
-            sudo cp -r idea-IC-211.7442.40 /opt/
-        fi
-
-
-        echo -e "\n\n******************** FIM  DO DOWNLOAD  DO  INTELLIJ COMMUNITY ********************"
-        break
-    elif [ $opcao -eq 2 ]; then
-        echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
-
-
-        echo -e "\n\n\n Intellij ultimate - 895 MB"
-        if [ -d idea-IU-211.7442.40/ ]; then
-            sudo cp -r idea-IU-211.7442.40/ /opt/
-        else
-            curl -L -o ideaIU-2021.1.2.tar.gz https://www.dropbox.com/s/x2kom2bpwypx7sd/ideaIU-2021.1.2.tar.gz?dl=0
-            tar xvzf ideaIU-2021.1.2.tar.gz
-            sudo cp -r idea-IU-211.7442.40/ /opt/
-        fi
-
-
-        echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
-        break
-    else
-        echo -e "\n\nOpcao invalida"
-    fi
-done
-
+## Download Intellij
+echo -e "\n\n\n Intellij ultimate - 895 MB"
+if [ -d idea-IU-213.7172.25/ ]; then
+    sudo cp -r idea-IU-213.7172.25/ /opt/
+else
+    curl -L -o ideaIU-2021.3.3.tar.gz https://www.dropbox.com/s/48qmf62tb59wqpr/ideaIU-2021.3.3.tar.gz?dl=0
+    tar xvzf ideaIU-2021.1.2.tar.gz
+    sudo cp -r idea-IU-213.7172.25/ /opt/
+fi
 
 
 ## Download JDK-11.0.10
@@ -689,88 +650,56 @@ sudo adduser $USER kvm
 
 
 
-
 echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
 
-
-echo "MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
-echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
-
+    echo "MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
+    echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO MAVEN ********************"
 
 
 
-
 echo -e "\n\n******************** INSTALANDO  O  BALENA ETCHER********************"
 
-
-## Preenchendo arquivo balena-Etcher.desktop
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-
+    ## Preenchendo arquivo balena-Etcher.desktop
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO BALENA ETCHER ********************"
 
 
 
-
-echo -e "\n\n******************** INSTALANDO  O  KDENLIVE ********************"
-
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/Kdenlive.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-echo "Name=Kdenlive" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-echo "Exec=/opt/kdenlive/kdenlive.appimage" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-echo "Icon=/opt/kdenlive/kdenlive.png" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-echo "StartupWMClass=kdenlive" | sudo tee -a /usr/share/applications/Kdenlive.desktop
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  KDENLIVE ********************"
-
-
-
-
-
 echo -e "\n\n******************** INSTALANDO  O  SPRING  TOOLS  SUITE ********************"
 
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Exec=/opt/spring-tools-suite-4-11-0/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Icon=/opt/spring-tools-suite-4-11-0/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-
+  echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
+  echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+  echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+  echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+  echo "Exec=/opt/spring-tools-suite-4-11-0/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+  echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+  echo "Icon=/opt/spring-tools-suite-4-11-0/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+  echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  SPRING  TOOLS  SUITE  ********************"
 
 
 
-
-
 echo -e "\n\n******************** INSTALANDO  O  WATERFOX ********************"
 
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
-
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WATERFOX ********************"
 
@@ -778,57 +707,30 @@ echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  WATERFOX ************
 
 echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
 
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Exec=/opt/postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Icon=/opt/postman/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Exec=/opt/postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Icon=/opt/postman/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN ********************"
 
 
 
-if [ $opcao -eq 1 ]; then
-    echo -e "\n\n******************** INSTALANDO  O  INTELLIJ COMMUNITY ********************"
-
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Name=Intellij Community" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IC-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IC-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-
-
-    echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  INTELLIJ COMMUNITY ********************"
-
-elif [ $opcao -eq 2 ]; then
-
-    echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
-
+echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IU-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Exec=/opt/idea-IU-213.7172.25/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Icon=/opt/idea-IU-213.7172.25/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
 
-
-    echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
-
-else
-    echo -e "\n\nOpcao invalida"
-fi
-
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
 
 
 
