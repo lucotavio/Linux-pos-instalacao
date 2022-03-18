@@ -221,7 +221,7 @@ else
     curl -L -o onlyoffice-desktopeditors_amd64.deb https://www.dropbox.com/s/wczyw32sq6o2iiw/onlyoffice-desktopeditors_amd64.deb?dl=0
 fi
 
-## Download Postman
+## Download Postman------>
 echo -e "\n\n\n Spring Tool Suite - 555 MB"
 if [ -d Postman ];then
     sudo cp -r Postman /opt/
@@ -233,12 +233,12 @@ fi
 
 ## Download Spring Tools Suite
 echo -e "\n\n\n Spring Tool Suite - 555 MB"
-if [ -d spring-tools-suite-4-13-1 ];then
-    sudo cp -r spring-tools-suite-4-13-1 /opt/
+if [ -d sts-4.14.0.RELEASE ];then
+    sudo cp -r sts-4.14.0.RELEASE /opt/
 else
-    curl -L -o spring-tools-suite-4-13-1.tar.xz? https://www.dropbox.com/s/97bn6v8655ofwr0/spring-tools-suite-4-13-1.tar.xz?dl=0
-    tar xvfspring-tools-suite-4-13-1.tar.xz
-    sudo cp -r spring-tools-suite-4-13-1 /opt/
+    curl -L -o spring-tool-suite-4-4.14.0.RELEASE.tar.gz https://www.dropbox.com/s/pziaogsn9mitpwu/spring-tool-suite-4-4.14.0.RELEASE.tar.gz?dl=0
+    tar xvzf spring-tool-suite-4-4.14.0.RELEASE.tar.gz
+    sudo cp -r sts-4.14.0.RELEASE /opt/
 fi
 
 
@@ -403,9 +403,9 @@ echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
     echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
     echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
     echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Exec=/opt/postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Exec=/opt/Postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
     echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Icon=/opt/postman/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN ********************"
 
@@ -417,9 +417,9 @@ echo -e "\n\n******************** INSTALANDO  O  SPRING  TOOLS  SUITE **********
     echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
     echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
     echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Exec=/opt/spring-tools-suite-4-13-1/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Exec=/opt/sts-4.14.0.RELEASE/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
     echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Icon=/opt/spring-tools-suite-4-13-1/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Icon=/opt/sts-4.14.0.RELEASE/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
     echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 
 echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  SPRING  TOOLS  SUITE  ********************"
