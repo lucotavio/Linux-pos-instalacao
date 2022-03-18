@@ -144,23 +144,6 @@ else
 fi
 
 
-## Download DBVisualizer
-echo -e "\n\n\n DBVisualizer - 147 MB"
-if [ -e dbvis_linux_12_0_3.deb ];then
-    echo "O arquivo  dbvis_linux_12_0_3.deb  ja existe"
-else
-    curl -L -o dbvis_linux_12_0_3.deb https://www.dropbox.com/s/lhj41d14new5s8i/dbvis_linux_12_0_3.deb?dl=0
-fi
-
-
-## Download Insomnia
-echo -e "\n\n Insommia - 69 MB"
-if [ -e Insomnia.Core-2021.3.0.deb ];then
-    echo "O arquivo  Insomnia.Core-2021.3.0.deb  ja existe"
-else
-    curl -L -o Insomnia.Core-2021.3.0.deb https://www.dropbox.com/s/ai079hr8l6c1pv2/Insomnia.Core-2021.3.0.deb?dl=0
-fi
-
 ## Download Intellij
 echo -e "\n\n\n Maven - 9 MB"
 if [ -d idea-IU-213.7172.25 ];then
@@ -221,7 +204,7 @@ else
     curl -L -o onlyoffice-desktopeditors_amd64.deb https://www.dropbox.com/s/wczyw32sq6o2iiw/onlyoffice-desktopeditors_amd64.deb?dl=0
 fi
 
-## Download Postman------>
+## Download Postman
 echo -e "\n\n\n Spring Tool Suite - 555 MB"
 if [ -d Postman ];then
     sudo cp -r Postman /opt/
@@ -393,11 +376,28 @@ echo "************************************************** INSTALACAO DO JDK-17 **
     source .bashrc
     cd /home/$USER/Downloads/Programas/
 
-echo "************************************************** FIM DA INSTALACAO DO JDK-17 ************************************************"
+echo "**************************************************************************************************************************"
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
+echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
+
+    if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.6.3' /home/$USER/.bashrc ];then
+        echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.6.3"  encontrado'
+    else
+        echo "export MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
+        echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
+    fi
+
+    cd /home/$USER/
+    source .bashrc
+    cd /home/$USER/Downloads/Programas/
+
+echo -e "\n\n*************************************************************"
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
@@ -407,11 +407,11 @@ echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
     echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
     echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN ********************"
+echo -e "\n\n***********************************************************************"
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  SPRING  TOOLS  SUITE ********************"
+echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
@@ -422,11 +422,11 @@ echo -e "\n\n******************** INSTALANDO  O  SPRING  TOOLS  SUITE **********
     echo "Icon=/opt/sts-4.14.0.RELEASE/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
     echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  SPRING  TOOLS  SUITE  ********************"
+echo -e "\n\n**********************************************************************************"
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
+echo -e "\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
@@ -437,13 +437,44 @@ echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE *************
     echo "Icon=/opt/idea-IU-213.7172.25/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
 
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO   INTELLIJ ULTIMATE ********************"
+echo -e "\n\n*******************************************************************************"
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+
+echo -e "\n\n****************************************************************************"
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  WATERFOX ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
+
+echo -e "\n\n***********************************************************************"
+
 
 
 # Instalando o Apache netbeans
 chmod +x *.sh
 sudo ./Apache-NetBeans-13-bin-linux-x64.sh
-echo "StartupWMClass=Apache NetBeans IDE 12.5" | sudo tee -a /usr/share/applications/Apache\ NetBeans-12.5.desktop
+echo "StartupWMClass=Apache NetBeans IDE 13" | sudo tee -a /usr/share/applications/Apache\ NetBeans-12.5.desktop
 sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.5.desktop
 
 
@@ -537,12 +568,6 @@ sudo apt --fix-broken install -y
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i dbvis_linux_12_0_3.deb
-sudo apt --fix-broken install -y
-
-sudo dpkg -i Insomnia.Core-2021.3.0.deb
-sudo apt --fix-broken install -y
-
 sudo dpkg -i onlyoffice-desktopeditors_amd64.deb
 sudo apt --fix-broken install -y
 
@@ -603,95 +628,6 @@ sudo apt-get install -y adb
 sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 sudo apt install -y qemu-kvm
 udo adduser $USER kvm
-
-
-echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
-
-
-if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.6.3' /home/$USER/.bashrc ];then
-    echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.6.3"  encontrado'
-else
-  echo "export MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
-  echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
-fi
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  MAVEN ********************"
-
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
-
-
-## Preenchendo arquivo balena-Etcher.desktop
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-
-
-echo -e "\n\n******************** FIM  DA  CRIAÇÃO  DO  ICONE  DO  BALENA  ETCHER ********************"
-
-
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
-
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Exec=/opt/spring-tools-suite-4-13-1/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "Icon=/opt/spring-tools-suite-4-13-1/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-
-
-echo -e "\n\n******************** FIM  DA  CRIAÇÃO  DO  ICONE  DO  SPRING  TOOLS  SUITE  ********************"
-
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  WATERFOX ********************"
-
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
-echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
-
-
-echo -e "\n\n******************** FIM  DA  CRIAÇÃO  DO  ICONE  DO  WATERFOX ********************"
-
-
-
-
-echo -e "\n\n******************** INSTALANDO  O  POSTMAN ********************"
-
-
-echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Exec=/opt/postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-echo "Icon=/opt/postman/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
-
-echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  POSTMAN ********************"
-
-
 
 
 ## Selecionando o JDK
