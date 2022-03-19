@@ -525,9 +525,6 @@ git config --global user.name "Luciano"
 git config --global user.email "luc.oliveira343@gmail.com"
 
 
-git config --global user.name "Luciano"
-git config --global user.email "luc.otavio@gmail.com"
-
 ## Instalando Alacarte
 sudo apt-get install -y alacarte
 
@@ -589,27 +586,37 @@ sudo npm update
 sudo npm fund
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
-npm audit fix --force
+sudo npm audit fix --force
 
 ## Instalando Angular CLI
+sudo npm update
+sudo npm fund
 sudo npm install -g  @angular/cli@13.1.2
-npm audit fix --force
+sudo npm audit fix --force
 
 ## Instalando Typescript
+sudo npm update
+sudo npm fund
 sudo npm install -g typescript
-npm audit fix --force
+sudo npm audit fix --force
 
 ## Instalando Vue.js
+sudo npm update
+sudo npm fund
 sudo npm install vue
-npm audit fix --force
+sudo npm audit fix --force
 
 ## Instalando Vue CLI
+sudo npm update
+sudo npm fund
 sudo npm install -g @vue/cli
-npm audit fix --force
+sudo npm audit fix --force
 
 ## Instalando o Quasar
+sudo npm update
+sudo npm fund
 sudo npm i -g @quasar/cli
-npm audit fix --force
+sudo npm audit fix --force
 
 
 ## Transformando arquivos de .bundle em arquivos executaveis
