@@ -78,6 +78,29 @@ else
     touch /home/$USER/Modelos/texto.txt
 fi
 
+## Criando modelo de arquivo de Word
+if [ -e /home/$USER/Modelos/word.docx ];then
+    echo "O arquivo  /home/$USER/Modelos/word.docx  ja existe"
+else
+  cd /home/$USER/Modelos/
+  touch word.txt
+  libreoffice --convert-to docx word.txt
+  sleep 10
+  rm word.txt
+fi
+
+
+## Criando modelo de arquivo de Excel
+if [ -e /home/$USER/Modelos/excel.xlsx ];then
+    echo "O arquivo  /home/$USER/Modelos/excel.xlsx  ja existe"
+else
+  cd /home/$USER/Modelos/
+  touch excel.csv
+  soffice --headless --convert-to xlsx:"Calc MS Excel 2007 XML" excel.csv
+  sleep 10
+  rm excel.csv
+fi
+
 
 ## Entrando dentro do diretorio
 ## onde vao ficar os programaas
@@ -98,10 +121,10 @@ sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip 
 
 ## Download 4K Video Downloader
 echo -e "\n\n\n 4K Video Downloader"
-if [ -e 4kvideodownloader_4.17.1-1_amd64.deb ];then
-    echo "O arquivo 4kvideodownloader_4.14.3-1_amd64.deb ja existe"
+if [ -e 4kvideodownloader_4.20.0-1_amd64.deb ];then
+    echo "O arquivo 4kvideodownloader_4.20.0-1_amd64.deb ja existe"
 else
-    curl -L -o 4kvideodownloader_4.17.1-1_amd64.deb https://www.dropbox.com/s/28b7a3x3h3cmv19/4kvideodownloader_4.17.1-1_amd64.deb?dl=0
+    curl -L -o 4kvideodownloader_4.17.1-1_amd64.deb https://www.dropbox.com/s/2dg2day01i8yivi/4kvideodownloader_4.20.0-1_amd64.deb?dl=0
 fi
 
 
@@ -119,7 +142,7 @@ echo -e "\n\n\n Atom"
 if [ -e atom-amd64.deb ];then
     echo "O arquivo atom-amd64.deb ja existe"
 else
-    curl -L -o atom-amd64.deb https://www.dropbox.com/s/3e9vp9rka420n2x/atom-amd64.deb?dl=0
+    curl -L -o atom-amd64.deb https://www.dropbox.com/s/o4b4qp7qm95ycty/atom-amd64.deb?dl=0
 fi
 
 
@@ -140,7 +163,7 @@ echo -e "\n\n\n Chrome"
 if [ -e google-chrome-stable_current_amd64.deb ];then
     echo "O arquivo  google-chrome-stable_current_amd64.deb  ja existe"
 else
-    curl -L -o google-chrome-stable_current_amd64.deb https://www.dropbox.com/s/lcjlsk462f5c120/google-chrome-stable_current_amd64.deb?dl=0
+    curl -L -o google-chrome-stable_current_amd64.deb https://www.dropbox.com/s/bwdoqhki26eco13/google-chrome-stable_current_amd64.deb?dl=0
 fi
 
 
@@ -170,19 +193,19 @@ echo -e "\n\n\n Lombok"
 if [ -e lombok.jar ];then
     echo "O arquivo lombok.jar ja existe"
 else
-    curl -L -o lombok.jar https://www.dropbox.com/s/i727xec0hmpswvz/lombok.jar?dl=0
+    curl -L -o lombok.jar https://www.dropbox.com/s/z70um964zx5e6f7/lombok.jar?dl=0
 fi
 
 
 ## Download Maven
 echo -e "\n\n\n Maven"
-if [ -d apache-maven-3.6.3 ];then
-    sudo cp -r apache-maven-3.6.3 /opt/
+if [ -d apache-maven-3.8.5 ];then
+    sudo cp -r apache-maven-3.8.5 /opt/
 else
-    curl -L -o apache-maven-3.6.3-bin.tar.gz https://www.dropbox.com/s/k6zjl3t6ebhrycw/apache-maven-3.6.3-bin.tar.gz?dl=0
+    curl -L -o apache-maven-3.8.5-bin.tar.gz https://www.dropbox.com/s/u1t7pv0594zd4vv/apache-maven-3.8.5-bin.tar.gz?dl=0
 
-    tar xvzf apache-maven-3.6.3-bin.tar.gz
-    sudo cp -r apache-maven-3.6.3 /opt/
+    tar xvzf apache-maven-3.8.5-bin.tar.gz
+    sudo cp -r apache-maven-3.8.5 /opt/
 fi
 
 
@@ -191,7 +214,7 @@ echo -e "\n\n\n Microsoft Teams"
 if [ -e teams_1.4.00.26453_amd64.deb ];then
     echo "O arquivo teams_1.4.00.26453_amd64.deb ja existe"
 else
-    curl -L -o teams_1.4.00.26453_amd64.deb https://www.dropbox.com/s/rjmbux5sagjb0ya/teams_1.4.00.26453_amd64.deb?dl=0
+    curl -L -o teams_1.4.00.26453_amd64.deb https://www.dropbox.com/s/6q03keaff2f6pib/teams_1.4.00.26453_amd64.deb?dl=0
 
 fi
 
@@ -203,6 +226,7 @@ if [ -e onlyoffice-desktopeditors_amd64.deb ];then
 else
     curl -L -o onlyoffice-desktopeditors_amd64.deb https://www.dropbox.com/s/wczyw32sq6o2iiw/onlyoffice-desktopeditors_amd64.deb?dl=0
 fi
+
 
 ## Download Postman
 echo -e "\n\n\n Postman"
@@ -219,8 +243,8 @@ echo -e "\n\n\n Spring Tool Suite"
 if [ -d sts-4.14.0.RELEASE ];then
     sudo cp -r sts-4.14.0.RELEASE /opt/
 else
-    curl -L -o spring-tool-suite-4-4.14.0.RELEASE.tar.gz https://www.dropbox.com/s/pziaogsn9mitpwu/spring-tool-suite-4-4.14.0.RELEASE.tar.gz?dl=0
-    tar xvzf spring-tool-suite-4-4.14.0.RELEASE.tar.gz
+    curl -L -o sts-4.14.0.RELEASE.tar.xz https://www.dropbox.com/s/4k0qonb31xg46mj/sts-4.14.0.RELEASE.tar.xz?dl=0
+    tar xvf sts-4.14.0.RELEASE.tar.xz
     sudo cp -r sts-4.14.0.RELEASE /opt/
 fi
 
@@ -230,46 +254,34 @@ echo -e "\n\n\n StarUML"
 if [ -e StarUML_4.0.1_amd64.deb ];then
     echo "O arquivo StarUML_4.0.1_amd64.deb ja existe"
 else
-    curl -L -o StarUML_4.0.1_amd64.deb https://www.dropbox.com/s/rfmrqyeoywwfi02/StarUML_4.0.1_amd64.deb?dl=0
+    curl -L -o StarUML_5.0.0_amd64.deb https://www.dropbox.com/s/b7csnvtgi85iz15/StarUML_5.0.0_amd64.deb?dl=0
 fi
 
 
 ## Download VirtualBox
 echo -e "\n\n\n VirtualBox"
-if [ -e virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb ];then
-    echo "O arquivo  virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb  ja existe"
+if [ -e virtualbox-6.1_6.1.32-18-04.deb ];then
+    echo "O arquivo  virtualbox-6.1_6.1.32-18-04.deb  ja existe"
 else
-    curl -L -o virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb https://www.dropbox.com/s/hy6dhfp22pxhzlt/virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb?dl=0
+    curl -L -o virtualbox-6.1_6.1.32-18-04.deb https://www.dropbox.com/s/ymsiap10rtw6iwq/virtualbox-6.1_6.1.32-18-04.deb?dl=0
 fi
 
 
 ## Download Visual Studio Code
 echo -e "\n\n\n Visual Studio Code"
-if [ -e visual-studio-code_1.53.2-1613044664_amd64.deb ];then
-    echo "O arquivo  visual-studio-code_1.53.2-1613044664_amd64.deb  ja existe"
+if [ -e visual_studio_code_1.65.2.deb ];then
+    echo "O arquivo  visual_studio_code_1.65.2.deb  ja existe"
 else
-    curl -L -o visual-studio-code_1.53.2-1613044664_amd64.deb https://www.dropbox.com/s/5gfoaix1a9it735/visual-studio-code_1.53.2-1613044664_amd64.deb?dl=0
+    curl -L -o visual_studio_code_1.65.2.deb https://www.dropbox.com/s/k9pl91drm18axcv/visual_studio_code_1.65.2.deb?dl=0
 fi
 
 
-## Download VMware Player
+## Download VMware Workstation
 echo -e "\n\n\n VMware Player"
-if [ -e VMware-Player-16.1.1-17801498.x86_64.bundle ];then
-    echo "O arquivo  VMware-Player-16.1.1-17801498.x86_64.bundle  ja existe"
+if [ -e VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle ];then
+    echo "O arquivo  VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle  ja existe"
 else
-    curl -L -o VMware-Player-16.1.1-17801498.x86_64.bundle https://www.dropbox.com/s/go28r2rcxxzp4cz/VMware-Player-16.1.1-17801498.x86_64.bundle?dl=0
-fi
-
-
-## Download Waterfox
-echo -e "\n\n\n Waterfox"
-if [ -d waterfox ];then
-    sudo cp -r waterfox /opt/
-else
-    curl -L -o waterfox.tar.gz https://www.dropbox.com/s/al781puozw7zrm6/waterfox.tar.gz?dl=0
-
-    tar xvzf waterfox.tar.gz
-    sudo cp -r waterfox /opt/
+    curl -L -o VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle https://www.dropbox.com/s/bq6fb2dfd3mekzj/VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle?dl=0
 fi
 
 
@@ -326,19 +338,19 @@ echo -e "\n\n\n Kripton"
 if [ -e /home/luciano/.themes/Kripton ];then
     echo "O diretorio  /home/luciano/.themes/Kripton  ja existe"
 else
-    curl -L -o Kripton.tar.gz https://www.dropbox.com/s/g4uayzka786saly/Kripton.tar.gz?dl=0
+    curl -L -o Kripton.tar.xz https://www.dropbox.com/s/yrqfk7ys4ked03d/Kripton.tar.xz?dl=0
 
-    tar xvzf Kripton.tar.gz
+    tar xvf Kripton.tar.xz
     cp -r Kripton /home/$USER/.themes/
 fi
 
 
 ## Download icones Neon Ultra Icons
 echo -e "\n\n\n Neon Ultra Icons"
-if [ -e /home/luciano/.icons/Neon-Ultra ];then
+if [ -e /home/luciano/.icons/Neon-Ultra-icons ];then
     echo "O diretorio  /home/luciano/.icons/Neon-Ultra  ja existe"
 else
-    curl -L -o Neon-Ultra.tar.gz https://www.dropbox.com/s/5qpwqmzzuqvk7zy/Neon-Ultra.tar.gz?dl=0
+    curl -L -o Neon-Ultra-icons.tar.gz https://www.dropbox.com/s/99ltknc1fx63o7m/Neon-Ultra-icons.tar.gz?dl=0
 
     tar xvzf Neon-Ultra.tar.gz
     cp -r Neon-Ultra /home/$USER/.icons/

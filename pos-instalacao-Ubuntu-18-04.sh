@@ -106,11 +106,11 @@ fi
 
 
 ## Download Apache Netbeans
-echo -e "\n\n Apache Netbeans - 408 MB"
-if [ -e Apache-NetBeans-12.4-bin-linux-x64.sh ];then
-    echo "O arquivo Apache-NetBeans-12.4-bin-linux-x64.sh ja existe"
+echo -e "\n\n Apache Netbeans"
+if [ -e Apache-NetBeans-13-bin-linux-x64.sh ];then
+    echo "O arquivo Apache-NetBeans-13-bin-linux-x64.sh ja existe"
 else
-    curl -L -o Apache-NetBeans-12.5-bin-linux-x64.sh https://www.dropbox.com/s/ipawzryymwkbpuq/Apache-NetBeans-12.5-bin-linux-x64.sh?dl=0
+    curl -L -o Apache-NetBeans-13-bin-linux-x64.sh https://www.dropbox.com/s/hb08o8fe0reok1s/Apache-NetBeans-13-bin-linux-x64.sh?dl=0
 fi
 
 
@@ -150,15 +150,6 @@ if [ -e dbvis_linux_12_0_3.deb ];then
     echo "O arquivo  dbvis_linux_12_0_3.deb  ja existe"
 else
     curl -L -o dbvis_linux_12_0_3.deb https://www.dropbox.com/s/lhj41d14new5s8i/dbvis_linux_12_0_3.deb?dl=0
-fi
-
-
-## Download Insomnia
-echo -e "\n\n Insommia - 69 MB"
-if [ -e Insomnia.Core-2021.3.0.deb ];then
-    echo "O arquivo  Insomnia.Core-2021.3.0.deb  ja existe"
-else
-    curl -L -o Insomnia.Core-2021.3.0.deb https://www.dropbox.com/s/ai079hr8l6c1pv2/Insomnia.Core-2021.3.0.deb?dl=0
 fi
 
 
@@ -380,65 +371,13 @@ echo "************************************************** FIM DA INSTALACAO DO JD
 
 # Instalando o Apache netbeans
 chmod +x *.sh
-sudo ./Apache-NetBeans-12.5-bin-linux-x64.sh
-echo "StartupWMClass=Apache NetBeans IDE 12.5" | sudo tee -a /usr/share/applications/Apache\ NetBeans-12.5.desktop
-sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-12.5.desktop
+sudo ./Apache-NetBeans-13-bin-linux-x64.sh
+echo "StartupWMClass=Apache NetBeans IDE 13" | sudo tee -a /usr/share/applications/Apache\ NetBeans-13.desktop
+sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-13.desktop
 
 
 #Atualizando indices de repositorio
 sudo apt-get update -y
-
-
-## Instalando Gimp
-echo "deb http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/otto-kesselgulasch/gimp/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB97E9C3A97F85C095AEA7903BDAAC08614C4B38
-sudo apt-get update -y
-sudo apt-get install gimp
-
-
-
-## Instalando Handbrake
-echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 43D3A9F60C58A7169778E6FB8771ADB0816950D8
-sudo apt-get update -y
-sudo apt-get install -y handbrake-gtk
-sudo apt-get install -y handbrake-cli
-
-
-
-## Instalando Obs Studio
-sudo apt install ffmpeg
-echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/obsproject/obs-studio/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BC7345F522079769F5BBE987EFC71127F425E228
-sudo apt-get update -y
-sudo apt install -y obs-studio
-
-
-
-## Instalando Pinta
-echo "deb http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.lis
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11E609A1BC3E0682A5A1D6B2
-sudo apt-get update -y
-sudo apt-get install -y pinta
-
-
-
-## Instalando Stacer
-echo "deb http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu bionic main " | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FE2D607711EDD0FF4D069EC70F6444BB6902FCAF
-sudo apt-get update -y
-sudo apt-get install -y handbrake-gtk
-sudo apt-get install -y stacer
 
 
 ## aumentando o numero de arquivos que o sistema pode monitorar
@@ -668,6 +607,7 @@ sudo snap install umbrello
 sudo snap install postman
 sudo snap install kdenlive
 sudo snap install dbeaver-ce
+sudo snap install insomnia
 
 
 
