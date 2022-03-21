@@ -124,7 +124,7 @@ echo -e "\n\n\n 4K Video Downloader"
 if [ -e 4kvideodownloader_4.20.0-1_amd64.deb ];then
     echo "O arquivo 4kvideodownloader_4.20.0-1_amd64.deb ja existe"
 else
-    curl -L -o 4kvideodownloader_4.17.1-1_amd64.deb https://www.dropbox.com/s/2dg2day01i8yivi/4kvideodownloader_4.20.0-1_amd64.deb?dl=0
+    curl -L -o 4kvideodownloader_4.20.0-1_amd64.deb https://www.dropbox.com/s/2dg2day01i8yivi/4kvideodownloader_4.20.0-1_amd64.deb?dl=0
 fi
 
 
@@ -251,8 +251,8 @@ fi
 
 ## Download StarUML
 echo -e "\n\n\n StarUML"
-if [ -e StarUML_4.0.1_amd64.deb ];then
-    echo "O arquivo StarUML_4.0.1_amd64.deb ja existe"
+if [ -e StarUML_5.0.0_amd64.deb ];then
+    echo "O arquivo StarUML_5.0.0_amd64.deb ja existe"
 else
     curl -L -o StarUML_5.0.0_amd64.deb https://www.dropbox.com/s/b7csnvtgi85iz15/StarUML_5.0.0_amd64.deb?dl=0
 fi
@@ -270,7 +270,7 @@ fi
 ## Download Visual Studio Code
 echo -e "\n\n\n Visual Studio Code"
 if [ -e visual_studio_code_1.65.2.deb ];then
-    echo "O arquivo  visual_studio_code_1.65.2.deb  ja existe"
+    echo "O arquivo  visual_studio_code_1.65.2.debb  ja existe"
 else
     curl -L -o visual_studio_code_1.65.2.deb https://www.dropbox.com/s/k9pl91drm18axcv/visual_studio_code_1.65.2.deb?dl=0
 fi
@@ -394,10 +394,10 @@ echo "**************************************************************************
 
 echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
 
-    if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.6.3' /home/$USER/.bashrc ];then
-        echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.6.3"  encontrado'
+    if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.8.5' /home/$USER/.bashrc ];then
+        echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.8.5"  encontrado'
     else
-        echo "export MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
+        echo "export MAVEN_HOME=/opt/apache-maven-3.8.5" >> /home/$USER/.bashrc
         echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
     fi
 
@@ -567,12 +567,13 @@ git config --global mergetool.prompt false
 ## Transformando arquivos de .deb em arquivos executaveis
 chmod +x *.deb
 
+sudo dpkg -i 4kvideodownloader_4.20.0-1_amd64.deb
+sudo apt --fix-broken install -y
+
 
 sudo dpkg -i atom-amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i 4kvideodownloader_4.17.1-1_amd64.deb
-sudo apt --fix-broken install -y
 
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y
@@ -580,16 +581,16 @@ sudo apt --fix-broken install -y
 sudo dpkg -i onlyoffice-desktopeditors_amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i StarUML_4.0.1_amd64.deb
+sudo dpkg -i StarUML_5.0.0_amd64.deb
 sudo apt --fix-broken install -y
 
 sudo dpkg -i teams_1.4.00.26453_amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i virtualbox-6.1_6.1.30-148432~Ubuntu~bionic_amd64.deb
+sudo dpkg -i virtualbox-6.1_6.1.32-18-04.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i visual-studio-code_1.53.2-1613044664_amd64.deb
+sudo dpkg -i visual_studio_code_1.65.2.deb
 sudo apt --fix-broken install -y
 
 
@@ -641,7 +642,7 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y manpages-dev
 
 ## Instalando VMware
-sudo ./VMware-Player-16.1.1-17801498.x86_64.bundle
+sudo ./VMware-Workstation-Full-16.2.3-19376536.x86_64.bundl
 
 ## Resolvendo no VMware Player o problema de: No 3d support is available from the host, on all VMware guests
 if [ grep -q 'mks.gl.allowBlacklistedDrivers = "TRUE"' /home/$USER/.vmware/preferences ];then
