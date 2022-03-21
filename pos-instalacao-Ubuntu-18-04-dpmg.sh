@@ -736,7 +736,7 @@ do
         if [ -e mysql-apt-config_0.8.22-1_all.deb ];then
             echo "O mysql-apt-config_0.8.22-1_all.deb ja existe"
         else
-            curl -L -o mysql-apt-config_0.8.22-1_all.deb https://www.dropbox.com/s/is04u0l5ipek661/mysql-apt-config_0.8.22-1_all.deb?dl=0
+            curl -L -o mysql-apt-config_0.8.22-1_all.deb https://www.dropbox.com/s/2mh0c7by1gagm4c/mysql-apt-config_0.8.22-1_all.deb?dl=0
         fi
 
 
