@@ -78,6 +78,13 @@ else
     touch /home/$USER/Modelos/texto.txt
 fi
 
+## Criando modelo de arquivo de Properties
+if [ -e /home/$USER/Modelos/propriedades.properties ];then
+    echo "O arquivo  /home/$USER/Modelos/propriedades.properties  ja existe"
+else
+    touch /home/$USER/Modelos/propriedades.properties
+fi
+
 ## Criando modelo de arquivo de Word
 if [ -e /home/$USER/Modelos/word.docx ];then
     echo "O arquivo  /home/$USER/Modelos/word.docx  ja existe"
@@ -155,6 +162,7 @@ else
 
     tar xvf balena-etcher.tar.xz
     sudo cp -r balena-etcher /opt/
+    rm -r balena-etcher.tar.xz
 fi
 
 
@@ -176,6 +184,7 @@ else
 
     tar xvzf ideaIU-2021.3.3.tar.gz
     sudo cp -r idea-IU-213.7172.25 /opt/
+    rm -r ideaIU-2021.3.3.tar.gz
 fi
 
 
@@ -205,7 +214,8 @@ else
     curl -L -o apache-maven-3.8.5-bin.tar.gz https://www.dropbox.com/s/u1t7pv0594zd4vv/apache-maven-3.8.5-bin.tar.gz?dl=0
 
     tar xvzf apache-maven-3.8.5-bin.tar.gz
-    sudo cp -r apache-maven-3.8.5 /opt/
+    sudo cp -r apache-maven-3.8.5 /opt/rm apache-maven-3.8.5
+    rm -r apache-maven-3.8.5-bin.tar.gz
 fi
 
 
@@ -215,7 +225,6 @@ if [ -e teams_1.4.00.26453_amd64.deb ];then
     echo "O arquivo teams_1.4.00.26453_amd64.deb ja existe"
 else
     curl -L -o teams_1.4.00.26453_amd64.deb https://www.dropbox.com/s/6q03keaff2f6pib/teams_1.4.00.26453_amd64.deb?dl=0
-
 fi
 
 
@@ -233,9 +242,10 @@ echo -e "\n\n\n Postman"
 if [ -d Postman ];then
     sudo cp -r Postman /opt/
 else
-    curl -L -o Postman.tar.xz https://www.dropbox.com/s/hypb139ncdb8ej4/Postman.tar.xz?dl=0
-    tar xvf Postman.tar.xz
+    curl -L -o postman-9.15.2-linux-x64.tar.gz https://www.dropbox.com/s/x37gzwbtmmaf6xs/postman-9.15.2-linux-x64.tar.gz?dl=0
+    tar xvzf postman-9.15.2-linux-x64.tar.gz
     sudo cp -r Postman /opt/
+    rm -r postman-9.15.2-linux-x64.tar.gz
 fi
 
 ## Download Spring Tools Suite
@@ -246,6 +256,7 @@ else
     curl -L -o sts-4.14.0.RELEASE.tar.xz https://www.dropbox.com/s/4k0qonb31xg46mj/sts-4.14.0.RELEASE.tar.xz?dl=0
     tar xvf sts-4.14.0.RELEASE.tar.xz
     sudo cp -r sts-4.14.0.RELEASE /opt/
+    rm -r sts-4.14.0.RELEASE.tar.xz
 fi
 
 
@@ -294,6 +305,7 @@ else
 
       tar xvf wildfly-26.0.1.Final.tar.xz
       cp -r wildfly-26.0.1.Final /home/$USER/Servidores/
+      rm -r wildfly-26.0.1.Final.tar.xz
 fi
 
 
@@ -306,6 +318,7 @@ else
 
     tar xvf netbeans-plugins.tar.xz
     cp -r netbeans-plugins /home/$USER/Instalacao/
+    rm -r netbeans-plugins.tar.xz
 fi
 
 
@@ -318,6 +331,7 @@ else
 
     tar xvf drivers-JDBC.tar.xz
     cp -r drivers-JDBC /home/$USER/Instalacao/
+    rm -r drivers-JDBC.tar.xz
 fi
 
 
@@ -330,6 +344,7 @@ else
 
     tar xvf wallpaper.tar.xz
     cp -r wallpaper /home/$USER/Imagens/
+    rm -r wallpaper.tar.xz
 fi
 
 
@@ -342,19 +357,20 @@ else
 
     tar xvf Kripton.tar.xz
     cp -r Kripton /home/$USER/.themes/
+    rm -r Kripton.tar.xz
 fi
 
 
 ## Download icones Neon Ultra Icons
 echo -e "\n\n\n Neon Ultra Icons"
-if [ -e /home/luciano/.icons/Neon-Ultra-icons ];then
+if [ -e /home/luciano/.icons/neon-ultra-icons ];then
     echo "O diretorio  /home/luciano/.icons/Neon-Ultra  ja existe"
 else
-    curl -L -o Neon-Ultra-icons.tar.gz https://www.dropbox.com/s/99ltknc1fx63o7m/Neon-Ultra-icons.tar.gz?dl=0
+    curl -L -o neon-ultra-icons.tar.gz https://www.dropbox.com/s/7faky06fwyre173/neon-ultra-icons.tar.gz?dl=0
 
-    tar xvzf Neon-Ultra.tar.gz
-    cp -r Neon-Ultra /home/$USER/.icons/
-fi
+    tar xvzf neon-ultra-icons.tar.gz
+    cp -r neon-ultra-icons /home/$USER/.icons/
+    rm -r neon-ultra-icons.tar.gz
 
 
 ##Instalando fonte firecode
@@ -642,7 +658,7 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y manpages-dev
 
 ## Instalando VMware
-sudo ./VMware-Workstation-Full-16.2.3-19376536.x86_64.bundl
+sudo ./VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle
 
 ## Resolvendo no VMware Player o problema de: No 3d support is available from the host, on all VMware guests
 if [ grep -q 'mks.gl.allowBlacklistedDrivers = "TRUE"' /home/$USER/.vmware/preferences ];then
