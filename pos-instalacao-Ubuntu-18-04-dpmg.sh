@@ -125,6 +125,18 @@ sudo apt-get install -y sharutils
 sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip ark ncompress
 
 
+## Download Intellij Ultimate
+echo -e "\n\n\n Intellij Ultimate"
+if [ -d idea-IU-213.7172.25 ];then
+    sudo cp -r idea-IU-213.7172.25 /opt/
+else
+    curl -L -o ideaIU-2021.3.3.tar.gz https://www.dropbox.com/s/48qmf62tb59wqpr/ideaIU-2021.3.3.tar.gz?dl=0
+
+    tar xvzf ideaIU-2021.3.3.tar.gz
+    sudo cp -r idea-IU-213.7172.25 /opt/
+    rm -r ideaIU-2021.3.3.tar.gz
+fi
+
 
 ## Download 4K Video Downloader
 echo -e "\n\n\n 4K Video Downloader"
@@ -173,20 +185,6 @@ if [ -e google-chrome-stable_current_amd64.deb ];then
 else
     curl -L -o google-chrome-stable_current_amd64.deb https://www.dropbox.com/s/bwdoqhki26eco13/google-chrome-stable_current_amd64.deb?dl=0
 fi
-
-
-## Download Intellij Ultimate
-echo -e "\n\n\n Intellij Ultimate"
-if [ -d idea-IU-213.7172.25 ];then
-    sudo cp -r idea-IU-213.7172.25 /opt/
-else
-    curl -L -o ideaIU-2021.3.3.tar.gz https://www.dropbox.com/s/48qmf62tb59wqpr/ideaIU-2021.3.3.tar.gz?dl=0
-
-    tar xvzf ideaIU-2021.3.3.tar.gz
-    sudo cp -r idea-IU-213.7172.25 /opt/
-    rm -r ideaIU-2021.3.3.tar.gz
-fi
-
 
 ## Download JDK-17.0.2
 echo -e "\n\n\n JDK-17"
