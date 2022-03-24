@@ -127,14 +127,14 @@ sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip 
 
 ## Download Intellij Ultimate
 echo -e "\n\n\n Intellij Ultimate"
-if [ -d idea-IU-213.7172.25 ];then
-    sudo cp -r idea-IU-213.7172.25 /opt/
+if [ -d idea-IU-211.7442.40 ];then
+    sudo cp -r idea-IU-211.7442.40 /opt/
 else
-    curl -L -o ideaIU-2021.3.3.tar.gz https://www.dropbox.com/s/48qmf62tb59wqpr/ideaIU-2021.3.3.tar.gz?dl=0
+    curl -L -o ideaIU-2021.1.2.tar.gz https://www.dropbox.com/s/nm1ul7ckqcmfq7y/ideaIU-2021.1.2.tar.gz?dl=0
 
-    tar xvzf ideaIU-2021.3.3.tar.gz
-    sudo cp -r idea-IU-213.7172.25 /opt/
-    rm -r ideaIU-2021.3.3.tar.gz
+    tar xvzf ideaIU-2021.1.2.tar.gz
+    sudo cp -r idea-IU-211.7442.40 /opt/
+    rm -r ideaIU-2021.1.2.tar.gz
 fi
 
 
@@ -359,6 +359,19 @@ else
 fi
 
 
+## Download tema WhiteSur Dark solid
+echo -e "\n\n\n WhiteSur Dark solid"
+if [ -e /home/luciano/.themes/WhiteSur-dark-solid ];then
+    echo "O diretorio  /home/luciano/.themes/WhiteSur-dark-solid  ja existe"
+else
+    curl -L -o WhiteSur-dark-solid.tar.xz https://www.dropbox.com/s/fq1jpardggpkguc/WhiteSur-dark-solid.tar.xz?dl=0
+
+    tar xvf WhiteSur-dark-solid.tar.xz
+    cp -r WhiteSur-dark-solid /home/$USER/.themes/
+    rm -r WhiteSur-dark-solid.tar.xz
+fi
+
+
 ## Download icones Neon Ultra Icons
 echo -e "\n\n\n Neon Ultra Icons"
 if [ -e /home/luciano/.icons/neon-ultra-icons ];then
@@ -369,6 +382,20 @@ else
     tar xvzf neon-ultra-icons.tar.gz
     cp -r neon-ultra-icons /home/$USER/.icons/
     rm -r neon-ultra-icons.tar.gz
+fi
+
+
+## Download icones White Sur
+echo -e "\n\n\n White Sur Icons"
+if [ -e /home/luciano/.icons/WhiteSur ];then
+    echo "O diretorio  /home/luciano/.icons/WhiteSur  ja existe"
+else
+    curl -L -o WhiteSur.tar.xz https://www.dropbox.com/s/7sr5k15zwlotg4g/WhiteSur.tar.xz?dl=0
+
+    tar xvf WhiteSur.tar.xz
+    cp -r WhiteSur /home/$USER/.icons/
+    rm -r WhiteSur.tar.xz
+fi
 
 
 ##Instalando fonte firecode
@@ -458,9 +485,9 @@ echo -e "\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********
     echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IU-213.7172.25/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Exec=/opt/idea-IU-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IU-213.7172.25/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
 
 echo -e "\n\n*******************************************************************************"
