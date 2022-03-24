@@ -581,6 +581,16 @@ git config --global user.email "luc.oliveira343@gmail.com"
 touch ~/.netrc
 echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
 
+mkdir ~/salvar-login-Senha-Git
+cd ~/salvar-login-Senha-Git
+git init
+git commit -m "first commit"
+git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
+git push
+git config --global credential.helper store
+
+rm -r ~/salvar-login-Senha-Git
+
 
 
 ## Instalando Alacarte
