@@ -576,8 +576,8 @@ git config --global user.name "Luciano"
 git config --global user.email "luc.oliveira343@gmail.com"
 
 ##Arquivoque vai guardar o login e o token do Git Hub
-touch ~/.netrc
-echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
+##touch ~/.netrc
+##echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
 
 mkdir ~/salvar-login-Senha-Git
 cd ~/salvar-login-Senha-Git
