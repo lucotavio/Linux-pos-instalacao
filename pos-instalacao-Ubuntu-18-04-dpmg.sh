@@ -188,10 +188,10 @@ fi
 
 ## Download JDK-17.0.2
 echo -e "\n\n\n JDK-17"
-if [ -e jdk-17.0.2_linux-x64_bin.deb ];then
-    echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
+if [ -e jdk-17_linux-x64_bin.deb ];then
+    echo "O arquivo jdk-17_linux-x64_bin.deb ja existe"
 else
-    curl -L -o jdk-17.0.2_linux-x64_bin.deb https://www.dropbox.com/s/7xs35m0zxuj8gll/jdk-17.0.2_linux-x64_bin.deb?dl=0
+    curl -L -o jdk-17_linux-x64_bin.deb https://www.dropbox.com/s/vjf09v74a1tjiaj/jdk-17_linux-x64_bin.deb?dl=0
 fi
 
 
@@ -398,17 +398,6 @@ else
 fi
 
 
-##Instalando fonte firecode
-sudo apt-get update -y
-sudo apt install fonts-firacode
-
-
-## Instalando fontes da Microsoft
-echo -e "\n\n\n\n"
-sudo apt install -y ttf-mscorefonts-installer
-sudo fc-cache -f -v
-
-
 
 
 echo "************************************************** INSTALACAO DO JDK-17 ************************************************"
@@ -553,6 +542,15 @@ chmod +x lombok.jar
 sudo java -jar lombok.jar
 
 
+##Instalando fonte firecode
+sudo apt-get update -y
+sudo apt install fonts-firacode
+
+## Instalando fontes da Microsoft
+echo -e "\n\n\n\n"
+sudo apt install -y ttf-mscorefonts-installer
+sudo fc-cache -f -v
+
 ## Instalando gcc g++
 sudo apt-get install gcc g++ make
 
@@ -589,6 +587,14 @@ git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
 git push
 git config --global credential.helper store
 
+
+## Entrando dentro do diretorio
+## onde vao ficar os programaas
+## que precisao de dwonloads
+## para serem istalados
+cd  /home/$USER/Downloads/Programas/
+
+##Removendo pásta temporaria do git
 rm -r ~/salvar-login-Senha-Git
 
 
@@ -626,10 +632,8 @@ chmod +x *.deb
 sudo dpkg -i 4kvideodownloader_4.20.0-1_amd64.deb
 sudo apt --fix-broken install -y
 
-
 sudo dpkg -i atom-amd64.deb
 sudo apt --fix-broken install -y
-
 
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y
