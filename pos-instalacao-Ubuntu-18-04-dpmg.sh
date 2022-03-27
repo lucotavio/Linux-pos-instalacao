@@ -402,7 +402,7 @@ fi
 
 echo "************************************************** INSTALACAO DO JDK-17 ************************************************"
 
-    sudo dpkg -i jdk-17.0.2_linux-x64_bin.deb
+    sudo dpkg -i jdk-17_linux-x64_bin.deb
     sudo apt --fix-broken install -y
     sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 2
     sudo update-alternatives --config java
@@ -422,96 +422,8 @@ echo "**************************************************************************
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
 
-    if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.8.5' /home/$USER/.bashrc ];then
-        echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.8.5"  encontrado'
-    else
-        echo "export MAVEN_HOME=/opt/apache-maven-3.8.5" >> /home/$USER/.bashrc
-        echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
-    fi
-
-    cd /home/$USER/
-    source .bashrc
-    cd /home/$USER/Downloads/Programas/
-
-echo -e "\n\n*************************************************************"
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Exec=/opt/Postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
-echo -e "\n\n***********************************************************************"
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Exec=/opt/sts-4.14.0.RELEASE/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Icon=/opt/sts-4.14.0.RELEASE/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-
-echo -e "\n\n**********************************************************************************"
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IU-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-
-echo -e "\n\n*******************************************************************************"
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-
-echo -e "\n\n****************************************************************************"
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  WATERFOX ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
-
-echo -e "\n\n***********************************************************************"
-
-
+echo "************************************************** INSTALANDO  APACHE  NETBEANS ************************************************"
 
 # Instalando o Apache netbeans
 chmod +x *.sh
@@ -519,112 +431,12 @@ sudo ./Apache-NetBeans-13-bin-linux-x64.sh
 echo "StartupWMClass=Apache NetBeans IDE 13" | sudo tee -a /usr/share/applications/Apache\ NetBeans-13.desktop
 sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ NetBeans-13.desktop
 
-
-#Atualizando indices de repositorio
-sudo apt-get update -y
-
-
-## Instalando Pinta
-echo "deb http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "deb-src http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-echo "" | sudo tee -a /etc/apt/sources.lis
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11E609A1BC3E0682A5A1D6B2
-sudo apt-get update -y
-sudo apt-get install -y pinta
-
-
-## aumentando o numero de arquivos que o sistema pode monitorar
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
-
-
-## Instalando Lombok no Spring Tools Suite
-chmod +x lombok.jar
-sudo java -jar lombok.jar
-
-
-##Instalando fonte firecode
-sudo apt-get update -y
-sudo apt install fonts-firacode
-
-## Instalando fontes da Microsoft
-echo -e "\n\n\n\n"
-sudo apt install -y ttf-mscorefonts-installer
-sudo fc-cache -f -v
-
-## Instalando gcc g++
-sudo apt-get install gcc g++ make
-
-## Instalando o Transmission
-sudo apt-get install -y transmission
-
-## Intalando Gnome tweaks tools
-sudo apt-get install -y gnome-tweak-tool
-
-## Instalando Dconf editor
-sudo apt-get install -y dconf-editor
-
-## Intalando Gnome extensions
-sudo apt-get install -y gnome-shell-extensions
-sudo apt-get install -y chrome-gnome-shell
-
-## Instalando Gparted
-sudo apt-get install -y gparted
-
-## Instalando o Git
-sudo apt-get install -y git
-git config --global user.name "Luciano"
-git config --global user.email "luc.oliveira343@gmail.com"
-
-##Arquivoque vai guardar o login e o token do Git Hub
-##touch ~/.netrc
-##echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
-
-mkdir ~/salvar-login-Senha-Git
-cd ~/salvar-login-Senha-Git
-git init
-git commit -m "first commit"
-git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
-git push
-git config --global credential.helper store
-
-
-## Entrando dentro do diretorio
-## onde vao ficar os programaas
-## que precisao de dwonloads
-## para serem istalados
-cd  /home/$USER/Downloads/Programas/
-
-##Removendo pásta temporaria do git
-rm -r ~/salvar-login-Senha-Git
+echo "************************************************************************************************************************"
 
 
 
-## Instalando Alacarte
-sudo apt-get install -y alacarte
 
-## Instalando net-tools
-sudo apt-get install -y net-tools
-
-## Instalando libglib2.0-dev
-sudo apt-get install -y libglib2.0-dev
-
-## Instalando libgconf-2-4
-sudo apt-get install libgconf-2-4
-
-## Instalando VLC
-sudo apt-get install -y vlc
-
-## Instalando e configurando Meld
-sudo apt-get install -y meld
-
-git config --global diff.tool meld
-git config --global difftool.meld.path "/usr/bin/meld"
-git config --global difftool.prompt false
-
-git config --global merge.tool meld
-git config --global mergetool.meld.path "/usr/bin/meld"
-git config --global mergetool.prompt false
-
+echo "************************************************** INSTALANDO  ARQUIVOS  .DEB ************************************************"
 
 ## Transformando arquivos de .deb em arquivos executaveis
 chmod +x *.deb
@@ -652,6 +464,118 @@ sudo apt --fix-broken install -y
 
 sudo dpkg -i visual_studio_code_1.65.2.deb
 sudo apt --fix-broken install -y
+
+echo "**********************************************************************************************************************************"
+
+
+
+
+echo "************************************************** INSTALANDO  APLICATIVOS  APT-GET ************************************************"
+
+##Instalando fonte firecode
+sudo apt-get update -y
+sudo apt install fonts-firacode
+
+## Instalando fontes da Microsoft
+echo -e "\n\n\n\n"
+sudo apt install -y ttf-mscorefonts-installer
+sudo fc-cache -f -v
+
+## Instalando gcc g++
+sudo apt-get install gcc g++ make
+
+## Instalando o Transmission
+sudo apt-get install -y transmission
+
+## Intalando Gnome tweaks tools
+sudo apt-get install -y gnome-tweak-tool
+
+## Instalando Dconf editor
+sudo apt-get install -y dconf-editor
+
+## Instalando Alacarte
+sudo apt-get install -y alacarte
+
+## Instalando net-tools
+sudo apt-get install -y net-tools
+
+## Instalando libglib2.0-dev
+sudo apt-get install -y libglib2.0-dev
+
+## Instalando libgconf-2-4
+sudo apt-get install libgconf-2-4
+
+## Instalando VLC
+sudo apt-get install -y vlc
+
+## Intalando Gnome extensions
+sudo apt-get install -y gnome-shell-extensions
+sudo apt-get install -y chrome-gnome-shell
+
+## Instalando Gparted
+sudo apt-get install -y gparted
+
+echo "***************************************************************************************************************"
+
+
+
+
+echo "************************************************** INSTALANDO  GIT ************************************************"
+
+## Instalando o Git
+sudo apt-get install -y git
+git config --global user.name "Luciano"
+git config --global user.email "luc.oliveira343@gmail.com"
+
+##Arquivoque vai guardar o login e o token do Git Hub
+##touch ~/.netrc
+##echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
+mkdir ~/salvar-login-Senha-Git
+cd ~/salvar-login-Senha-Git
+git init
+git commit -m "first commit"
+git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
+git push
+git config --global credential.helper store
+
+
+## Entrando dentro do diretorio
+## onde vao ficar os programaas
+## que precisao de dwonloads
+## para serem istalados
+cd  /home/$USER/Downloads/Programas/
+
+##Removendo pasta temporaria do git
+rm -r ~/salvar-login-Senha-Git
+
+echo "***************************************************************************************************************"
+
+
+
+
+echo "************************************************** INSTALANDO  MELD ************************************************"
+
+## Instalando e configurando Meld
+sudo apt-get install -y meld
+git config --global diff.tool meld
+git config --global difftool.meld.path "/usr/bin/meld"
+git config --global difftool.prompt false
+git config --global merge.tool meld
+git config --global mergetool.meld.path "/usr/bin/meld"
+git config --global mergetool.prompt false
+
+echo "***************************************************************************************************************"
+
+
+
+
+echo "************************************************** INSTALANDO  NODE, ANGULAR CLI, TYPESCRIPT, VUE.JS, VUEL CLI E QUASAR ************************************************"
+
+#Atualizando indices de repositorio
+sudo apt-get update -y
+
+## aumentando o numero de arquivos que o sistema pode monitorar
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 
 ## Instalando Node.js
@@ -691,6 +615,12 @@ sudo npm fund
 sudo npm i -g @quasar/cli
 sudo npm audit fix --force
 
+echo "***************************************************************************************************************"
+
+
+
+
+echo "************************************************** INSTALANDO  VMWARE ************************************************"
 
 ## Transformando arquivos de .bundle em arquivos executaveis
 chmod +x *.bundle
@@ -711,21 +641,26 @@ else
     echo 'mks.gl.allowBlacklistedDrivers = "TRUE"' >> /home/$USER/.vmware/preferences
 fi
 
+echo "***************************************************************************************************************"
 
+
+
+
+echo "************************************************** INSTALANDO  ADB ************************************************"
 
 Instalando ADB
 sudo apt-get update -y
 sudo apt-get install -y adb
 sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 sudo apt install -y qemu-kvm
-udo adduser $USER kvm
+sudo adduser $USER kvm
+
+echo "********************************************************************************************************************"
 
 
-## Selecionando o JDK
-sudo update-alternatives --config java
 
 
-## INSTALANDO POSTGRES
+echo "************************************************** INSTALANDO  POSTGRES ************************************************"
 
 if [ -e chave-postgres.txt ];then
     rm chave-postgres.txt
@@ -759,6 +694,12 @@ sudo -u postgres -H -- psql -c "CREATE USER luciano WITH ENCRYPTED PASSWORD '789
 ## no SGBD PostgreSQL
 sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
 
+echo "********************************************************************************************************************"
+
+
+
+
+echo "************************************************** INSTALANDO  MARIADB  OU  MYSQL ************************************************"
 
 while true
 do
@@ -811,6 +752,114 @@ do
         echo -e "\n\nOpcao invalida"
     fi
 done
+
+echo "********************************************************************************************************************"
+
+
+
+
+echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
+
+    if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.8.5' /home/$USER/.bashrc ];then
+        echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.8.5"  encontrado'
+    else
+        echo "export MAVEN_HOME=/opt/apache-maven-3.8.5" >> /home/$USER/.bashrc
+        echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
+    fi
+
+    cd /home/$USER/
+    source .bashrc
+    cd /home/$USER/Downloads/Programas/
+
+echo "****************************************************************************"
+
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Exec=/opt/Postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
+    echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
+
+echo -e "\n\n***********************************************************************"
+
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Exec=/opt/sts-4.14.0.RELEASE/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "Icon=/opt/sts-4.14.0.RELEASE/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+    echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+
+    ## Instalando Lombok no Spring Tools Suite
+    chmod +x lombok.jar
+    sudo java -jar lombok.jar
+
+echo -e "\n\n**********************************************************************************"
+
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Exec=/opt/idea-IU-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+    echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
+
+echo -e "\n\n*******************************************************************************"
+
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+    echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+
+echo -e "\n\n****************************************************************************"
+
+
+
+
+echo -e "\n\n******************** CRIANDO  ICONE  DO  WATERFOX ********************"
+
+    echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
+    echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
+    echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
+
+echo -e "\n\n***********************************************************************"
+
+
+
+## Selecionando o JDK
+sudo update-alternatives --config java
 
 
 ## INSTALANDO SUPORTE FLATPAK
