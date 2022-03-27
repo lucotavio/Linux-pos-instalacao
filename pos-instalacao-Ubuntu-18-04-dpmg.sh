@@ -187,11 +187,11 @@ else
 fi
 
 ## Download JDK-17.0.2
-echo -e "\n\n\n JDK-17"
-if [ -e jdk-17_linux-x64_bin.deb ];then
-    echo "O arquivo jdk-17_linux-x64_bin.deb ja existe"
+echo -e "\n\n\n JDK"
+if [ -e jjdk-17.0.2_linux-x64_bin.deb ];then
+    echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
 else
-    curl -L -o jdk-17_linux-x64_bin.deb https://www.dropbox.com/s/vjf09v74a1tjiaj/jdk-17_linux-x64_bin.deb?dl=0
+    curl -L -o jdk-17.0.2_linux-x64_bin.deb https://www.dropbox.com/s/oq0r0bwlcqmlie7/jdk-17.0.2_linux-x64_bin.deb?dl=0
 fi
 
 
@@ -402,21 +402,21 @@ fi
 
 echo "************************************************** INSTALACAO DO JDK-17 ************************************************"
 
-    sudo dpkg -i jdk-17_linux-x64_bin.deb
+    cd /home/$USER/Downloads/Programas/
+    sudo dpkg -i jdk-17.0.2_linux-x64_bin.deb
     sudo apt --fix-broken install -y
-    sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 2
+    sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17.0.2/bin/java 2
     sudo update-alternatives --config java
 
-    if [ grep -q 'export JAVA_HOME=/usr/lib/jvm/jdk-17' /home/$USER/.bashrc ];then
-        echo 'Texto "export JAVA_HOME=/usr/lib/jvm/jdk-17"  encontrado'
+    if [ grep -q 'export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2' /home/$USER/.bashrc ];then
+        echo 'Texto "export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2"  encontrado'
     else
-        echo "export JAVA_HOME=/usr/lib/jvm/jdk-17" >> /home/$USER/.bashrc
+        echo "export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2" >> /home/$USER/.bashrc
         echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bashrc
     fi
 
     cd /home/$USER/
     source .bashrc
-    cd /home/$USER/Downloads/Programas/
 
 echo "**************************************************************************************************************************"
 
@@ -426,6 +426,7 @@ echo "**************************************************************************
 echo "************************************************** INSTALANDO  APACHE  NETBEANS ************************************************"
 
 # Instalando o Apache netbeans
+cd /home/$USER/Downloads/Programas/
 chmod +x *.sh
 sudo ./Apache-NetBeans-13-bin-linux-x64.sh
 echo "StartupWMClass=Apache NetBeans IDE 13" | sudo tee -a /usr/share/applications/Apache\ NetBeans-13.desktop
@@ -438,7 +439,7 @@ echo "**************************************************************************
 
 echo "************************************************** INSTALANDO  ARQUIVOS  .DEB ************************************************"
 
-## Transformando arquivos de .deb em arquivos executaveis
+cd /home/$USER/Downloads/Programas/
 chmod +x *.deb
 
 sudo dpkg -i 4kvideodownloader_4.20.0-1_amd64.deb
@@ -622,7 +623,7 @@ echo "**************************************************************************
 
 echo "************************************************** INSTALANDO  VMWARE ************************************************"
 
-## Transformando arquivos de .bundle em arquivos executaveis
+cd /home/$USER/Downloads/Programas/
 chmod +x *.bundle
 
 
@@ -701,6 +702,7 @@ echo "**************************************************************************
 
 echo "************************************************** INSTALANDO  MARIADB  OU  MYSQL ************************************************"
 
+cd /home/$USER/Downloads/Programas/
 while true
 do
     echo -e "\n\nDigite opção 1 ou 2"
@@ -752,6 +754,14 @@ do
         echo -e "\n\nOpcao invalida"
     fi
 done
+
+echo "********************************************************************************************************************"
+
+
+
+echo "************************************************** INSTALANDO  PACOTES  SNAP ************************************************"
+
+sudo snap install notepad-plus-plus
 
 echo "********************************************************************************************************************"
 
