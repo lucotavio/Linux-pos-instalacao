@@ -400,7 +400,7 @@ fi
 
 
 
-echo "************************************************** INSTALACAO DO JDK-17 ************************************************"
+echo -e "\n\n\n************************************************** INSTALACAO DO JDK-17 ************************************************"
 
     cd /home/$USER/Downloads/Programas/
     sudo dpkg -i jdk-17.0.2_linux-x64_bin.deb
@@ -423,7 +423,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  APACHE  NETBEANS ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  APACHE  NETBEANS ************************************************"
 
 # Instalando o Apache netbeans
 cd /home/$USER/Downloads/Programas/
@@ -437,7 +437,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  ARQUIVOS  .DEB ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  ARQUIVOS  .DEB ************************************************"
 
 cd /home/$USER/Downloads/Programas/
 chmod +x *.deb
@@ -471,7 +471,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  APLICATIVOS  APT-GET ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  APLICATIVOS  APT-GET ************************************************"
 
 ##Instalando fonte firecode
 sudo apt-get update -y
@@ -516,12 +516,12 @@ sudo apt-get install -y chrome-gnome-shell
 ## Instalando Gparted
 sudo apt-get install -y gparted
 
-echo "***************************************************************************************************************"
+echo  "***************************************************************************************************************"
 
 
 
 
-echo "************************************************** INSTALANDO  GIT ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  GIT ************************************************"
 
 ## Instalando o Git
 sudo apt-get install -y git
@@ -554,7 +554,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  MELD ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  MELD ************************************************"
 
 ## Instalando e configurando Meld
 sudo apt-get install -y meld
@@ -570,7 +570,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  NODE, ANGULAR CLI, TYPESCRIPT, VUE.JS, VUEL CLI E QUASAR ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  NODE, ANGULAR CLI, TYPESCRIPT, VUE.JS, VUEL CLI E QUASAR ************************************************"
 
 #Atualizando indices de repositorio
 sudo apt-get update -y
@@ -578,50 +578,31 @@ sudo apt-get update -y
 ## aumentando o numero de arquivos que o sistema pode monitorar
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
-
 ## Instalando Node.js
-sudo npm update
-sudo npm fund
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo npm audit fix --force
 
 ## Instalando Angular CLI
-sudo npm update
-sudo npm fund
 sudo npm install -g  @angular/cli@13.1.2
-sudo npm audit fix --force
 
 ## Instalando Typescript
-sudo npm update
-sudo npm fund
 sudo npm install -g typescript
-sudo npm audit fix --force
 
 ## Instalando Vue.js
-sudo npm update
-sudo npm fund
 sudo npm install vue
-sudo npm audit fix --force
 
 ## Instalando Vue CLI
-sudo npm update
-sudo npm fund
 sudo npm install -g @vue/cli
-sudo npm audit fix --force
 
 ## Instalando o Quasar
-sudo npm update
-sudo npm fund
 sudo npm i -g @quasar/cli
-sudo npm audit fix --force
 
 echo "***************************************************************************************************************"
 
 
 
 
-echo "************************************************** INSTALANDO  VMWARE ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  VMWARE ************************************************"
 
 cd /home/$USER/Downloads/Programas/
 chmod +x *.bundle
@@ -647,7 +628,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  ADB ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  ADB ************************************************"
 
 Instalando ADB
 sudo apt-get update -y
@@ -661,7 +642,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  POSTGRES ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  POSTGRES ************************************************"
 
 if [ -e chave-postgres.txt ];then
     rm chave-postgres.txt
@@ -700,7 +681,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  MARIADB  OU  MYSQL ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  MARIADB  OU  MYSQL ************************************************"
 
 cd /home/$USER/Downloads/Programas/
 while true
@@ -714,10 +695,10 @@ do
     if [ $opcao -eq 1 ];then
         sudo apt-get install software-properties-common dirmngr apt-transport-https
         sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-        sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.ufro.cl/mariadb/repo/10.5/ubuntu bionic main'
+        sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.ufro.cl/mariadb/repo/10.5/ubuntu 2 main'
         sudo apt update -y
         sudo apt install -y mariadb-server
-        sudo systemctl start mariadb
+        sudo systemctl start mariadb222222+
         sudo systemctl enable mariadb
         sudo mysql_secure_installation
 
@@ -759,7 +740,7 @@ echo "**************************************************************************
 
 
 
-echo "************************************************** INSTALANDO  PACOTES  SNAP ************************************************"
+echo -e "\n\n\n************************************************** INSTALANDO  PACOTES  SNAP ************************************************"
 
 sudo snap install notepad-plus-plus
 
@@ -768,7 +749,7 @@ echo "**************************************************************************
 
 
 
-echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
+echo -e "\n\n\n******************** INSTALANDO  O  MAVEN ********************"
 
     if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.8.5' /home/$USER/.bashrc ];then
         echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.8.5"  encontrado'
@@ -786,7 +767,7 @@ echo "**************************************************************************
 
 
 
-echo -e "\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
+echo -e "\n\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
@@ -796,12 +777,12 @@ echo -e "\n\n******************** CRIANDO  ICONE  DO  POSTMAN ******************
     echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
     echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
 
-echo -e "\n\n***********************************************************************"
+echo "***********************************************************************"
 
 
 
 
-echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
+echo -e "\n\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
@@ -816,12 +797,12 @@ echo -e "\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE *****
     chmod +x lombok.jar
     sudo java -jar lombok.jar
 
-echo -e "\n\n**********************************************************************************"
+echo "**********************************************************************************"
 
 
 
 
-echo -e "\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********************"
+echo -e "\n\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
@@ -832,12 +813,12 @@ echo -e "\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********
     echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
     echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
 
-echo -e "\n\n*******************************************************************************"
+echo "*******************************************************************************"
 
 
 
 
-echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
+echo -e "\n\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
     echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
@@ -848,23 +829,7 @@ echo -e "\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ***********
     echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
     echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
 
-echo -e "\n\n****************************************************************************"
-
-
-
-
-echo -e "\n\n******************** CRIANDO  ICONE  DO  WATERFOX ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/Waterfox.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Name=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Exec=/opt/waterfox/waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Icon=/opt/waterfox/browser/chrome/icons/default/default128.png" | sudo tee -a /usr/share/applications/Waterfox.desktop
-    echo "Name[pt_BR]=Waterfox" | sudo tee -a /usr/share/applications/Waterfox.desktopp
-
-echo -e "\n\n***********************************************************************"
+echo "****************************************************************************"
 
 
 
