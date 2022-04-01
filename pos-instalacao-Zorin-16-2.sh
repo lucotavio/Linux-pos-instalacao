@@ -16,9 +16,6 @@ mkdir /home/$USER/.themes/
 ## Criando diretorio Temp
 mkdir /home/$USER/Temp/
 
-## Criando diretorio Servidores
-mkdir /home/$USER/Servidores/
-
 ## Criando diretorio do OBS Studio
 mkdir /home/$USER/Vídeos/OBS-Studio/
 
@@ -41,6 +38,7 @@ mkdir /home/$USER/Projetos/Angular-Spring
 ##Criando diretorio Java dentro do diretorio Projetos
 mkdir /home/$USER/Projetos/Java
 
+
 ## Criando diretorio jvm dentro do diretorio /usr/lib/
 ## que e pra onde vao ser copiados os arquivos do JDK
 sudo mkdir /usr/lib/jvm/
@@ -55,57 +53,11 @@ sudo apt-get install ubuntu-restricted-extras
 
 
 ## Criando modelo de arquivo shell script
-if [ -e /home/$USER/Modelos/shell-script.sh ];then
-    echo "O arquivo  /home/$USER/Modelos/shell-script.sh  ja existe"
+if [ -e /home/$USER/Modelos/script.sh ];then
+    echo "O arquivo  home/$USER/Modelos/script.sh  ja existe"
 else
-    touch /home/$USER/Modelos/shell-script.sh
-    echo "#!/bin/bash" > /home/$USER/Modelos/shell-script.sh
-fi
-
-
-## Criando modelo de arquivo de script de banco de dados
-if [ -e /home/$USER/Modelos/script-DB.sql ];then
-    echo "O arquivo  /home/$USER/Modelos/script-DB.sql  ja existe"
-else
-    touch /home/$USER/Modelos/script-DB.sql
-fi
-
-
-## Criando modelo de arquivo de texto
-if [ -e /home/$USER/Modelos/texto.txt ];then
-    echo "O arquivo  /home/$USER/Modelos/texto.txt  ja existe"
-else
-    touch /home/$USER/Modelos/texto.txt
-fi
-
-## Criando modelo de arquivo de Properties
-if [ -e /home/$USER/Modelos/propriedades.properties ];then
-    echo "O arquivo  /home/$USER/Modelos/propriedades.properties  ja existe"
-else
-    touch /home/$USER/Modelos/propriedades.properties
-fi
-
-## Criando modelo de arquivo de Word
-if [ -e /home/$USER/Modelos/word.docx ];then
-    echo "O arquivo  /home/$USER/Modelos/word.docx  ja existe"
-else
-  cd /home/$USER/Modelos/
-  touch word.txt
-  libreoffice --convert-to docx word.txt
-  sleep 10
-  rm word.txt
-fi
-
-
-## Criando modelo de arquivo de Excel
-if [ -e /home/$USER/Modelos/excel.xlsx ];then
-    echo "O arquivo  /home/$USER/Modelos/excel.xlsx  ja existe"
-else
-  cd /home/$USER/Modelos/
-  touch excel.csv
-  soffice --headless --convert-to xlsx:"Calc MS Excel 2007 XML" excel.csv
-  sleep 10
-  rm excel.csv
+    touch /home/$USER/Modelos/script.sh
+    echo "#!/bin/bash" > /home/$USER/Modelos/script.sh
 fi
 
 
@@ -125,17 +77,16 @@ sudo apt-get install -y sharutils
 sudo apt-get install -y p7zip-full p7zip-rar lzma lzma-dev rar unrar-free p7zip ark ncompress
 
 
-## Download Intellij Ultimate
-echo -e "\n\n\n Intellij Ultimate"
-if [ -d idea-IU-211.7442.40 ];then
-    sudo cp -r idea-IU-211.7442.40 /opt/
-else
-    curl -L -o ideaIU-2021.1.2.tar.gz https://www.dropbox.com/s/nm1ul7ckqcmfq7y/ideaIU-2021.1.2.tar.gz?dl=0
+##Instalando fonte firecode
+sudo apt-get update -y
+sudo apt install fonts-firacode
 
-    tar xvzf ideaIU-2021.1.2.tar.gz
-    sudo cp -r idea-IU-211.7442.40 /opt/
-    rm -r ideaIU-2021.1.2.tar.gz
-fi
+
+## Instalando fontes da Microsoft
+echo -e "\n\n\n\n"
+sudo apt install -y ttf-mscorefonts-installer
+sudo fc-cache -f -v
+
 
 
 ## Download 4K Video Downloader
@@ -188,7 +139,7 @@ fi
 
 ## Download JDK-17.0.2
 echo -e "\n\n\n JDK"
-if [ -e jjdk-17.0.2_linux-x64_bin.deb ];then
+if [ -e jdk-17.0.2_linux-x64_bin.deb ];then
     echo "O arquivo jdk-17.0.2_linux-x64_bin.deb ja existe"
 else
     curl -L -o jdk-17.0.2_linux-x64_bin.deb https://www.dropbox.com/s/oq0r0bwlcqmlie7/jdk-17.0.2_linux-x64_bin.deb?dl=0
@@ -217,15 +168,6 @@ else
 fi
 
 
-## Download Microsoft Teams
-echo -e "\n\n\n Microsoft Teams"
-if [ -e teams_1.4.00.26453_amd64.deb ];then
-    echo "O arquivo teams_1.4.00.26453_amd64.deb ja existe"
-else
-    curl -L -o teams_1.4.00.26453_amd64.deb https://www.dropbox.com/s/6q03keaff2f6pib/teams_1.4.00.26453_amd64.deb?dl=0
-fi
-
-
 ## Download OnlyOffice
 echo -e "\n\n\n OnlyOffice"
 if [ -e onlyoffice-desktopeditors_amd64.deb ];then
@@ -234,17 +176,6 @@ else
     curl -L -o onlyoffice-desktopeditors_amd64.deb https://www.dropbox.com/s/wczyw32sq6o2iiw/onlyoffice-desktopeditors_amd64.deb?dl=0
 fi
 
-
-## Download Postman
-echo -e "\n\n\n Postman"
-if [ -d Postman ];then
-    sudo cp -r Postman /opt/
-else
-    curl -L -o postman-9.15.2-linux-x64.tar.gz https://www.dropbox.com/s/x37gzwbtmmaf6xs/postman-9.15.2-linux-x64.tar.gz?dl=0
-    tar xvzf postman-9.15.2-linux-x64.tar.gz
-    sudo cp -r Postman /opt/
-    rm -r postman-9.15.2-linux-x64.tar.gz
-fi
 
 ## Download Spring Tools Suite
 echo -e "\n\n\n Spring Tool Suite"
@@ -269,10 +200,10 @@ fi
 
 ## Download VirtualBox
 echo -e "\n\n\n VirtualBox"
-if [ -e virtualbox-6.1_6.1.32-18-04.deb ];then
-    echo "O arquivo  virtualbox-6.1_6.1.32-18-04.deb  ja existe"
+if [ -e virtualbox-6.1_6.1.32-Focal-Fossa.deb ];then
+    echo "O arquivo virtualbox-6.1_6.1.32-Focal-Fossa.deb  ja existe"
 else
-    curl -L -o virtualbox-6.1_6.1.32-18-04.deb https://www.dropbox.com/s/ymsiap10rtw6iwq/virtualbox-6.1_6.1.32-18-04.deb?dl=0
+    curl -L -o virtualbox-6.1_6.1.32-Focal-Fossa.deb https://www.dropbox.com/s/almdohxbhcmydlo/virtualbox-6.1_6.1.32-Focal-Fossa.deb?dl=0
 fi
 
 
@@ -293,18 +224,6 @@ else
     curl -L -o VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle https://www.dropbox.com/s/bq6fb2dfd3mekzj/VMware-Workstation-Full-16.2.3-19376536.x86_64.bundle?dl=0
 fi
 
-
-## Download WildFly
-echo -e "\n\n\n WildFly"
-if [ -d  /home/$USER/Servidores/wildfly-26.0.1.Final ];then
-      echo "O arquivo  /home/$USER/Servidores/wildfly-26.0.1.Final  ja existe"
-else
-      curl -L -o wildfly-26.0.1.Final.tar.xz https://www.dropbox.com/s/trsh3208n7vl8ay/wildfly-26.0.1.Final.tar.xz?dl=0
-
-      tar xvf wildfly-26.0.1.Final.tar.xz
-      cp -r wildfly-26.0.1.Final /home/$USER/Servidores/
-      rm -r wildfly-26.0.1.Final.tar.xz
-fi
 
 
 ## Download Netbeans plugins
@@ -435,55 +354,80 @@ sudo sed -i 's/netbeans.png/netbeans.icns/g' /usr/share/applications/Apache\ Net
 echo "************************************************************************************************************************"
 
 
+## declarando variavel opcao
+opcao=0
 
+while true
+do
+    echo -e "\n\nDigite opção 1 ou 2"
+    echo "1 - Intellij Community"
+    echo "2 - Intellij Ultimate"
 
-echo -e "\n\n\n************************************************** INSTALANDO  ARQUIVOS  .DEB ************************************************"
+    read opcao
 
-cd /home/$USER/Downloads/Programas/
-chmod +x *.deb
+    if [ $opcao -eq 1 ];then
+        echo -e "\n\n******************** INSTALANDO  O  INTELLIJ COMMUNITY ********************"
 
-sudo dpkg -i 4kvideodownloader_4.20.0-1_amd64.deb
-sudo apt --fix-broken install -y
+        sudo snap install intellij-idea-community --classic
 
-sudo dpkg -i atom-amd64.deb
-sudo apt --fix-broken install -y
+        echo -e "\n\n******************** FIM  DA INSTALAÇÃO  DO  INTELLIJ COMMUNITY ********************"
+        break
+    elif [ $opcao -eq 2 ];then
+        echo -e "\n\n******************** INSTALANDO  O  INTELLIJ ULTIMATE ********************"
 
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt --fix-broken install -y
+        sudo snap install intellij-idea-ultimate --classic
 
-sudo dpkg -i onlyoffice-desktopeditors_amd64.deb
-sudo apt --fix-broken install -y
-
-sudo dpkg -i StarUML_5.0.0_amd64.deb
-sudo apt --fix-broken install -y
-
-sudo dpkg -i teams_1.4.00.26453_amd64.deb
-sudo apt --fix-broken install -y
-
-sudo dpkg -i virtualbox-6.1_6.1.32-18-04.deb
-sudo apt --fix-broken install -y
-
-sudo dpkg -i visual_studio_code_1.65.2.deb
-sudo apt --fix-broken install -y
-
-echo "**********************************************************************************************************************************"
+        echo -e "\n\n********************  FIM  DA INSTALAÇÃO  DO  INTELLIJ COMMUNITY ********************"
+        break
+    else
+        echo -e "\n\nOpcao invalida"
+    fi
+done
 
 
 
-
-echo -e "\n\n\n************************************************** INSTALANDO  APLICATIVOS  APT-GET ************************************************"
-
-##Instalando fonte firecode
+#Atualizando indices de repositorio
 sudo apt-get update -y
-sudo apt install fonts-firacode
 
-## Instalando fontes da Microsoft
-echo -e "\n\n\n\n"
-sudo apt install -y ttf-mscorefonts-installer
-sudo fc-cache -f -v
+## Instalando Handbrake
+echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 43D3A9F60C58A7169778E6FB8771ADB0816950D8
+sudo apt-get update -y
+sudo apt-get install -y handbrake-gtk
+sudo apt-get install -y handbrake-cli
 
-## Instalando gcc g++
+
+
+## Instalando Obs Studio
+sudo apt install ffmpeg
+echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BC7345F522079769F5BBE987EFC71127F425E228
+sudo apt-get update -y
+sudo apt install -y obs-studio
+
+
+
+## Instalando Pinta
+echo "deb http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/pinta-maintainers/pinta-stable/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "" | sudo tee -a /etc/apt/sources.lis
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 45EAD2AF3C2BB95F11E609A1BC3E0682A5A1D6B2
+sudo apt-get update -y
+sudo apt-get install -y pinta
+
+
+## aumentando o numero de arquivos que o sistema pode monitorar
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+
+## Instalando o gcc g++ make
 sudo apt-get install gcc g++ make
+
+## Instalando o Chrome GnomeShell
+sudo apt-get install -y chrome-gnome-shell
 
 ## Instalando o Transmission
 sudo apt-get install -y transmission
@@ -493,6 +437,22 @@ sudo apt-get install -y gnome-tweak-tool
 
 ## Instalando Dconf editor
 sudo apt-get install -y dconf-editor
+
+## Intalando Gnome extensions
+sudo apt-get install -y gnome-shell-extensions
+sudo apt-get install -y chrome-gnome-shell
+
+## Instalando Gparted
+sudo apt-get install -y gparted
+
+## Instalando o Git
+sudo apt-get install -y git
+git config --global user.name "Luciano"
+git config --global user.email "luc.oliveira343@gmail.com"
+
+
+git config --global user.name "Luciano"
+git config --global user.email "luc.otavio@gmail.com"
 
 ## Instalando Alacarte
 sudo apt-get install -y alacarte
@@ -509,74 +469,49 @@ sudo apt-get install libgconf-2-4
 ## Instalando VLC
 sudo apt-get install -y vlc
 
-## Intalando Gnome extensions
-sudo apt-get install -y gnome-shell-extensions
-sudo apt-get install -y chrome-gnome-shell
-
-## Instalando Gparted
-sudo apt-get install -y gparted
-
-echo  "***************************************************************************************************************"
-
-
-
-
-echo -e "\n\n\n************************************************** INSTALANDO  GIT ************************************************"
-
-## Instalando o Git
-sudo apt-get install -y git
-git config --global user.name "Luciano"
-git config --global user.email "luc.oliveira343@gmail.com"
-
-##Arquivoque vai guardar o login e o token do Git Hub
-##touch ~/.netrc
-##echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
-mkdir ~/salvar-login-Senha-Git
-cd ~/salvar-login-Senha-Git
-git init
-git commit -m "first commit"
-git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
-git push
-git config --global credential.helper store
-
-
-## Entrando dentro do diretorio
-## onde vao ficar os programaas
-## que precisao de dwonloads
-## para serem istalados
-cd  /home/$USER/Downloads/Programas/
-
-##Removendo pasta temporaria do git
-rm -r ~/salvar-login-Senha-Git
-
-echo "***************************************************************************************************************"
-
-
-
-
-echo -e "\n\n\n************************************************** INSTALANDO  MELD ************************************************"
+##Instalando FortiClient
+wget -O - https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+echo "deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu/ /bionic multiverse" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update -y
+sudo apt install forticlient
 
 ## Instalando e configurando Meld
 sudo apt-get install -y meld
+
 git config --global diff.tool meld
 git config --global difftool.meld.path "/usr/bin/meld"
 git config --global difftool.prompt false
+
 git config --global merge.tool meld
 git config --global mergetool.meld.path "/usr/bin/meld"
 git config --global mergetool.prompt false
 
-echo "***************************************************************************************************************"
+
+## Transformando arquivos de .deb em arquivos executaveis
+chmod +x *.deb
+
+sudo dpkg -i 4kvideodownloader_4.17.1-1_amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i atom-amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i onlyoffice-desktopeditors_amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i StarUML_4.0.1_amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i virtualbox-6.1_6.1.32-Focal-Fossa.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i visual-studio-code_1.53.2-1613044664_amd64.deb
+sudo apt --fix-broken install -y
 
 
-
-
-echo -e "\n\n\n************************************************** INSTALANDO  NODE, ANGULAR CLI, TYPESCRIPT, VUE.JS, VUEL CLI E QUASAR ************************************************"
-
-#Atualizando indices de repositorio
-sudo apt-get update -y
-
-## aumentando o numero de arquivos que o sistema pode monitorar
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 ## Instalando Node.js
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -594,17 +529,11 @@ sudo npm install vue
 ## Instalando Vue CLI
 sudo npm install -g @vue/cli
 
-## Instalando o Quasar
-sudo npm i -g @quasar/cli
-
-echo "***************************************************************************************************************"
+## Instalando Quasar CLI
+npm install -g @quasar/cli
 
 
-
-
-echo -e "\n\n\n************************************************** INSTALANDO  VMWARE ************************************************"
-
-cd /home/$USER/Downloads/Programas/
+## Transformando arquivos de .bundle em arquivos executaveis
 chmod +x *.bundle
 
 
@@ -623,26 +552,101 @@ else
     echo 'mks.gl.allowBlacklistedDrivers = "TRUE"' >> /home/$USER/.vmware/preferences
 fi
 
-echo "***************************************************************************************************************"
 
-
-
-
-echo -e "\n\n\n************************************************** INSTALANDO  ADB ************************************************"
-
-Instalando ADB
+##Instalando ADB
 sudo apt-get update -y
 sudo apt-get install -y adb
 sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 sudo apt install -y qemu-kvm
 sudo adduser $USER kvm
 
-echo "********************************************************************************************************************"
+
+## Voltando para pasta Programas
+cd  /home/$USER/Downloads/Programas/
 
 
 
 
-echo -e "\n\n\n************************************************** INSTALANDO  POSTGRES ************************************************"
+echo -e "\n\n******************** INSTALANDO  O  MAVEN ********************"
+
+
+echo "MAVEN_HOME=/opt/apache-maven-3.6.3" >> /home/$USER/.bashrc
+echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
+
+
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO MAVEN ********************"
+
+
+
+
+echo -e "\n\n******************** INSTALANDO  O  BALENA ETCHER********************"
+
+
+## Preenchendo arquivo balena-Etcher.desktop
+echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
+echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
+
+
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO BALENA ETCHER ********************"
+
+
+
+
+echo -e "\n\n******************** INSTALANDO  O  KDENLIVE ********************"
+
+
+echo "[Desktop Entry]" | sudo tee /usr/share/applications/Kdenlive.desktop
+echo "Comment=" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+echo "Terminal=false" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+echo "Name=Kdenlive" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+echo "Exec=/opt/kdenlive/kdenlive.appimage" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+echo "Type=Application" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+echo "Icon=/opt/kdenlive/kdenlive.png" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+echo "StartupWMClass=kdenlive" | sudo tee -a /usr/share/applications/Kdenlive.desktop
+
+
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  KDENLIVE ********************"
+
+
+
+
+
+echo -e "\n\n******************** INSTALANDO  O  SPRING  TOOLS  SUITE ********************"
+
+
+echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
+echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Exec=/opt/spring-tools-suite-4-11-0/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "Icon=/opt/spring-tools-suite-4-11-0/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
+
+
+echo -e "\n\n******************** FIM  DA  INSTALACAO  DO  SPRING  TOOLS  SUITE  ********************"
+
+
+
+## Selecionando o JDK
+sudo update-alternatives --config java
+
+
+### INSTALANDO PACOTES SNAP
+
+sudo snap install umbrello
+sudo snap install video-downloader
+sudo snap install postman
+sudo snap install dbeaver-ce
+
+
+## INSTALANDO POSTGRES
 
 if [ -e chave-postgres.txt ];then
     rm chave-postgres.txt
@@ -676,14 +680,16 @@ sudo -u postgres -H -- psql -c "CREATE USER luciano WITH ENCRYPTED PASSWORD '789
 ## no SGBD PostgreSQL
 sudo -u postgres -H -- psql -c "ALTER USER luciano WITH SUPERUSER"
 
-echo "********************************************************************************************************************"
 
 
+## INSTALANDO FIREBIRD
+echo "deb http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/mapopa/firebird3.0/ubuntu focal main " | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EA316A2F8D6BD55554C23F680BE6D09EEF648708
+sudo apt-get update -y
+sudo apt-get install -y firebird3.0-server
 
 
-echo -e "\n\n\n************************************************** INSTALANDO  MARIADB  OU  MYSQL ************************************************"
-
-cd /home/$USER/Downloads/Programas/
 while true
 do
     echo -e "\n\nDigite opção 1 ou 2"
@@ -695,10 +701,10 @@ do
     if [ $opcao -eq 1 ];then
         sudo apt-get install software-properties-common dirmngr apt-transport-https
         sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-        sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.ufro.cl/mariadb/repo/10.5/ubuntu 2 main'
+        sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.ufro.cl/mariadb/repo/10.5/ubuntu bionic main'
         sudo apt update -y
         sudo apt install -y mariadb-server
-        sudo systemctl start mariadb222222+
+        sudo systemctl start mariadb
         sudo systemctl enable mariadb
         sudo mysql_secure_installation
 
@@ -717,14 +723,14 @@ do
         echo -e "\n\n******************** INSTALANDO  O  MYSQL ********************"
 
         echo -e "\n\n\Mysql - 36 KB"
-        if [ -e mysql-apt-config_0.8.22-1_all.deb ];then
-            echo "O mysql-apt-config_0.8.22-1_all.deb ja existe"
+        if [ -e mysql-apt-config_0.8.17-1_all.deb ];then
+            echo "O arquivo mysql-apt-config_0.8.17-1_all.deb ja existe"
         else
-            curl -L -o mysql-apt-config_0.8.22-1_all.deb https://www.dropbox.com/s/2mh0c7by1gagm4c/mysql-apt-config_0.8.22-1_all.deb?dl=0
+            curl -L -o mysql-apt-config_0.8.17-1_all.deb https://www.dropbox.com/s/132jlnaupgovn1e/mysql-apt-config_0.8.17-1_all.deb?dl=0
         fi
 
 
-        sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb
+        sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
         sudo apt --fix-broken install -y
         sudo apt-get update -y
         sudo apt-get install mysql-server
@@ -736,108 +742,14 @@ do
     fi
 done
 
-echo "********************************************************************************************************************"
-
-
-
-echo -e "\n\n\n************************************************** INSTALANDO  PACOTES  SNAP ************************************************"
-
-sudo snap install notepad-plus-plus
-
-echo "********************************************************************************************************************"
-
-
-
-
-echo -e "\n\n\n******************** INSTALANDO  O  MAVEN ********************"
-
-    if [ grep -q 'export MAVEN_HOME=/opt/apache-maven-3.8.5' /home/$USER/.bashrc ];then
-        echo 'Texto export MAVEN_HOME=/opt/apache-maven-3.8.5"  encontrado'
-    else
-        echo "export MAVEN_HOME=/opt/apache-maven-3.8.5" >> /home/$USER/.bashrc
-        echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> /home/$USER/.bashrc
-    fi
-
-    cd /home/$USER/
-    source .bashrc
-    cd /home/$USER/Downloads/Programas/
-
-echo "****************************************************************************"
-
-
-
-
-echo -e "\n\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Exec=/opt/Postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
-echo "***********************************************************************"
-
-
-
-
-echo -e "\n\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Name=Spring Tools Suite" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Exec=/opt/sts-4.14.0.RELEASE/SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "Icon=/opt/sts-4.14.0.RELEASE/icon.xpm" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-    echo "StartupWMClass=SpringToolSuite4" | sudo tee -a /usr/share/applications/spring-tools-suite.desktop
-
-    ## Instalando Lombok no Spring Tools Suite
-    chmod +x lombok.jar
-    sudo java -jar lombok.jar
-
-echo "**********************************************************************************"
-
-
-
-
-echo -e "\n\n\n******************** CRIANDO  ICONE  DO  INTELLIJ ULTIMATE ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/intellij-ultimate.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Name=Intellij Ultimate" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Exec=/opt/idea-IU-211.7442.40/bin/idea.sh" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "Icon=/opt/idea-IU-211.7442.40/bin/idea.svg" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-    echo "StartupWMClass=jetbrains-idea" | sudo tee -a /usr/share/applications/intellij-ultimate.desktop
-
-echo "*******************************************************************************"
-
-
-
-
-echo -e "\n\n\n******************** CRIANDO  ICONE  DO  BALENA  ETCHER ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/balena-Etcher.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Name=Balena Etcher" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Exec=/opt/balena-etcher/balena-etcher.AppImage" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "Icon=/opt/balena-etcher/balena-etcher.png" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-    echo "StartupWMClass=balena-etcher-electron" | sudo tee -a /usr/share/applications/balena-Etcher.desktop
-
-echo "****************************************************************************"
-
-
-
-## Selecionando o JDK
-sudo update-alternatives --config java
-
 
 ## INSTALANDO SUPORTE FLATPAK
 sudo apt install flatpak
 sudo apt install gnome-software-plugin-flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
+# Removendo arquivo minimal.txt
+if [ -e minimal.txt ];then
+    rm minimal.txt
+fi
