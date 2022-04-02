@@ -757,21 +757,6 @@ echo "**************************************************************************
 
 
 
-echo -e "\n\n\n******************** CRIANDO  ICONE  DO  POSTMAN ********************"
-
-    echo "[Desktop Entry]" | sudo tee /usr/share/applications/postman.desktop
-    echo "Comment=" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Terminal=false" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Name=Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Exec=/opt/Postman/app/Postman" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Type=Application" | sudo tee -a /usr/share/applications/postman.desktop
-    echo "Icon=/opt/Postman/app/icons/postman.png" | sudo tee -a /usr/share/applications/postman.desktop
-
-echo "***********************************************************************"
-
-
-
-
 echo -e "\n\n\n******************** CRIANDO  ICONE  DO  SPRING  TOOLS  SUITE ********************"
 
     echo "[Desktop Entry]" | sudo tee /usr/share/applications/spring-tools-suite.desktop
