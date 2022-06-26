@@ -1,0 +1,12 @@
+#!/bin/bash
+
+## Instalando o curl
+sudo apt-get update -y
+sudo apt-get install -y curl
+
+## Instalando Docker Compose
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version

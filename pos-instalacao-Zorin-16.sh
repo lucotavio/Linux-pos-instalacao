@@ -233,7 +233,7 @@ if [ -d apache-maven-3.6.3 ];then
 else
     curl -L -o apache-maven-3.6.3-bin.tar.gz https://www.dropbox.com/s/k6zjl3t6ebhrycw/apache-maven-3.6.3-bin.tar.gz?dl=0
 
-    tar xvzf apache-maven-3.6.3-bin.tar.g
+    tar xvzf apache-maven-3.6.3-bin.tar.gz
     sudo cp -r apache-maven-3.6.3 /opt/
 fi
 

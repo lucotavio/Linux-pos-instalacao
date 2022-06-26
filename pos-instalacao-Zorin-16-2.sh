@@ -234,16 +234,6 @@ else
     curl -L -o StarUML_5.0.0_amd64.deb https://www.dropbox.com/s/b7csnvtgi85iz15/StarUML_5.0.0_amd64.deb?dl=0
 fi
 
-
-## Download VirtualBox
-echo -e "\n\n\n VirtualBox"
-if [ -e virtualbox-6.1_6.1.32-Focal-Fossa.deb ];then
-    echo "O arquivo virtualbox-6.1_6.1.32-Focal-Fossa.deb  ja existe"
-else
-    curl -L -o virtualbox-6.1_6.1.32-Focal-Fossa.deb https://www.dropbox.com/s/almdohxbhcmydlo/virtualbox-6.1_6.1.32-Focal-Fossa.deb?dl=0
-fi
-
-
 ## Download Visual Studio Code
 echo -e "\n\n\n Visual Studio Code"
 if [ -e visual_studio_code_1.65.2.deb ];then
@@ -412,9 +402,6 @@ sudo apt --fix-broken install -y
 sudo dpkg -i StarUML_5.0.0_amd64.deb
 sudo apt --fix-broken install -y
 
-sudo dpkg -i virtualbox-6.1_6.1.32-Focal-Fossa.deb
-sudo apt --fix-broken install -y
-
 sudo dpkg -i visual_studio_code_1.65.2.deb
 sudo apt --fix-broken install -y
 
@@ -461,6 +448,9 @@ sudo apt-get install libgconf-2-4
 ## Instalando VLC
 sudo apt-get install -y vlc
 
+## Instalando virtualbox
+sudo apt install virtualbox
+
 ## Intalando Gnome extensions
 sudo apt-get install -y gnome-shell-extensions
 sudo apt-get install -y chrome-gnome-shell
@@ -483,18 +473,27 @@ git config --global user.email "luc.oliveira343@gmail.com"
 ##Arquivoque vai guardar o login e o token do Git Hub
 ##touch ~/.netrc
 ##echo "machine github.com login lucotavio password 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" >> /home/$USER/.netrc
+
 mkdir ~/salvar-login-Senha-Git
 cd ~/salvar-login-Senha-Git
-git init
+if [ -e README.md ];then
+    git rm README.md
+else
+    git init
+    git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
+fi
+touch README.md
+git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/lucotavio/salvarLonginSenha.git
-git push
+git push --set-upstream origin master
 git config --global credential.helper store
-touch text.txt
-git add .
-git commit -m "salvando senha"
-git push
-git config --global credential.helper store
+
+cd  /home/$USER/Downloads/Programas/
+
+##git add .
+##git commit -m "salvando senha"
+##git push
+##git config --global credential.helper store
 
 
 ## Entrando dentro do diretorio
