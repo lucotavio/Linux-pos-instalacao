@@ -174,6 +174,14 @@ else
     curl -L -o google-chrome-stable_current_amd64.deb https://www.dropbox.com/s/bwdoqhki26eco13/google-chrome-stable_current_amd64.deb?dl=0
 fi
 
+## Download DBeaver
+echo -e "\n\n\n DBeaver"
+if [ -e dbeaver-ce_22.1.2_amd64.deb ];then
+    echo "O arquivo  dbeaver-ce_22.1.2_amd64.deb  ja existe"
+else
+    curl -L -o dbeaver-ce_22.1.2_amd64.deb https://www.dropbox.com/s/aiwtkz8pcuhjqb0/dbeaver-ce_22.1.2_amd64.deb?dl=0
+fi
+
 ## Download JDK-17.0.2
 echo -e "\n\n\n JDK"
 if [ -e jjdk-17.0.2_linux-x64_bin.deb ];then
@@ -388,6 +396,12 @@ cd /home/$USER/Downloads/Programas/
 chmod +x *.deb
 
 sudo dpkg -i 4kvideodownloader_4.20.0-1_amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i atom-amd64.deb
+sudo apt --fix-broken install -y
+
+sudo dpkg -i dbeaver-ce_22.1.2_amd64.deb
 sudo apt --fix-broken install -y
 
 sudo dpkg -i atom-amd64.deb
@@ -669,7 +683,6 @@ done
 echo -e "\n\n\n************************************************** INSTALANDO  PACOTES  SNAP ************************************************"
 
 sudo snap install notepad-plus-plus
-sudo snap install dbeaver-ce
 sudo snap install postman
 sudo snap install kolourpaint
 
@@ -776,8 +789,9 @@ do
     elif [ $opcao -eq 2 ];then
         echo -e "\n\n******************** INSTALANDO  O  MYSQL ********************"
 
-        sudo apt update -y
+        sudo apt update && sudo apt upgrade
         sudo apt install mysql-server
+        sudo apt install mysql-client
         systemctl is-active mysql
         sudo mysql_secure_installation
         
