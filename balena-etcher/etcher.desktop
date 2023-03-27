@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Balena Etcher
+Comment=Flash OS images to SD cards & USB drives, safely and easily
+Exec=sh -c "/opt/balena-etcher/balenaEtcher.AppImage --disable-gpu-sandbox"
+Icon=/opt/balena-etcher/etcher.png
+Type=Application
+StartupNotify=false
+Terminal=false
+Categories=DiskTools;Utility
