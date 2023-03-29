@@ -180,8 +180,9 @@ sudo apt --fix-broken install -y
 sudo dpkg -i dropbox_2020.03.04_amd64.deb
 sudo apt --fix-broken install -y
 
+
 ## Eclipse
-sudo dpkg -i eclipse-jee-2022-12.deb
+sudo dpkg -i eclipse-jee-2023-03.deb
 sudo apt --fix-broken install -y
 
 
